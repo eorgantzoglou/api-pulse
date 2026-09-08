@@ -22,16 +22,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # A long-lived PAT rather than GITHUB_TOKEN: pushes made with the
-          # default token do not count as repository activity, and GitHub
-          # disables cron workflows after 60 days without any.
+          # A PAT rather than GITHUB_TOKEN: pushes made with the default
+          # token do not count as repository activity, and GitHub disables
+          # cron workflows after 60 days without any.
+          #
+          # Use a FINE-GRAINED token scoped to this single repository with
+          # `contents: write` and nothing else. Its one-year expiry cap is
+          # not a reason to reach for a classic `repo`-scope token with no
+          # expiration: an expired token fails the checkout step, which fails
+          # the job, which fires the `!success()` step at the bottom — and
+          # that step runs on GITHUB_TOKEN, needs no checkout and already
+          # holds `issues: write`, so it still opens the issue. The expiry is
+          # loud. A never-expiring classic `repo` token, by contrast, hands
+          # this daily job write access to every repository the account owns,
+          # for ever.
           token: ${{ secrets.PIPELINE_TOKEN }}
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - run: pip install -e ".[dev]"
+      # No [dev] extra: the daily run does not need pytest, and every extra
+      # transitive dependency resolved fresh from PyPI is more third-party
+      # code executing in the same job that holds the push token. test.yml
+      # installs the dev extra; this job must not.
+      - run: pip install -e .
 
       - name: Run the pipeline
         run: python -m api_pulse.cli --data-dir data
@@ -42,15 +57,22 @@ jobs:
           git config user.email "api-pulse-bot@users.noreply.github.com"
           git add data
           git diff --staged --quiet || git commit -m "chore: daily probe $(date -u +%Y-%m-%d)"
+          # Rebase onto anything pushed since checkout, so a human commit
+          # landing mid-run costs a replay rather than a rejected push, a
+          # failed job and a spurious issue.
+          git pull --rebase
           git push
 
-      - name: Open an issue if the run failed
-        if: failure()
+      - name: Open an issue if the run did not succeed
+        # `!success()`, not `failure()`: a cancelled job — including one
+        # killed by the 45-minute timeout above — is not a "failure", and a
+        # timeout is the one failure mode with no other signal at all.
+        if: ${{ !success() }}
         uses: actions/github-script@v7
         with:
           script: |
             const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const title = "Daily probe failed";
+            const title = "Daily probe did not complete";
             const existing = await github.rest.issues.listForRepo({
               owner: context.repo.owner, repo: context.repo.repo,
               state: "open", labels: "pipeline-failure",
@@ -59,12 +81,12 @@ jobs:
               await github.rest.issues.createComment({
                 owner: context.repo.owner, repo: context.repo.repo,
                 issue_number: existing.data[0].number,
-                body: `Failed again: ${run}`,
+                body: `Again: ${run}`,
               });
             } else {
               await github.rest.issues.create({
                 owner: context.repo.owner, repo: context.repo.repo,
                 title, labels: ["pipeline-failure"],
-                body: `The daily probe failed. Most likely the upstream README format changed and the catalogue circuit breaker tripped.\n\nRun: ${run}`,
+                body: `The daily probe did not complete. It could be a tripped circuit breaker, a network or upstream fetch error, an expired PIPELINE_TOKEN, a rejected push, or the job hitting its timeout. The run log says which.\n\nRun: ${run}`,
               });
             }
