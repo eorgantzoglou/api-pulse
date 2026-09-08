@@ -34,8 +34,24 @@ category losing every one of its entry IDs between runs. That last one matters
 to consumers — entry IDs embed the upstream category name, so renaming a
 category heading re-mints every ID beneath it and would orphan those entries'
 history while leaving the total entry count untouched. When that happens the
-pipeline **pauses updates** and opens an issue naming the affected category,
-instead of silently resetting every affected series to zero days of data.
+pipeline **pauses updates** and opens an issue quoting the failure, which names
+the affected category, instead of silently resetting every affected series to
+zero days of data.
+
+A paused pipeline stays paused: it re-runs and re-fails every day until someone
+acts, so `generated` stops advancing. If the upstream change was legitimate —
+a category genuinely renamed — the fix is a one-off edit to the published data,
+after which the next run proceeds normally:
+
+- **To keep the history:** in `data/history.json` and `data/catalog.json`,
+  re-key the affected entries from the old category slug to the new one
+  (`animals--cat-facts` → `animals-pets--cat-facts` for a rename of *Animals*
+  to *Animals & Pets*), updating each entry's `category` field too. Commit.
+- **To accept the loss:** delete `data/catalog.json`. With no baseline both the
+  catalogue and continuity breakers stand down for one run and the catalogue
+  re-seeds. The renamed entries restart their series, backfilled with `.` for
+  the days they existed under the old ID; the old IDs are dropped rather than
+  left behind.
 
 ## Data format
 

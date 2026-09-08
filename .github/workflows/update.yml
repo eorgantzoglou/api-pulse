@@ -49,7 +49,15 @@ jobs:
       - run: pip install -e .
 
       - name: Run the pipeline
-        run: python -m api_pulse.cli --data-dir data
+        # Tee the output so the failure handler can quote the reason directly
+        # in the issue body. Actions logs are retained ~90 days by default, so
+        # on a pipeline meant to sit unattended for months the run link is
+        # exactly the thing that expires — an issue that only links out is
+        # useless by the time someone reads it. pipefail keeps the CLI's exit
+        # code from being masked by tee's.
+        run: |
+          set -o pipefail
+          python -m api_pulse.cli --data-dir data 2>&1 | tee pipeline.log
 
       - name: Commit updated data
         run: |
@@ -73,6 +81,32 @@ jobs:
           script: |
             const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const title = "Daily probe did not complete";
+
+            // Quote the pipeline's own output so the issue is self-contained
+            // once the run log has expired. Every step here is best-effort:
+            // this handler is the last line of defence, so a missing or
+            // unreadable log must never stop the issue being opened. The file
+            // is absent whenever the job died before the pipeline step ran
+            // (a failed checkout, for instance) — that is an expected path.
+            let detail = "";
+            try {
+              const fs = require("fs");
+              const raw = fs.readFileSync("pipeline.log", "utf8").trim();
+              if (raw) {
+                // Tail, not head: the reason is always the last thing printed.
+                let tail = raw.split("\n").slice(-20).join("\n");
+                if (tail.length > 1500) {
+                  tail = "...\n" + tail.slice(-1500);
+                }
+                // Indent into a Markdown code block rather than fencing it,
+                // so a backtick in the output cannot break out of the block.
+                detail =
+                  "\n\n" +
+                  tail.split("\n").map(function (l) { return "    " + l; }).join("\n");
+              }
+            } catch (err) {
+              detail = "";
+            }
             const existing = await github.rest.issues.listForRepo({
               owner: context.repo.owner, repo: context.repo.repo,
               state: "open", labels: "pipeline-failure",
@@ -81,12 +115,12 @@ jobs:
               await github.rest.issues.createComment({
                 owner: context.repo.owner, repo: context.repo.repo,
                 issue_number: existing.data[0].number,
-                body: `Again: ${run}`,
+                body: `Again: ${run}${detail}`,
               });
             } else {
               await github.rest.issues.create({
                 owner: context.repo.owner, repo: context.repo.repo,
                 title, labels: ["pipeline-failure"],
-                body: `The daily probe did not complete. It could be a tripped circuit breaker, a network or upstream fetch error, an expired PIPELINE_TOKEN, a rejected push, or the job hitting its timeout. The run log says which.\n\nRun: ${run}`,
+                body: `The daily probe did not complete. It could be a tripped circuit breaker, a network or upstream fetch error, an expired PIPELINE_TOKEN, a rejected push, or the job hitting its timeout.\n\nRun: ${run}${detail}`,
               });
             }

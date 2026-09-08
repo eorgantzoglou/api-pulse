@@ -339,3 +339,71 @@ def test_main_returns_one_when_fetching_the_readme_fails(
     assert main(["--data-dir", str(tmp_path)]) == 1
     assert "FAILED: ConnectError" in capsys.readouterr().out
     assert not (tmp_path / "catalog.json").exists()
+
+
+# --- the documented remediation for a legitimate upstream rename -------
+#
+# README.md tells an operator how to un-pause the pipeline after a real
+# category rename. Both routes are pinned here: a documented recovery
+# procedure that quietly stops working is worse than none at all, because
+# the person following it is already dealing with a broken pipeline.
+
+
+def test_deleting_the_catalog_unblocks_a_legitimate_rename(tmp_path: Path):
+    """README route 2: accept the history loss, re-seed from scratch."""
+    run(tmp_path, multi_category_readme(), all_live, today=date(2026, 9, 1))
+    renamed = multi_category_readme("Animals & Pets")
+
+    with pytest.raises(SanityError):
+        run(tmp_path, renamed, all_live, today=date(2026, 9, 2))
+
+    # The documented action: remove the baseline both breakers read.
+    (tmp_path / "catalog.json").unlink()
+
+    written = run(tmp_path, renamed, all_live, today=date(2026, 9, 3))
+    assert written == 32
+    history = json.loads((tmp_path / "history.json").read_text())
+    # history.json survives, so the re-minted ids are backfilled with no-data
+    # for the days they did not exist under that id — they do not start a
+    # clean one-character series. That is the accepted cost of this route.
+    assert history["entries"]["animals-pets--animal-0"] == ".L"
+    # The orphaned old ids are dropped rather than accumulating: merge_history
+    # keeps only entries present in the current run.
+    assert "animals--animal-0" not in history["entries"]
+    # The untouched category keeps its real series.
+    assert history["entries"]["weather--weather-0"] == "LL"
+
+
+def test_rekeying_the_data_preserves_history_across_a_rename(tmp_path: Path):
+    """README route 1: re-key the affected ids and keep the 90-day series."""
+    run(tmp_path, multi_category_readme(), all_live, today=date(2026, 9, 1))
+    assert json.loads((tmp_path / "history.json").read_text())["entries"][
+        "animals--animal-0"
+    ] == "L"
+
+    renamed = multi_category_readme("Animals & Pets")
+    with pytest.raises(SanityError):
+        run(tmp_path, renamed, all_live, today=date(2026, 9, 2))
+
+    # The documented action: rewrite the old category slug to the new one in
+    # both files, carrying each entry's series across with it.
+    def rekey(entry_id: str) -> str:
+        return entry_id.replace("animals--", "animals-pets--", 1)
+
+    catalog = json.loads((tmp_path / "catalog.json").read_text())
+    for entry in catalog["entries"]:
+        if entry["category"] == "Animals":
+            entry["id"] = rekey(entry["id"])
+            entry["category"] = "Animals & Pets"
+    (tmp_path / "catalog.json").write_text(json.dumps(catalog), encoding="utf-8")
+
+    history = json.loads((tmp_path / "history.json").read_text())
+    history["entries"] = {rekey(k): v for k, v in history["entries"].items()}
+    (tmp_path / "history.json").write_text(json.dumps(history), encoding="utf-8")
+
+    # The next run now proceeds, and the series is continuous across the
+    # rename rather than restarting.
+    run(tmp_path, renamed, all_live, today=date(2026, 9, 2))
+    after = json.loads((tmp_path / "history.json").read_text())
+    assert after["entries"]["animals-pets--animal-0"] == "LL"
+    assert after["days"] == ["2026-09-01", "2026-09-02"]
