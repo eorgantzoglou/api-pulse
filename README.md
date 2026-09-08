@@ -3,7 +3,7 @@
 Liveness data for every entry in [public-apis/public-apis](https://github.com/public-apis/public-apis).
 
 The upstream list records that an API existed when someone added it. It never
-records whether the link still resolves. This repository probes all ~1,400
+records whether the link still resolves. This repository probes all ~1,750
 entries daily and publishes the results as JSON.
 
 ## Data
