@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import json
 import os
+from collections import defaultdict
 from collections.abc import Callable
 from dataclasses import asdict
 from datetime import date, datetime, timezone
@@ -15,7 +16,7 @@ from .aggregate import (
     History,
     SanityError,
     check_catalog_sanity,
-    check_id_churn,
+    check_category_continuity,
     check_run_sanity,
     compute_status,
     merge_history,
@@ -65,18 +66,27 @@ def _last_good_count(path: Path) -> int | None:
     return json.loads(path.read_text(encoding="utf-8")).get("count")
 
 
-def _last_good_ids(path: Path) -> set[str] | None:
-    """Read the previous run's entry IDs from catalog.json.
+def _last_good_ids_by_category(path: Path) -> dict[str, set[str]] | None:
+    """Read the previous run's entry IDs from catalog.json, grouped by category.
+
+    Grouped rather than flat because the continuity breaker asks a
+    per-category question: did any category lose all of its entries at once?
+    A flat set can only answer "how many ids changed overall", which is the
+    wrong question — see check_category_continuity.
 
     Same fail-open contract as _last_good_count: None means no baseline and
-    the churn breaker does not run.
+    the breaker does not run.
     """
     if not path.exists():
         return None
     entries = json.loads(path.read_text(encoding="utf-8")).get("entries")
     if entries is None:
         return None
-    return {e["id"] for e in entries if isinstance(e, dict) and "id" in e}
+    grouped: dict[str, set[str]] = defaultdict(set)
+    for entry in entries:
+        if isinstance(entry, dict) and "id" in entry and "category" in entry:
+            grouped[entry["category"]].add(entry["id"])
+    return dict(grouped)
 
 
 def _write_all_json(items: list[tuple[Path, dict]]) -> None:
@@ -133,7 +143,9 @@ def run(
         entries = entries[:limit]
     catalog_path = data_dir / "catalog.json"
     check_catalog_sanity(len(entries), _last_good_count(catalog_path))
-    check_id_churn({e.id for e in entries}, _last_good_ids(catalog_path))
+    check_category_continuity(
+        {e.id for e in entries}, _last_good_ids_by_category(catalog_path)
+    )
 
     results: list[ProbeResult] = results_provider(entries)
     check_run_sanity(results)

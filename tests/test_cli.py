@@ -179,16 +179,63 @@ def test_all_three_payloads_declare_their_schema_version(tmp_path: Path):
         assert payload["schema"] == 1, name
 
 
-def test_a_category_rename_trips_the_id_churn_breaker(tmp_path: Path):
+TABLE_HEADER = "API | Description | Auth | HTTPS | CORS\n|---|---|---|---|---|\n"
+
+
+def multi_category_readme(animals_heading: str = "Animals") -> str:
+    """A catalogue whose smallest category is well under 10% of all entries.
+
+    The earlier version of this test used the two-entry, single-category
+    README above, so renaming its only category changed 100% of the ids and
+    a global-ratio breaker passed it. That gave false confidence: no real
+    single-category rename can move a global ratio at all, because the
+    largest real category is 9.1% of the catalogue.
+
+    Here Animals is 2 of 32 entries, so renaming it leaves ~94% of ids
+    intact — comfortably inside any sane global threshold, and therefore a
+    test that only a per-category check can pass.
+    """
+    parts = [f"### {animals_heading}\n\n", TABLE_HEADER]
+    for i in range(2):
+        parts.append(
+            f"| [Animal {i}](https://animal{i}.example/) | An animal | No | Yes | Yes |\n"
+        )
+    parts.append("\n### Weather\n\n")
+    parts.append(TABLE_HEADER)
+    for i in range(30):
+        parts.append(
+            f"| [Weather {i}](https://weather{i}.example/) | Forecast | No | Yes | Yes |\n"
+        )
+    return "".join(parts)
+
+
+def catalog_ids(tmp_path: Path) -> set[str]:
+    payload = json.loads((tmp_path / "catalog.json").read_text())
+    return {e["id"] for e in payload["entries"]}
+
+
+def test_a_category_rename_trips_the_continuity_breaker(tmp_path: Path):
     # Every id embeds the category slug, so renaming one heading re-mints
     # every id beneath it. The entry COUNT is unchanged, so the catalogue
-    # breaker cannot see this; without the churn breaker the run would commit
-    # a full history reset for the whole category and look perfectly healthy.
-    run(tmp_path, README, all_live, today=date(2026, 9, 1))
+    # breaker cannot see this; without this breaker the run would commit a
+    # full history reset for the whole category and look perfectly healthy.
+    readme = multi_category_readme()
+    run(tmp_path, readme, all_live, today=date(2026, 9, 1))
     before = {name: (tmp_path / name).read_bytes() for name in DATA_FILES}
+    old_ids = catalog_ids(tmp_path)
 
-    renamed = README.replace("### Animals", "### Animals & Pets")
-    with pytest.raises(SanityError, match="churn"):
+    renamed = multi_category_readme("Animals & Pets")
+
+    # Pin the premise: the GLOBAL id overlap stays high, so a ratio-based
+    # breaker with any sane threshold would wave this through. This assertion
+    # is what makes the test fail if the check ever reverts to a global ratio.
+    from api_pulse.parse import parse_readme
+
+    new_ids = {e.id for e in parse_readme(renamed)}
+    overlap = len(old_ids & new_ids) / len(old_ids)
+    assert overlap > 0.9, f"fixture no longer exercises the case: {overlap:.2%}"
+
+    with pytest.raises(SanityError, match="Animals"):
         run(tmp_path, renamed, all_live, today=date(2026, 9, 2))
 
     after = {name: (tmp_path / name).read_bytes() for name in DATA_FILES}
@@ -196,7 +243,33 @@ def test_a_category_rename_trips_the_id_churn_breaker(tmp_path: Path):
     assert list(tmp_path.glob("*.tmp")) == []
 
 
-def test_an_unchanged_catalogue_does_not_trip_the_churn_breaker(tmp_path: Path):
+def test_a_deleted_category_trips_the_continuity_breaker(tmp_path: Path):
+    # Dropping the two Animals rows keeps 30 of 32 entries, so the catalogue
+    # breaker (90% floor) passes it. Their history would be orphaned anyway.
+    run(tmp_path, multi_category_readme(), all_live, today=date(2026, 9, 1))
+    before = {name: (tmp_path / name).read_bytes() for name in DATA_FILES}
+
+    weather_only = multi_category_readme().split("### Weather", 1)[1]
+    with pytest.raises(SanityError, match="Animals"):
+        run(tmp_path, "### Weather" + weather_only, all_live, today=date(2026, 9, 2))
+
+    after = {name: (tmp_path / name).read_bytes() for name in DATA_FILES}
+    assert after == before
+
+
+def test_a_growing_catalogue_does_not_trip_the_continuity_breaker(tmp_path: Path):
+    # Adding a whole new category while keeping the old ones must be routine.
+    run(tmp_path, multi_category_readme(), all_live, today=date(2026, 9, 1))
+
+    grown = multi_category_readme() + "\n### Books\n\n" + TABLE_HEADER
+    grown += "| [A Book](https://book.example/) | A book | No | Yes | Yes |\n"
+    run(tmp_path, grown, all_live, today=date(2026, 9, 2))
+
+    catalog = json.loads((tmp_path / "catalog.json").read_text())
+    assert catalog["count"] == 33
+
+
+def test_an_unchanged_catalogue_does_not_trip_the_continuity_breaker(tmp_path: Path):
     run(tmp_path, README, all_live, today=date(2026, 9, 1))
     run(tmp_path, README, all_live, today=date(2026, 9, 2))
     history = json.loads((tmp_path / "history.json").read_text())

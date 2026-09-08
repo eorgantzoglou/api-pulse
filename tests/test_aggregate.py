@@ -1,4 +1,5 @@
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -7,13 +8,21 @@ from api_pulse.aggregate import (
     History,
     SanityError,
     check_catalog_sanity,
-    check_id_churn,
+    check_category_continuity,
     check_run_sanity,
     compute_status,
     failing_streak,
     merge_history,
 )
 from api_pulse.models import ApiEntry, ProbeResult, ProbeState
+
+FIXTURES = Path(__file__).parent / "fixtures"
+
+
+@pytest.fixture
+def real_snapshot() -> str:
+    """The pinned upstream README. Read from disk — never fetched."""
+    return (FIXTURES / "readme_snapshot.md").read_text(encoding="utf-8")
 
 
 def entry(entry_id: str) -> ApiEntry:
@@ -186,44 +195,121 @@ def test_a_run_failing_exactly_half_is_accepted():
     check_run_sanity(results)
 
 
-# --- the entry-ID churn breaker ----------------------------------------
+# --- the category-continuity breaker -----------------------------------
+#
+# The question this breaker asks is NOT "how many ids changed" but "did a
+# whole category disappear at once". Entry ids embed the category slug, so a
+# renamed heading re-mints every id beneath it and orphans that history while
+# the catalogue count stays put.
 
 
-def test_first_ever_run_has_no_id_baseline_to_compare_against():
-    check_id_churn({"a", "b", "c"}, None)
+def by_category(**categories: int) -> dict[str, set[str]]:
+    """Build an id-set-per-category baseline: by_category(Animals=3, ...)."""
+    return {
+        name: {f"{name.lower()}--e{i}" for i in range(count)}
+        for name, count in categories.items()
+    }
 
 
-def test_a_fully_stable_id_set_is_accepted():
-    ids = {f"animals--e{i}" for i in range(10)}
-    check_id_churn(ids, set(ids))
+def flatten(grouped: dict[str, set[str]]) -> set[str]:
+    return {i for ids in grouped.values() for i in ids}
 
 
-def test_ids_churning_past_the_threshold_raises():
-    old_ids = {f"animals--e{i}" for i in range(10)}
-    # Half the previous ids survive; the other half were re-minted, which is
-    # what an upstream category rename looks like.
-    new_ids = {f"animals--e{i}" for i in range(5)}
-    new_ids |= {f"animals-and-pets--e{i}" for i in range(5, 10)}
-    with pytest.raises(SanityError, match="churn"):
-        check_id_churn(new_ids, old_ids)
+def test_first_ever_run_has_no_category_baseline_to_compare_against():
+    check_category_continuity({"a", "b", "c"}, None)
 
 
-def test_id_overlap_exactly_on_the_threshold_is_accepted():
-    # 9 of 10 survive == 0.9 exactly: not "below", so it must pass.
-    old_ids = {f"animals--e{i}" for i in range(10)}
-    new_ids = {f"animals--e{i}" for i in range(9)} | {"animals-and-pets--e9"}
-    check_id_churn(new_ids, old_ids)
+def test_an_empty_baseline_is_treated_as_no_baseline():
+    check_category_continuity({"a", "b", "c"}, {})
 
 
-def test_id_overlap_one_entry_below_the_threshold_raises():
-    old_ids = {f"animals--e{i}" for i in range(10)}
-    new_ids = {f"animals--e{i}" for i in range(8)} | {"x--e8", "x--e9"}
-    with pytest.raises(SanityError, match="churn"):
-        check_id_churn(new_ids, old_ids)
+def test_an_unchanged_catalogue_is_accepted():
+    baseline = by_category(Animals=3, Weather=4)
+    check_category_continuity(flatten(baseline), baseline)
 
 
-def test_a_growing_catalogue_does_not_trip_the_churn_breaker():
-    # Overlap is measured against the PREVIOUS set, so adding entries is free.
-    old_ids = {f"animals--e{i}" for i in range(10)}
-    new_ids = old_ids | {f"animals--new{i}" for i in range(50)}
-    check_id_churn(new_ids, old_ids)
+def test_losing_some_but_not_all_of_a_category_is_accepted():
+    # Individual entries come and go upstream every week. Only a category
+    # emptying completely is the restructuring signal.
+    baseline = by_category(Animals=5, Weather=4)
+    survivors = flatten(baseline) - {"animals--e0", "animals--e1", "weather--e3"}
+    check_category_continuity(survivors, baseline)
+
+
+def test_a_large_legitimate_addition_is_accepted():
+    # Every old category intact, hundreds of new entries and two brand-new
+    # categories. Nothing was orphaned, so nothing should trip.
+    baseline = by_category(Animals=3, Weather=4)
+    new_ids = flatten(baseline)
+    new_ids |= {f"animals--new{i}" for i in range(200)}
+    new_ids |= {f"blockchain--e{i}" for i in range(150)}
+    check_category_continuity(new_ids, baseline)
+
+
+def test_a_renamed_category_trips_and_names_it():
+    baseline = by_category(Animals=26, Weather=40)
+    # The rename re-mints every id under Animals and nothing else.
+    new_ids = baseline["Weather"] | {f"animals-and-pets--e{i}" for i in range(26)}
+
+    with pytest.raises(SanityError) as excinfo:
+        check_category_continuity(new_ids, baseline)
+
+    message = str(excinfo.value)
+    # The operator reads this in a GitHub issue months from now; it has to
+    # say WHICH category to go and look at.
+    assert "Animals" in message
+    assert "26 entries" in message
+    assert "Weather" not in message
+
+
+def test_a_deleted_category_trips():
+    baseline = by_category(Animals=26, Weather=40)
+    with pytest.raises(SanityError, match="Animals"):
+        check_category_continuity(baseline["Weather"], baseline)
+
+
+def test_several_vanished_categories_are_all_named():
+    baseline = by_category(Animals=2, Weather=2, Books=2)
+    with pytest.raises(SanityError) as excinfo:
+        check_category_continuity(baseline["Books"], baseline)
+    message = str(excinfo.value)
+    assert "Animals" in message and "Weather" in message
+    assert "2 categories" in message
+
+
+def test_a_pathological_run_names_only_the_first_few_categories():
+    # Guards the GitHub issue body against an unreadable 51-category dump.
+    baseline = by_category(**{f"Cat{i}": 2 for i in range(20)})
+    with pytest.raises(SanityError, match="and 15 more"):
+        check_category_continuity(set(), baseline)
+
+
+def test_a_category_rename_trips_even_when_global_id_overlap_stays_high(
+    real_snapshot,
+):
+    """Regression guard for a breaker that measured the wrong thing.
+
+    This check was first specified as a GLOBAL id-overlap ratio with a 90%
+    floor. Against the real catalogue that can never fire on a rename: the
+    largest category is Development at 159 of 1752 entries (9.1%), so every
+    single-category rename leaves overlap above 90% by construction. Renaming
+    Animals leaves 98.5%. This test pins that the breaker trips anyway.
+    """
+    from api_pulse.parse import parse_readme
+
+    old_entries = parse_readme(real_snapshot)
+    old_ids = {e.id for e in old_entries}
+    baseline: dict[str, set[str]] = {}
+    for entry in old_entries:
+        baseline.setdefault(entry.category, set()).add(entry.id)
+
+    assert "Animals" in baseline
+    renamed = real_snapshot.replace("### Animals", "### Animals & Pets")
+    new_ids = {e.id for e in parse_readme(renamed)}
+
+    # The premise: a global ratio would sail straight through this.
+    overlap = len(old_ids & new_ids) / len(old_ids)
+    assert overlap > 0.9, f"expected a high global overlap, got {overlap:.2%}"
+
+    with pytest.raises(SanityError, match="Animals"):
+        check_category_continuity(new_ids, baseline)

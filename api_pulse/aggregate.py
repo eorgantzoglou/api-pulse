@@ -24,13 +24,9 @@ MIN_CATALOG_RATIO = 0.9
 # A run failing more than this fraction is our network, not theirs.
 MAX_RUN_FAILURE_RATIO = 0.5
 
-# A run sharing fewer than this fraction of the previous run's entry IDs means
-# the upstream document was restructured. IDs embed the category, so renaming
-# one heading re-mints every ID beneath it; history is keyed purely by ID, so
-# those series would be dropped and every affected entry silently backfilled
-# with no-data and reset to a zero failing streak. The catalogue-count breaker
-# cannot see this — the count does not change.
-MIN_ID_OVERLAP_RATIO = 0.9
+# At most this many vanished categories are named in a SanityError message,
+# so a pathological run cannot produce an unreadable GitHub issue body.
+MAX_NAMED_CATEGORIES = 5
 
 
 class SanityError(RuntimeError):
@@ -167,21 +163,58 @@ def check_run_sanity(results: list[ProbeResult]) -> None:
         )
 
 
-def check_id_churn(new_ids: set[str], last_good_ids: set[str] | None) -> None:
-    """Trip if too few of the previous run's entry IDs survive into this one.
+def check_category_continuity(
+    new_ids: set[str],
+    last_good_ids_by_category: dict[str, set[str]] | None,
+) -> None:
+    """Trip if any category from the last good run lost *every* one of its ids.
 
-    A high-churn run is not necessarily wrong, but it is never routine: it
-    means an upstream restructuring silently orphaned that much history. The
-    pipeline pauses so a human can look, rather than committing a reset.
+    Entry IDs embed the category slug, so renaming "### Animals" to
+    "### Animals & Pets" re-mints all 26 ids beneath it. History is keyed
+    purely by ID, so those 26 series are dropped, every affected entry is
+    backfilled with no-data and `likely_dead` resets to False — while the
+    catalogue count is unchanged and nothing else notices.
+
+    A GLOBAL churn ratio cannot see this. The largest category in the real
+    catalogue is Development at 159 of 1752 entries — 9.1% — so no
+    single-category rename can move a global overlap below 90%. Measured on
+    the pinned snapshot, the three worst renames score 90.9%, 94.6% and
+    98.5% overlap; all three would sail through. The signal is not "how many
+    ids changed" but "did a whole category disappear at once".
+
+    So the rule is per-category: every category that existed last run must
+    still have at least one surviving id. A rename empties the old category
+    completely and trips. The only other way to trip is a genuine upstream
+    category deletion — which orphans exactly the same history, so pausing
+    for a human is right there too.
+
+    A catalogue that collapses outright is `check_catalog_sanity`'s job, and
+    `run()` calls that first.
     """
-    if not last_good_ids:
+    if not last_good_ids_by_category:
         # None: first ever run. Empty: nothing to compare against either.
         return
-    overlap = len(new_ids & last_good_ids) / len(last_good_ids)
-    if overlap < MIN_ID_OVERLAP_RATIO:
-        raise SanityError(
-            f"entry-ID churn: only {overlap:.0%} of the previous run's "
-            f"{len(last_good_ids)} ids survive (below "
-            f"{MIN_ID_OVERLAP_RATIO:.0%}); upstream was probably restructured "
-            f"and this run would orphan that much history; refusing to write"
-        )
+
+    vanished = sorted(
+        category
+        for category, ids in last_good_ids_by_category.items()
+        if ids and not (ids & new_ids)
+    )
+    if not vanished:
+        return
+
+    def describe(category: str) -> str:
+        count = len(last_good_ids_by_category[category])
+        return f"{category!r} ({count} entr{'y' if count == 1 else 'ies'})"
+
+    named = ", ".join(describe(c) for c in vanished[:MAX_NAMED_CATEGORIES])
+    if len(vanished) > MAX_NAMED_CATEGORIES:
+        named += f", and {len(vanished) - MAX_NAMED_CATEGORIES} more"
+
+    plural = "y" if len(vanished) == 1 else "ies"
+    raise SanityError(
+        f"category churn: {len(vanished)} categor{plural} from the last good "
+        f"run lost every entry id: {named}. Upstream probably renamed or "
+        f"removed the heading; writing would orphan that history. "
+        f"Refusing to write"
+    )

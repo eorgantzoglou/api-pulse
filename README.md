@@ -29,12 +29,13 @@ a transient outage does not produce a false alarm.
 
 Three circuit breakers guard the published files, and a tripped run writes
 nothing at all rather than committing something misleading: the catalogue
-shrinking sharply, more than half of all entries failing at once, or too many
-entry IDs changing between runs. That last one matters to consumers — entry IDs
-embed the upstream category name, so a large upstream restructuring (renaming a
-category heading, say) re-mints every ID beneath it and would orphan those
-entries' history. When that happens the pipeline **pauses updates** and opens an
-issue instead of silently resetting every affected series to zero days of data.
+shrinking sharply, more than half of all entries failing at once, or a whole
+category losing every one of its entry IDs between runs. That last one matters
+to consumers — entry IDs embed the upstream category name, so renaming a
+category heading re-mints every ID beneath it and would orphan those entries'
+history while leaving the total entry count untouched. When that happens the
+pipeline **pauses updates** and opens an issue naming the affected category,
+instead of silently resetting every affected series to zero days of data.
 
 ## Data format
 
