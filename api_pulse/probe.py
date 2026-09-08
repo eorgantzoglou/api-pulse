@@ -107,9 +107,27 @@ async def probe_all(
     )
 
     async def guarded(entry: ApiEntry) -> ProbeResult:
-        host = httpx.URL(entry.url).host or entry.url
-        async with global_sem:
+        # Community-edited markdown can contain malformed URLs (bad ports,
+        # bad IDNA hosts, ...). httpx.URL() raises on those — never let that
+        # escape this function, or one bad row kills the entire gather().
+        try:
+            host = httpx.URL(entry.url).host or entry.url
+        except Exception:
+            host = entry.url
+
+        try:
+            # Acquire the scarce per-host permit first, the plentiful global
+            # permit second. Reversing this lets many tasks for one dead
+            # host squat on global permits while blocked on the host lock,
+            # starving every other host. This order still has a single
+            # global lock ordering (host, then global) so it stays
+            # deadlock-free.
             async with host_sems[host]:
-                return await probe_one(client, entry, timeout, backoff)
+                async with global_sem:
+                    return await probe_one(client, entry, timeout, backoff)
+        except Exception:
+            # probe_one already never raises; this is a last-resort net so
+            # that even a bug here can't take down the whole run.
+            return ProbeResult(entry_id=entry.id, state=ProbeState.UNREACHABLE)
 
     return await asyncio.gather(*(guarded(e) for e in entries))

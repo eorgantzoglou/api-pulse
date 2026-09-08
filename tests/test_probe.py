@@ -117,7 +117,9 @@ async def test_sends_the_project_user_agent_and_an_origin():
             return await super().request(method, url, **kwargs)
 
     await probe_all([entry("a", url)], HeaderSpy({url: FakeResponse(200, url)}))
-    assert seen["User-Agent"] == USER_AGENT
+    # Spelled out literally, not compared against the imported constant —
+    # a typo in USER_AGENT itself must fail this test.
+    assert seen["User-Agent"] == "api-pulse/1.0 (+https://github.com/eorgantzoglou/api-pulse)"
     assert "Origin" in seen
 
 
@@ -126,6 +128,15 @@ async def test_never_exceeds_the_global_concurrency_limit():
     client = FakeClient({u: FakeResponse(200, u) for u in urls})
     await probe_all([entry(u, u) for u in urls], client, global_limit=5)
     assert client.max_concurrent <= 5
+    # Known weakness: <= 5 alone would also pass if nothing ran concurrently.
+    # This asserts real interleaving happened. Each host is distinct here,
+    # so the per-host lock is never contended and every task can race the
+    # global semaphore; FakeClient.request's `await asyncio.sleep(0)` yields
+    # right after incrementing its counter, so the first 5 tasks reliably
+    # reach that point (and bump max_concurrent to 5) before any of them
+    # can release its permit back — this is deterministic under asyncio's
+    # single-threaded, run-to-first-await scheduling, not a race.
+    assert client.max_concurrent > 1
 
 
 async def test_never_makes_two_concurrent_requests_to_one_host():
@@ -141,3 +152,17 @@ async def test_returns_one_result_per_entry():
     results = await probe_all([entry(u, u) for u in urls], client)
     assert len(results) == 5
     assert {r.entry_id for r in results} == set(urls)
+
+
+async def test_a_malformed_url_does_not_abort_the_whole_run():
+    good_url = "https://a.example/"
+    bad_url = "https://host:abc/"  # invalid port -> httpx.InvalidURL
+    client = FakeClient({good_url: FakeResponse(200, good_url)})
+    results = await probe_all(
+        [entry("bad", bad_url), entry("good", good_url)], client, backoff=0
+    )
+    assert len(results) == 2
+    bad_result = next(r for r in results if r.entry_id == "bad")
+    good_result = next(r for r in results if r.entry_id == "good")
+    assert bad_result.state != ProbeState.LIVE
+    assert good_result.state == ProbeState.LIVE
