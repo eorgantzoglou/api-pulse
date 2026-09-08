@@ -91,7 +91,45 @@ API | Description | Auth | HTTPS | CORS
 | [Cats](https://a.example/) | Two | No | Yes | Yes |
 """
     ids = [e.id for e in parse_readme(markdown)]
-    assert len(set(ids)) == 2
+    # Pin the exact shape, not merely uniqueness: the counter fallback must
+    # build on the *hashed* id. sha256("https://a.example/")[:6] == "befde4".
+    assert ids == ["animals--cats--befde4", "animals--cats--befde4-2"]
+
+
+def test_a_counter_fallback_never_collides_with_a_clean_id():
+    # Rows 1-2 are one API listed twice, so row 2 takes a counter suffix.
+    # Row 3 is a different API whose slugified name ends in "-2". A fallback
+    # built on the bare base_id would mint "animals--cats-2" for both and
+    # silently merge two APIs' probe state and 90-day series.
+    markdown = """### Animals
+
+API | Description | Auth | HTTPS | CORS
+|---|---|---|---|---|
+| [Cats](https://a.example/) | One | No | Yes | Yes |
+| [Cats](https://a.example/) | Two | No | Yes | Yes |
+| [Cats 2](https://c.example/) | Three | No | Yes | Yes |
+"""
+    entries = parse_readme(markdown)
+    assert [e.id for e in entries] == [
+        "animals--cats--befde4",
+        "animals--cats--befde4-2",
+        "animals--cats-2",
+    ]
+    assert len({e.id for e in entries}) == 3
+
+
+def test_duplicate_name_ids_pin_their_exact_hashed_form():
+    markdown = """### Animals
+
+API | Description | Auth | HTTPS | CORS
+|---|---|---|---|---|
+| [Cats](https://a.example/) | One | No | Yes | Yes |
+| [Cats](https://b.example/) | Two | No | Yes | Yes |
+"""
+    assert [e.id for e in parse_readme(markdown)] == [
+        "animals--cats--befde4",
+        "animals--cats--5d1dd9",
+    ]
 
 
 def test_slugify():

@@ -89,40 +89,48 @@ def parse_readme(markdown: str) -> list[ApiEntry]:
             )
         )
 
-    # Pass 2: count base_id collisions and assign final IDs
-    base_id_counts: dict[str, int] = defaultdict(int)
+    return _assign_ids(rows)
+
+
+def _assign_ids(rows: list[_ParsedRow]) -> list[ApiEntry]:
+    """Turn collected rows into entries, minting order-independent IDs.
+
+    A base_id produced by exactly one row keeps its clean form. A base_id
+    produced by several rows gives every one of them a URL-derived suffix —
+    including the first, since leaving that one bare would put the outcome
+    back at the mercy of row order.
+
+    A `used` set is the final gate: no id is ever handed out twice, whatever
+    route produced it. The counter fallback builds on the *hashed* id rather
+    than the bare base_id, so a fallback id can never collide with the clean
+    id of an unrelated row whose name happens to end in that number (e.g. two
+    "Cats" rows on one URL plus a genuine "Cats 2" row).
+    """
+    counts: dict[str, int] = defaultdict(int)
     for row in rows:
-        base_id_counts[row.base_id] += 1
+        counts[row.base_id] += 1
 
-    # Track URL-based suffix generation for order-independent collision handling
-    base_id_to_urls: dict[str, list[str]] = defaultdict(list)
-    for row in rows:
-        if base_id_counts[row.base_id] > 1:
-            base_id_to_urls[row.base_id].append(row.url)
-
-    # Track which (base_id, url) pairs need fallback encounter-order suffixes
-    url_counts: dict[tuple[str, str], int] = defaultdict(int)
-
+    used: set[str] = set()
     entries: list[ApiEntry] = []
+
     for row in rows:
-        if base_id_counts[row.base_id] == 1:
-            # Unique base_id: no suffix needed
-            final_id = row.base_id
-        else:
-            # Collision: use hash-based suffix or fallback encounter-order
-            url_counts[(row.base_id, row.url)] += 1
-            if url_counts[(row.base_id, row.url)] > 1:
-                # Same base_id and URL appear multiple times: use encounter-order
-                suffix = str(url_counts[(row.base_id, row.url)])
-                final_id = f"{row.base_id}-{suffix}"
-            else:
-                # Different URLs with same base_id: use hash suffix
-                url_hash = hashlib.sha256(row.url.encode("utf-8")).hexdigest()[:6]
-                final_id = f"{row.base_id}--{url_hash}"
+        entry_id = row.base_id
+        if counts[row.base_id] > 1:
+            digest = hashlib.sha256(row.url.encode("utf-8")).hexdigest()[:6]
+            entry_id = f"{row.base_id}--{digest}"
+
+        # Same name AND same URL: the hash cannot separate them. Fall back to
+        # a counter on the hashed id. Both point at one API, so splicing their
+        # history is harmless.
+        candidate, suffix = entry_id, 1
+        while candidate in used:
+            suffix += 1
+            candidate = f"{entry_id}-{suffix}"
+        used.add(candidate)
 
         entries.append(
             ApiEntry(
-                id=final_id,
+                id=candidate,
                 name=row.name,
                 url=row.url,
                 description=row.description,
