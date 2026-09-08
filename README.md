@@ -106,6 +106,28 @@ limited run against the published `data/` trips the catalogue circuit breaker
 by design (`catalogue shrank from 1752 to 25 entries`) and exits 1 rather than
 overwriting real data with a 25-entry slice.
 
+## Operating it
+
+The daily workflow pushes its own commit back to this repository. It uses
+`PIPELINE_TOKEN` if that secret is set, and falls back to the built-in
+`GITHUB_TOKEN` otherwise — so the pipeline works with no setup at all.
+
+Setting `PIPELINE_TOKEN` is still worth doing, for one specific reason:
+**GitHub disables scheduled workflows in repositories with no activity for 60
+days, and pushes made with `GITHUB_TOKEN` do not count as activity.** On the
+fallback alone this pipeline stops after two months. A push made with a
+personal access token does count.
+
+Use a **fine-grained** token scoped to this repository alone, with
+`Contents: read and write` and nothing else, and add it under
+Settings → Secrets and variables → Actions as `PIPELINE_TOKEN`. Its expiry is
+not a hazard: an expired token fails the checkout step, which fails the job,
+which opens an issue — the failure is loud.
+
+If a run fails, it opens an issue labelled `pipeline-failure` quoting the
+reason, and comments on that same issue on subsequent failures rather than
+opening a new one each day.
+
 ## Licence
 
 [MIT](LICENSE).
