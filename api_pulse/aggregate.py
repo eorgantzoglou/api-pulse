@@ -24,6 +24,14 @@ MIN_CATALOG_RATIO = 0.9
 # A run failing more than this fraction is our network, not theirs.
 MAX_RUN_FAILURE_RATIO = 0.5
 
+# A run sharing fewer than this fraction of the previous run's entry IDs means
+# the upstream document was restructured. IDs embed the category, so renaming
+# one heading re-mints every ID beneath it; history is keyed purely by ID, so
+# those series would be dropped and every affected entry silently backfilled
+# with no-data and reset to a zero failing streak. The catalogue-count breaker
+# cannot see this — the count does not change.
+MIN_ID_OVERLAP_RATIO = 0.9
+
 
 class SanityError(RuntimeError):
     """A circuit breaker tripped. The caller must write nothing."""
@@ -156,4 +164,24 @@ def check_run_sanity(results: list[ProbeResult]) -> None:
         raise SanityError(
             f"run failed {ratio:.0%} of {len(results)} entries "
             f"(above {MAX_RUN_FAILURE_RATIO:.0%}); assuming local network fault"
+        )
+
+
+def check_id_churn(new_ids: set[str], last_good_ids: set[str] | None) -> None:
+    """Trip if too few of the previous run's entry IDs survive into this one.
+
+    A high-churn run is not necessarily wrong, but it is never routine: it
+    means an upstream restructuring silently orphaned that much history. The
+    pipeline pauses so a human can look, rather than committing a reset.
+    """
+    if not last_good_ids:
+        # None: first ever run. Empty: nothing to compare against either.
+        return
+    overlap = len(new_ids & last_good_ids) / len(last_good_ids)
+    if overlap < MIN_ID_OVERLAP_RATIO:
+        raise SanityError(
+            f"entry-ID churn: only {overlap:.0%} of the previous run's "
+            f"{len(last_good_ids)} ids survive (below "
+            f"{MIN_ID_OVERLAP_RATIO:.0%}); upstream was probably restructured "
+            f"and this run would orphan that much history; refusing to write"
         )

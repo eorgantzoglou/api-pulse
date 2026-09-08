@@ -25,6 +25,15 @@ actually works. An entry can be reachable while its API is long dead.
 An entry is only marked `likely_dead` after three consecutive failing days, so
 a transient outage does not produce a false alarm.
 
+Three circuit breakers guard the published files, and a tripped run writes
+nothing at all rather than committing something misleading: the catalogue
+shrinking sharply, more than half of all entries failing at once, or too many
+entry IDs changing between runs. That last one matters to consumers — entry IDs
+embed the upstream category name, so a large upstream restructuring (renaming a
+category heading, say) re-mints every ID beneath it and would orphan those
+entries' history. When that happens the pipeline **pauses updates** and opens an
+issue instead of silently resetting every affected series to zero days of data.
+
 ## Probing policy
 
 One concurrent request per host, 20 globally, 10s timeout, one retry, once per

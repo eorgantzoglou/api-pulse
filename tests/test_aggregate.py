@@ -7,6 +7,7 @@ from api_pulse.aggregate import (
     History,
     SanityError,
     check_catalog_sanity,
+    check_id_churn,
     check_run_sanity,
     compute_status,
     failing_streak,
@@ -163,3 +164,66 @@ def test_a_normal_failure_rate_is_accepted():
 def test_an_empty_run_raises():
     with pytest.raises(SanityError):
         check_run_sanity([])
+
+
+# --- breaker thresholds, pinned exactly on the boundary ----------------
+#
+# Both breakers use a strict comparison against a ratio. Nothing else in the
+# suite sits on the boundary, so `<` silently becoming `<=` (or `>` becoming
+# `>=`) would not fail a single test — on the two rails the whole unattended
+# premise rests on.
+
+
+def test_a_catalogue_exactly_on_the_threshold_is_accepted():
+    # 900 == 1000 * 0.9 exactly: not "below", so it must pass.
+    check_catalog_sanity(new_count=900, last_good_count=1000)
+
+
+def test_a_run_failing_exactly_half_is_accepted():
+    # 5/10 == 0.5 exactly: not "more than half", so it must pass.
+    results = [result(f"e{i}", ProbeState.TIMEOUT) for i in range(5)]
+    results += [result(f"ok{i}", ProbeState.LIVE) for i in range(5)]
+    check_run_sanity(results)
+
+
+# --- the entry-ID churn breaker ----------------------------------------
+
+
+def test_first_ever_run_has_no_id_baseline_to_compare_against():
+    check_id_churn({"a", "b", "c"}, None)
+
+
+def test_a_fully_stable_id_set_is_accepted():
+    ids = {f"animals--e{i}" for i in range(10)}
+    check_id_churn(ids, set(ids))
+
+
+def test_ids_churning_past_the_threshold_raises():
+    old_ids = {f"animals--e{i}" for i in range(10)}
+    # Half the previous ids survive; the other half were re-minted, which is
+    # what an upstream category rename looks like.
+    new_ids = {f"animals--e{i}" for i in range(5)}
+    new_ids |= {f"animals-and-pets--e{i}" for i in range(5, 10)}
+    with pytest.raises(SanityError, match="churn"):
+        check_id_churn(new_ids, old_ids)
+
+
+def test_id_overlap_exactly_on_the_threshold_is_accepted():
+    # 9 of 10 survive == 0.9 exactly: not "below", so it must pass.
+    old_ids = {f"animals--e{i}" for i in range(10)}
+    new_ids = {f"animals--e{i}" for i in range(9)} | {"animals-and-pets--e9"}
+    check_id_churn(new_ids, old_ids)
+
+
+def test_id_overlap_one_entry_below_the_threshold_raises():
+    old_ids = {f"animals--e{i}" for i in range(10)}
+    new_ids = {f"animals--e{i}" for i in range(8)} | {"x--e8", "x--e9"}
+    with pytest.raises(SanityError, match="churn"):
+        check_id_churn(new_ids, old_ids)
+
+
+def test_a_growing_catalogue_does_not_trip_the_churn_breaker():
+    # Overlap is measured against the PREVIOUS set, so adding entries is free.
+    old_ids = {f"animals--e{i}" for i in range(10)}
+    new_ids = old_ids | {f"animals--new{i}" for i in range(50)}
+    check_id_churn(new_ids, old_ids)

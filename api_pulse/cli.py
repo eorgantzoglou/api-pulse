@@ -15,6 +15,7 @@ from .aggregate import (
     History,
     SanityError,
     check_catalog_sanity,
+    check_id_churn,
     check_run_sanity,
     compute_status,
     merge_history,
@@ -26,22 +27,56 @@ from .probe import probe_all
 
 HISTORY_WINDOW = 90
 
+# On-disk format version, stamped into all three payloads. Bump it whenever a
+# field changes meaning or disappears, so a consumer can pin to a known shape.
+SCHEMA_VERSION = 1
+
 
 def _load_history(path: Path) -> History:
+    """Load the rolling series from disk.
+
+    The on-disk "window" field is deliberately NOT read back. HISTORY_WINDOW
+    is the single source of truth for retention, and run() passes it to
+    merge_history on every call — so honouring a stale value from the file
+    would only let a hand-edited or older history.json quietly change how
+    much history the pipeline keeps. The field is written for consumers, and
+    merge_history re-stamps it each run.
+    """
     if not path.exists():
         return History(window=HISTORY_WINDOW)
     raw = json.loads(path.read_text(encoding="utf-8"))
     return History(
-        window=raw.get("window", HISTORY_WINDOW),
+        window=HISTORY_WINDOW,
         days=raw.get("days", []),
         entries=raw.get("entries", {}),
     )
 
 
 def _last_good_count(path: Path) -> int | None:
+    """Read the previous run's entry count from catalog.json.
+
+    Returns None when there is no baseline, which DISABLES the catalogue
+    breaker for that run. A catalog.json missing its "count" key therefore
+    disables it just as silently as a missing file does — the breaker is
+    fail-open by design, because a first run has nothing to compare against.
+    """
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8")).get("count")
+
+
+def _last_good_ids(path: Path) -> set[str] | None:
+    """Read the previous run's entry IDs from catalog.json.
+
+    Same fail-open contract as _last_good_count: None means no baseline and
+    the churn breaker does not run.
+    """
+    if not path.exists():
+        return None
+    entries = json.loads(path.read_text(encoding="utf-8")).get("entries")
+    if entries is None:
+        return None
+    return {e["id"] for e in entries if isinstance(e, dict) and "id" in e}
 
 
 def _write_all_json(items: list[tuple[Path, dict]]) -> None:
@@ -83,9 +118,9 @@ def run(
 ) -> int:
     """Parse, probe, aggregate and write.
 
-    Both circuit breakers run before any file is touched, so a tripped run
-    leaves previously good data exactly as it was. `limit`, when given,
-    truncates the parsed catalogue itself (before either breaker runs) so
+    All three circuit breakers run before any file is touched, so a tripped
+    run leaves previously good data exactly as it was. `limit`, when given,
+    truncates the parsed catalogue itself (before any breaker runs) so
     that the catalogue, status and history files always describe the same
     set of entries — a development-only `--limit` run never drops the
     history of entries it didn't probe.
@@ -96,7 +131,9 @@ def run(
     entries: list[ApiEntry] = parse_readme(readme)
     if limit is not None:
         entries = entries[:limit]
-    check_catalog_sanity(len(entries), _last_good_count(data_dir / "catalog.json"))
+    catalog_path = data_dir / "catalog.json"
+    check_catalog_sanity(len(entries), _last_good_count(catalog_path))
+    check_id_churn({e.id for e in entries}, _last_good_ids(catalog_path))
 
     results: list[ProbeResult] = results_provider(entries)
     check_run_sanity(results)
@@ -112,6 +149,7 @@ def run(
             (
                 data_dir / "catalog.json",
                 {
+                    "schema": SCHEMA_VERSION,
                     "generated": generated,
                     "count": len(entries),
                     "entries": [asdict(e) for e in entries],
@@ -119,11 +157,16 @@ def run(
             ),
             (
                 data_dir / "status.json",
-                {"generated": generated, "entries": [asdict(s) for s in statuses]},
+                {
+                    "schema": SCHEMA_VERSION,
+                    "generated": generated,
+                    "entries": [asdict(s) for s in statuses],
+                },
             ),
             (
                 data_dir / "history.json",
                 {
+                    "schema": SCHEMA_VERSION,
                     "generated": generated,
                     "window": history.window,
                     "days": history.days,
@@ -155,6 +198,12 @@ def main(argv: list[str] | None = None) -> int:
         count = run(args.data_dir, fetch_readme(), _live_probe, limit=args.limit)
     except SanityError as exc:
         print(f"SANITY CHECK FAILED: {exc}")
+        return 1
+    except Exception as exc:  # noqa: BLE001 - operator-facing surface
+        # This process runs unattended for months with nobody watching. A
+        # corrupt data file, a full disk or an httpx error must produce one
+        # readable line and exit 1, not a raw traceback in a CI log.
+        print(f"FAILED: {type(exc).__name__}: {exc}")
         return 1
 
     print(f"wrote {count} entries to {args.data_dir}")
