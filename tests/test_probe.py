@@ -2,7 +2,6 @@ import asyncio
 from dataclasses import dataclass, field
 
 import httpx
-import pytest
 
 from api_pulse.models import ApiEntry, ProbeState
 from api_pulse.probe import USER_AGENT, probe_all
@@ -68,7 +67,10 @@ async def test_records_a_live_entry():
     assert result.status_code == 200
     assert result.cors_header == "*"
     assert result.tls_valid is True
-    assert result.response_ms is not None
+    # `is not None` was vacuous: probe_one always sets an int. Pin that it is
+    # a plausible latency for an in-memory fake that never touches a socket.
+    assert isinstance(result.response_ms, int)
+    assert 0 <= result.response_ms < 1000
 
 
 async def test_records_the_final_url_after_redirects():
@@ -103,7 +105,7 @@ async def test_retries_once_before_giving_up():
 async def test_falls_back_to_get_when_head_is_rejected():
     url = "https://picky.example/"
     client = FakeClient({url: FakeResponse(405, url)})
-    (result,) = await probe_all([entry("a", url)], client)
+    await probe_all([entry("a", url)], client)
     assert [c[0] for c in client.calls] == ["HEAD", "GET"]
 
 
@@ -166,3 +168,30 @@ async def test_a_malformed_url_does_not_abort_the_whole_run():
     good_result = next(r for r in results if r.entry_id == "good")
     assert bad_result.state != ProbeState.LIVE
     assert good_result.state == ProbeState.LIVE
+
+
+async def test_response_ms_excludes_the_failed_attempt_and_the_backoff():
+    """response_ms is published as the server's latency, so it must measure
+    only the attempt that actually produced the response.
+
+    The clock is restarted per attempt. With the clock started once before
+    the retry loop, this probe would report at least BACKOFF milliseconds the
+    server never spent — the only knowingly-false field in status.json.
+    """
+    url = "https://flaky.example/"
+    backoff = 0.25
+
+    class FailsOnceThenSucceeds(FakeClient):
+        attempts: int = 0
+
+        async def request(self, method, url, **kwargs):
+            type(self).attempts += 1
+            if type(self).attempts == 1:
+                raise httpx.ConnectTimeout("first attempt fails")
+            return FakeResponse(200, url)
+
+    client = FailsOnceThenSucceeds({})
+    (result,) = await probe_all([entry("a", url)], client, backoff=backoff)
+
+    assert result.state == ProbeState.LIVE
+    assert result.response_ms < backoff * 1000

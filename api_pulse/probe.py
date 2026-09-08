@@ -3,6 +3,8 @@ from __future__ import annotations
 import asyncio
 import time
 from collections import defaultdict
+from collections.abc import Mapping
+from typing import Protocol
 
 import httpx
 
@@ -19,6 +21,39 @@ _HEADERS = {
 }
 
 
+class HttpResponse(Protocol):
+    """The parts of a response this module reads."""
+
+    @property
+    def status_code(self) -> int: ...
+
+    @property
+    def url(self) -> object: ...
+
+    @property
+    def headers(self) -> Mapping[str, str]: ...
+
+
+class AsyncHttpClient(Protocol):
+    """The single seam between this module and the network.
+
+    Production passes `httpx.AsyncClient`; tests pass a fake that records
+    calls and replays scripted outcomes. Both satisfy this structurally, and
+    naming the seam is what keeps `probe_one`/`probe_all` typed without
+    importing a concrete client into their signatures.
+    """
+
+    async def request(
+        self,
+        method: str,
+        url: str,
+        *,
+        headers: Mapping[str, str] | None = ...,
+        timeout: float | None = ...,
+        follow_redirects: bool = ...,
+    ) -> HttpResponse: ...
+
+
 def _transport_error_for(exc: Exception) -> TransportError:
     """Classify an httpx exception into a coarse transport failure kind."""
     if isinstance(exc, httpx.TimeoutException):
@@ -31,13 +66,20 @@ def _transport_error_for(exc: Exception) -> TransportError:
     return TransportError.CONNECTION
 
 
-async def probe_one(client, entry: ApiEntry, timeout: float, backoff: float) -> ProbeResult:
+async def probe_one(
+    client: AsyncHttpClient, entry: ApiEntry, timeout: float, backoff: float
+) -> ProbeResult:
     """Probe a single entry. Never raises — every failure becomes a ProbeResult."""
-    started = time.perf_counter()
     error: TransportError | None = None
     response = None
+    started = time.perf_counter()
 
     for attempt in range(2):  # original + exactly one retry
+        # Restart the clock on every attempt. response_ms is published as the
+        # server's latency, so it must not include a previous failed attempt
+        # or the backoff sleep between them — a probe that succeeds on retry
+        # would otherwise report >=1000ms the server never spent.
+        started = time.perf_counter()
         try:
             response = await client.request(
                 "HEAD",
@@ -89,7 +131,7 @@ async def probe_one(client, entry: ApiEntry, timeout: float, backoff: float) -> 
 
 async def probe_all(
     entries: list[ApiEntry],
-    client,
+    client: AsyncHttpClient,
     *,
     global_limit: int = 20,
     per_host_limit: int = 1,
