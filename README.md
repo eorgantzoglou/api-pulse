@@ -14,7 +14,9 @@ entries daily and publishes the results as JSON.
 | [`data/status.json`](data/status.json) | Latest observed state per entry |
 | [`data/history.json`](data/history.json) | Rolling 90-day series, one character per day |
 
-These files are committed daily and are free to use.
+These files are committed daily and are free to use. A run whose circuit
+breakers trip writes nothing, so on those days nothing is committed — check the
+`generated` field before treating the data as fresh.
 
 ## What this measures
 
@@ -34,19 +36,59 @@ category heading, say) re-mints every ID beneath it and would orphan those
 entries' history. When that happens the pipeline **pauses updates** and opens an
 issue instead of silently resetting every affected series to zero days of data.
 
+## Data format
+
+All three files carry `"schema": 1` and a `"generated"` date. `catalog.json`
+and `status.json` join on `id`; `history.json` is a map keyed by the same `id`.
+
+`state` — the outcome of the latest probe. The first four count as **alive**;
+every other value counts as a failure for the `failing_streak` filter.
+
+| `state` | Char | Meaning |
+|---|---|---|
+| `live` | `L` | 2xx or 3xx — the link resolves |
+| `auth_required` | `A` | 401 or 403 — gatekeeping correctly, so alive |
+| `rate_limited` | `R` | 429 — alive and busy |
+| `client_error` | `C` | any other 4xx (400, 405, 451…) — the server answered |
+| `not_found` | `N` | 404 or 410 — the link itself is dead |
+| `server_error` | `S` | 5xx |
+| `tls_invalid` | `T` | certificate could not be verified |
+| `dns_failure` | `D` | the hostname does not resolve |
+| `unreachable` | `U` | DNS resolved but the connection was refused or reset |
+| `timeout` | `X` | no response within 10s |
+
+`history.entries[id]` is one character per day, oldest first, using the Char
+column above plus `.` for a day with no data (entry not yet listed, or the run
+did not happen). Its length always equals that of `history.days`.
+
+`status.json` entries add: `failing_streak` (consecutive trailing failing days,
+which `.` resets), `likely_dead` (`failing_streak >= 3`), `tls_valid`
+(`true`/`false`/`null` when not applicable), `cors_header` (the raw
+`Access-Control-Allow-Origin` value, or `null`), `final_url` (after redirects),
+`response_ms` and `status_code`.
+
 ## Probing policy
 
 One concurrent request per host, 20 globally, 10s timeout, one retry, once per
-day. Requests identify themselves as
-`api-pulse/1.0 (+https://github.com/eorgantzoglou/api-pulse)`.
-To have a domain excluded, open an issue.
+day. `HEAD` first, falling back to `GET` only when the server rejects `HEAD`
+with 405 or 501. Requests identify themselves as
+`api-pulse/1.0 (+https://github.com/eorgantzoglou/api-pulse)` and send an
+`Origin: https://api-pulse.pages.dev` header, which is what makes the
+`cors_header` field observable. To have a domain excluded, open an issue.
 
 ## Development
 
 ```bash
 python -m venv .venv && .venv/bin/pip install -e ".[dev]"
 pytest
-python -m api_pulse.cli --data-dir data --limit 25
+python -m api_pulse.cli --data-dir /tmp/api-pulse-scratch --limit 25
 ```
 
-MIT.
+The scratch directory matters: `--limit` truncates the catalogue itself, so a
+limited run against the published `data/` trips the catalogue circuit breaker
+by design (`catalogue shrank from 1752 to 25 entries`) and exits 1 rather than
+overwriting real data with a 25-entry slice.
+
+## Licence
+
+[MIT](LICENSE).
