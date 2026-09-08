@@ -36,7 +36,15 @@ jobs:
           # loud. A never-expiring classic `repo` token, by contrast, hands
           # this daily job write access to every repository the account owns,
           # for ever.
-          token: ${{ secrets.PIPELINE_TOKEN }}
+          #
+          # Falls back to GITHUB_TOKEN when the secret is not set, so the
+          # pipeline works the day the repository is created. That fallback
+          # is a working default, not the intended end state: GITHUB_TOKEN
+          # pushes do not count as repository activity, so on the fallback
+          # alone GitHub will disable this cron after 60 days. Add the
+          # fine-grained PAT as PIPELINE_TOKEN to get the activity that keeps
+          # the schedule alive.
+          token: ${{ secrets.PIPELINE_TOKEN || github.token }}
 
       - uses: actions/setup-python@v5
         with:
