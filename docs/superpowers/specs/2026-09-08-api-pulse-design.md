@@ -7,7 +7,7 @@ Status: Approved
 
 `github.com/public-apis/public-apis` (~475k stars, MIT) is the best-known index of free
 public APIs. Its entire dataset is a single `README.md`: `### Category` headings over
-markdown tables of `API | Description | Auth | HTTPS | CORS`, roughly 1,400 entries
+markdown tables of `API | Description | Auth | HTTPS | CORS`, roughly 1,750 entries
 across ~50 categories.
 
 The list is static and has no ground truth. It records that an API existed when someone
@@ -76,7 +76,7 @@ No server exists anywhere in this system.
 | `data/history.json` | Rolling 90-day window, one status byte per entry per day |
 | `data/embeddings.bin` | int8-quantised description embeddings |
 
-History is a rolling window rather than a daily full snapshot. 1,400 entries x 90 days is
+History is a rolling window rather than a daily full snapshot. 1,750 entries x 90 days is
 trivially small, and git history preserves anything older for free. Committing full daily
 snapshots would bloat the repository into unusability within a year — unacceptable for a
 project expected to run unattended.
@@ -86,7 +86,7 @@ build on them. This costs nothing, since the files already exist.
 
 ## The prober
 
-This component sends scheduled traffic to ~1,400 third-party servers. It is a good
+This component sends scheduled traffic to ~1,750 third-party servers. It is a good
 citizen by construction, not by intention.
 
 **Politeness, enforced in code:**
@@ -158,7 +158,7 @@ silently overwriting a good one is the worst available outcome, so that path is 
 
 **Our network can fail rather than theirs.** If a run observes more than 50% of all
 entries failing, that is the runner, not a mass extinction. The run is discarded and never
-written to history, so one bad night cannot poison 1,400 uptime records.
+written to history, so one bad night cannot poison 1,750 uptime records.
 
 **GitHub disables cron workflows in repositories with no activity for 60 days.** This is
 the single most likely cause of silent death during a long absence. The daily bot commit

@@ -1,0 +1,134 @@
+name: update
+
+on:
+  schedule:
+    # 04:17 UTC daily. Off-the-hour to avoid the thundering herd of cron jobs
+    # that fire at :00 and to spread load on the servers we probe.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # A PAT rather than GITHUB_TOKEN: pushes made with the default
+          # token do not count as repository activity, and GitHub disables
+          # cron workflows after 60 days without any.
+          #
+          # Use a FINE-GRAINED token scoped to this single repository with
+          # `contents: write` and nothing else. Its one-year expiry cap is
+          # not a reason to reach for a classic `repo`-scope token with no
+          # expiration: an expired token fails the checkout step, which fails
+          # the job, which fires the `!success()` step at the bottom — and
+          # that step runs on GITHUB_TOKEN, needs no checkout and already
+          # holds `issues: write`, so it still opens the issue. The expiry is
+          # loud. A never-expiring classic `repo` token, by contrast, hands
+          # this daily job write access to every repository the account owns,
+          # for ever.
+          #
+          # Falls back to GITHUB_TOKEN when the secret is not set, so the
+          # pipeline works the day the repository is created. That fallback
+          # is a working default, not the intended end state: GITHUB_TOKEN
+          # pushes do not count as repository activity, so on the fallback
+          # alone GitHub will disable this cron after 60 days. Add the
+          # fine-grained PAT as PIPELINE_TOKEN to get the activity that keeps
+          # the schedule alive.
+          token: ${{ secrets.PIPELINE_TOKEN || github.token }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # No [dev] extra: the daily run does not need pytest, and every extra
+      # transitive dependency resolved fresh from PyPI is more third-party
+      # code executing in the same job that holds the push token. test.yml
+      # installs the dev extra; this job must not.
+      - run: pip install -e .
+
+      - name: Run the pipeline
+        # Tee the output so the failure handler can quote the reason directly
+        # in the issue body. Actions logs are retained ~90 days by default, so
+        # on a pipeline meant to sit unattended for months the run link is
+        # exactly the thing that expires — an issue that only links out is
+        # useless by the time someone reads it. pipefail keeps the CLI's exit
+        # code from being masked by tee's.
+        run: |
+          set -o pipefail
+          python -m api_pulse.cli --data-dir data 2>&1 | tee pipeline.log
+
+      - name: Commit updated data
+        run: |
+          git config user.name "api-pulse-bot"
+          git config user.email "api-pulse-bot@users.noreply.github.com"
+          git add data
+          git diff --staged --quiet || git commit -m "chore: daily probe $(date -u +%Y-%m-%d)"
+          # Rebase onto anything pushed since checkout, so a human commit
+          # landing mid-run costs a replay rather than a rejected push, a
+          # failed job and a spurious issue.
+          git pull --rebase
+          git push
+
+      - name: Open an issue if the run did not succeed
+        # `!success()`, not `failure()`: a cancelled job — including one
+        # killed by the 45-minute timeout above — is not a "failure", and a
+        # timeout is the one failure mode with no other signal at all.
+        if: ${{ !success() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const title = "Daily probe did not complete";
+
+            // Quote the pipeline's own output so the issue is self-contained
+            // once the run log has expired. Every step here is best-effort:
+            // this handler is the last line of defence, so a missing or
+            // unreadable log must never stop the issue being opened. The file
+            // is absent whenever the job died before the pipeline step ran
+            // (a failed checkout, for instance) — that is an expected path.
+            let detail = "";
+            try {
+              const fs = require("fs");
+              const raw = fs.readFileSync("pipeline.log", "utf8").trim();
+              if (raw) {
+                // Tail, not head: the reason is always the last thing printed.
+                let tail = raw.split("\n").slice(-20).join("\n");
+                if (tail.length > 1500) {
+                  tail = "...\n" + tail.slice(-1500);
+                }
+                // Indent into a Markdown code block rather than fencing it,
+                // so a backtick in the output cannot break out of the block.
+                detail =
+                  "\n\n" +
+                  tail.split("\n").map(function (l) { return "    " + l; }).join("\n");
+              }
+            } catch (err) {
+              detail = "";
+            }
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "pipeline-failure",
+            });
+            if (existing.data.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body: `Again: ${run}${detail}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, labels: ["pipeline-failure"],
+                body: `The daily probe did not complete. It could be a tripped circuit breaker, a network or upstream fetch error, an expired PIPELINE_TOKEN, a rejected push, or the job hitting its timeout.\n\nRun: ${run}${detail}`,
+              });
+            }
