@@ -81,18 +81,23 @@ def test_three_bad_days_marks_entries_dead(tmp_path: Path):
 def test_a_failed_run_writes_nothing_at_all(tmp_path: Path):
     with pytest.raises(SanityError):
         run(tmp_path, README, all_dead, today=date(2026, 9, 1))
+    assert not (tmp_path / "catalog.json").exists()
     assert not (tmp_path / "status.json").exists()
     assert not (tmp_path / "history.json").exists()
 
 
 def test_a_failed_run_leaves_previous_data_untouched(tmp_path: Path):
     run(tmp_path, README, all_live, today=date(2026, 9, 1))
-    before = (tmp_path / "status.json").read_text()
+    before = {
+        name: (tmp_path / name).read_text()
+        for name in ("catalog.json", "status.json", "history.json")
+    }
 
     with pytest.raises(SanityError):
         run(tmp_path, README, all_dead, today=date(2026, 9, 2))
 
-    assert (tmp_path / "status.json").read_text() == before
+    for name, content in before.items():
+        assert (tmp_path / name).read_text() == content
 
 
 def test_a_collapsed_catalogue_trips_the_breaker(tmp_path: Path):
@@ -106,3 +111,58 @@ API | Description | Auth | HTTPS | CORS
 """
     with pytest.raises(SanityError, match="catalogue"):
         run(tmp_path, shrunk, all_live, today=date(2026, 9, 2))
+
+
+def test_a_limited_run_against_populated_data_trips_the_breaker(tmp_path: Path):
+    # A --limit run against a catalogue that already has good data on disk
+    # necessarily parses far fewer entries than the last good count, so the
+    # catalog-shrink breaker must trip rather than silently erasing the
+    # history of every entry the limited run didn't touch.
+    run(tmp_path, README, all_live, today=date(2026, 9, 1))
+    before = {
+        name: (tmp_path / name).read_text()
+        for name in ("catalog.json", "status.json", "history.json")
+    }
+
+    with pytest.raises(SanityError, match="catalogue"):
+        run(tmp_path, README, all_live, today=date(2026, 9, 2), limit=1)
+
+    for name, content in before.items():
+        assert (tmp_path / name).read_text() == content
+
+
+def test_a_limited_run_against_an_empty_data_dir_works_normally(tmp_path: Path):
+    written = run(tmp_path, README, all_live, today=date(2026, 9, 1), limit=1)
+    assert written == 1
+    catalog = json.loads((tmp_path / "catalog.json").read_text())
+    assert catalog["count"] == 1
+    status = json.loads((tmp_path / "status.json").read_text())
+    assert len(status["entries"]) == 1
+
+
+def test_a_partial_write_failure_leaves_previous_data_untouched(
+    tmp_path: Path, monkeypatch
+):
+    run(tmp_path, README, all_live, today=date(2026, 9, 1))
+    before = {
+        name: (tmp_path / name).read_text()
+        for name in ("catalog.json", "status.json", "history.json")
+    }
+
+    original_write_text = Path.write_text
+    calls = {"n": 0}
+
+    def flaky_write_text(self, *args, **kwargs):
+        calls["n"] += 1
+        if calls["n"] == 2:
+            raise OSError("simulated disk failure")
+        return original_write_text(self, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "write_text", flaky_write_text)
+
+    with pytest.raises(OSError):
+        run(tmp_path, README, all_live, today=date(2026, 9, 2))
+
+    for name, content in before.items():
+        assert (tmp_path / name).read_text() == content
+    assert list(tmp_path.glob("*.tmp")) == []
