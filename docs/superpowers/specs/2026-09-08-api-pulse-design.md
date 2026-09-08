@@ -181,6 +181,18 @@ Testing follows the shape of the risk.
   50%-failure discard path.
 - **Frontend** — light smoke test. It is a renderer over JSON; correctness lives upstream.
 
+## Build order
+
+Each phase is independently useful and independently shippable.
+
+1. **Pipeline through to `status.json`** — fetch, parse, probe, aggregate, plus the
+   Actions cron and the safety rails. At the end of this phase the data exists and is
+   updating daily, with no site at all. This is the phase that carries all the risk.
+2. **Static site: browse and corrections** — the product becomes visible and useful.
+   Keyword search only.
+3. **Semantic search** — embedding generation in the pipeline, opt-in client-side model
+   in the site. Purely additive; the site works without it.
+
 ## Success criteria
 
 - The dashboard reports fresh data with no human intervention for 30 consecutive days.
