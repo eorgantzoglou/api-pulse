@@ -56,16 +56,42 @@ def test_ids_are_stable_and_unique(sample):
     assert parse_readme(sample)[0].id == "animals--cat-facts"
 
 
-def test_duplicate_names_in_a_category_get_distinct_ids():
+def test_duplicate_names_get_order_independent_url_derived_ids():
+    rows = [
+        "| [Cats](https://a.example/) | One | No | Yes | Yes |",
+        "| [Cats](https://b.example/) | Two | No | Yes | Yes |",
+    ]
+    header = "### Animals\n\nAPI | Description | Auth | HTTPS | CORS\n|---|---|---|---|---|\n"
+
+    forward = {e.url: e.id for e in parse_readme(header + "\n".join(rows))}
+    reversed_ = {e.url: e.id for e in parse_readme(header + "\n".join(reversed(rows)))}
+
+    # The same URL must get the same id no matter where it appears in the file.
+    assert forward == reversed_
+    assert len(set(forward.values())) == 2
+    assert all(i.startswith("animals--cats--") for i in forward.values())
+
+
+def test_a_unique_name_keeps_a_clean_id():
     markdown = """### Animals
 
 API | Description | Auth | HTTPS | CORS
 |---|---|---|---|---|
 | [Cats](https://a.example/) | One | No | Yes | Yes |
-| [Cats](https://b.example/) | Two | No | Yes | Yes |
+"""
+    assert parse_readme(markdown)[0].id == "animals--cats"
+
+
+def test_identical_name_and_url_still_yields_unique_ids():
+    markdown = """### Animals
+
+API | Description | Auth | HTTPS | CORS
+|---|---|---|---|---|
+| [Cats](https://a.example/) | One | No | Yes | Yes |
+| [Cats](https://a.example/) | Two | No | Yes | Yes |
 """
     ids = [e.id for e in parse_readme(markdown)]
-    assert ids == ["animals--cats", "animals--cats-2"]
+    assert len(set(ids)) == 2
 
 
 def test_slugify():
