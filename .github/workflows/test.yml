@@ -1,8 +1,13 @@
 name: tests
 
 on:
+  # No branch filter on purpose. This previously read `branches: [main]` while
+  # the repository's default branch is `master`, so the suite never ran at all
+  # — and it would have caught the data/ packaging break on the very first push
+  # after that directory appeared. A safety net that silently does not run is
+  # worse than no safety net, so this triggers on every push and cannot be
+  # disabled again by a branch rename.
   push:
-    branches: [main]
   pull_request:
 
 jobs:
