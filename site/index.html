@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API Pulse — which public APIs actually work</title>
+<meta name="description" content="Daily liveness data for every API in public-apis/public-apis. Measured, not claimed.">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#rows">Skip to the list</a>
+
+<div class="wrap">
+  <header class="top">
+    <div class="top__id">API Pulse <span>· liveness for public-apis</span></div>
+    <button class="theme" type="button" id="theme">Dark</button>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1 class="hero__head" id="headline">Loading the catalogue…</h1>
+    <p class="hero__when" id="when"></p>
+    <div class="mosaic" id="mosaic" aria-label="Every API in the catalogue, one cell each, ordered by state"></div>
+    <p class="hero__detail" id="detail"></p>
+    <ul class="legend" id="legend"></ul>
+  </section>
+
+  <section class="filters" id="filters" aria-label="Filters">
+    <input type="search" id="q" placeholder="Search name or description" aria-label="Search">
+    <label>Category <select id="category"></select></label>
+    <label>Auth <select id="auth"></select></label>
+    <label>CORS <select id="cors"></select></label>
+    <label>Sort <select id="sort"></select></label>
+    <label><input type="checkbox" id="https"> HTTPS only</label>
+    <label><input type="checkbox" id="hideBroken" checked> Hide broken</label>
+  </section>
+
+  <p class="count" id="count"></p>
+  <main class="rows" id="rows"></main>
+
+  <section class="corrections" id="corrections"></section>
+
+  <footer>
+    Measured by probing each entry's documentation link once a day — link and
+    domain health, not whether the API itself works. Data:
+    <a href="https://github.com/eorgantzoglou/api-pulse">github.com/eorgantzoglou/api-pulse</a>
+  </footer>
+</div>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
