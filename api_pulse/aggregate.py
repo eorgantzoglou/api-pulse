@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
 
 from .models import (
     ALIVE_STATES,
@@ -65,6 +65,13 @@ def merge_history(
     Re-running on a day already recorded overwrites it rather than appending,
     so a manual re-run never distorts the series. Entries missing from this
     run are dropped: the catalogue is the source of truth for what exists.
+
+    Days on which the pipeline did not run are filled with NO_DATA_CHAR rather
+    than closed up. One column is one calendar day, so the window means 90 days
+    and not 90 runs, and a failing streak can never span days nobody measured.
+    This is not hypothetical: a packaging fault stopped six consecutive runs in
+    September 2026, and closing that gap would have let the pipeline declare
+    entries dead on evidence it never gathered.
     """
     today_iso = today.isoformat()
     replacing_today = bool(history.days) and history.days[-1] == today_iso
@@ -73,15 +80,29 @@ def merge_history(
     if replacing_today:
         days = days[:-1]
 
+    gap = 0
+    if days:
+        last = date.fromisoformat(days[-1])
+        # max(0, ...) absorbs a clock that goes backwards; a negative gap would
+        # otherwise desynchronise every series from the day labels.
+        gap = max(0, (today - last).days - 1)
+        days.extend((last + timedelta(days=i)).isoformat() for i in range(1, gap + 1))
+
     length = len(days)
+    gap_fill = NO_DATA_CHAR * gap
     merged: dict[str, str] = {}
 
     for result in results:
         series = history.entries.get(result.entry_id, "")
         if replacing_today and series:
             series = series[:-1]
-        # Backfill a newly-seen entry so every series is the same length.
-        series = series[-length:].rjust(length, NO_DATA_CHAR)
+        # The gap goes on the END: the entry existed, we just did not look.
+        # Padding goes on the FRONT: a short series is an entry too young to
+        # have existed then. Conflating the two silently reorders the series.
+        series = series + gap_fill
+        if len(series) > length:
+            series = series[len(series) - length :]
+        series = series.rjust(length, NO_DATA_CHAR)
         merged[result.entry_id] = series + STATE_CHAR[result.state]
 
     days.append(today_iso)

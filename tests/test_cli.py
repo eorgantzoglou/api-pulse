@@ -366,12 +366,19 @@ def test_deleting_the_catalog_unblocks_a_legitimate_rename(tmp_path: Path):
     # history.json survives, so the re-minted ids are backfilled with no-data
     # for the days they did not exist under that id — they do not start a
     # clean one-character series. That is the accepted cost of this route.
-    assert history["entries"]["animals-pets--animal-0"] == ".L"
+    #
+    # Three columns, not two: 9-1 ran, 9-2 tripped the breaker and wrote
+    # nothing, 9-3 ran. The day a run failed is a real day with no measurement
+    # and now holds a column of its own, rather than being closed up as though
+    # it never happened.
+    assert history["entries"]["animals-pets--animal-0"] == "..L"
+    assert len(history["days"]) == 3
     # The orphaned old ids are dropped rather than accumulating: merge_history
     # keeps only entries present in the current run.
     assert "animals--animal-0" not in history["entries"]
-    # The untouched category keeps its real series.
-    assert history["entries"]["weather--weather-0"] == "LL"
+    # The untouched category keeps its real series, with the same no-data
+    # column for the day the breaker stopped the run.
+    assert history["entries"]["weather--weather-0"] == "L.L"
 
 
 def test_rekeying_the_data_preserves_history_across_a_rename(tmp_path: Path):

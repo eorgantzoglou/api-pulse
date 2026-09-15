@@ -313,3 +313,100 @@ def test_a_category_rename_trips_even_when_global_id_overlap_stays_high(
 
     with pytest.raises(SanityError, match="Animals"):
         check_category_continuity(new_ids, baseline)
+
+
+# --- gaps: days the pipeline did not run -------------------------------
+#
+# The pipeline was down for six days in September 2026 (a packaging fault
+# stopped every run before it reached the network). merge_history appended one
+# character per RUN, so those six days collapsed into a single adjacent column
+# and a 90-day window silently became a 90-probe window. These pin the
+# calendar-day semantics the spec and the README both claim.
+
+
+def test_a_skipped_day_inserts_a_no_data_column():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 9, 1))
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 9, 3))
+
+    assert history.days == ["2026-09-01", "2026-09-02", "2026-09-03"]
+    assert history.entries["a"] == "L.L"
+
+
+def test_the_gap_lands_where_the_time_passed_not_at_the_front():
+    # Padding a short series happens at the FRONT (the entry is young); a gap
+    # belongs at the END (the entry existed, we just did not look). Conflating
+    # them silently reorders every affected series.
+    history = merge_history(empty_history(), [result("a", ProbeState.NOT_FOUND)], date(2026, 9, 1))
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 9, 4))
+
+    assert history.entries["a"] == "N..L"
+    assert history.entries["a"][0] == "N"
+
+
+def test_every_skipped_day_gets_its_own_column():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 9, 9))
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 9, 15))
+
+    assert len(history.days) == 7
+    assert history.entries["a"] == "L.....L"
+    assert len(history.entries["a"]) == len(history.days)
+
+
+def test_an_entry_first_seen_after_a_gap_is_still_full_length():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 9, 1))
+    history = merge_history(
+        history, [result("a", ProbeState.LIVE), result("b", ProbeState.LIVE)], date(2026, 9, 4)
+    )
+
+    assert history.entries["b"] == "...L"
+    assert len(history.entries["b"]) == len(history.days)
+
+
+def test_consecutive_days_insert_no_gap():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 9, 1))
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 9, 2))
+
+    assert history.days == ["2026-09-01", "2026-09-02"]
+    assert history.entries["a"] == "LL"
+
+
+def test_a_same_day_rerun_after_a_gap_does_not_double_count_it():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 9, 1))
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 9, 4))
+    history = merge_history(history, [result("a", ProbeState.NOT_FOUND)], date(2026, 9, 4))
+
+    assert history.days == ["2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04"]
+    # 9-1 live, 9-2 and 9-3 never probed, 9-4 rewritten by the rerun.
+    assert history.entries["a"] == "L..N"
+    assert len(history.entries["a"]) == len(history.days)
+
+
+def test_a_gap_longer_than_the_window_still_trims_to_the_window():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 1, 1), window=5)
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 6, 1), window=5)
+
+    assert len(history.days) == 5
+    assert len(history.entries["a"]) == 5
+    assert history.days[-1] == "2026-06-01"
+    assert history.entries["a"] == "....L"
+
+
+def test_a_clock_that_goes_backwards_does_not_insert_negative_days():
+    history = merge_history(empty_history(), [result("a", ProbeState.LIVE)], date(2026, 9, 5))
+    history = merge_history(history, [result("a", ProbeState.LIVE)], date(2026, 9, 3))
+
+    assert len(history.entries["a"]) == len(history.days)
+
+
+def test_a_gap_breaks_a_failing_streak():
+    # An outage must not let a streak span days nobody measured — otherwise the
+    # pipeline coming back declares entries dead on evidence it never gathered.
+    history = merge_history(empty_history(), [result("a", ProbeState.NOT_FOUND)], date(2026, 9, 1))
+    history = merge_history(history, [result("a", ProbeState.NOT_FOUND)], date(2026, 9, 2))
+    history = merge_history(history, [result("a", ProbeState.NOT_FOUND)], date(2026, 9, 9))
+
+    assert history.entries["a"] == "NN" + "." * 6 + "N"
+    assert failing_streak(history.entries["a"]) == 1
+
+    (status,) = compute_status([entry("a")], [result("a", ProbeState.NOT_FOUND)], history)
+    assert status.likely_dead is False
