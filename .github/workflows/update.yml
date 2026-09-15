@@ -72,12 +72,35 @@ jobs:
           git config user.name "api-pulse-bot"
           git config user.email "api-pulse-bot@users.noreply.github.com"
           git add data
-          git diff --staged --quiet || git commit -m "chore: daily probe $(date -u +%Y-%m-%d)"
-          # Rebase onto anything pushed since checkout, so a human commit
-          # landing mid-run costs a replay rather than a rejected push, a
-          # failed job and a spurious issue.
-          git pull --rebase
-          git push
+
+          if git diff --staged --quiet; then
+            echo "Nothing changed; nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: daily probe $(date -u +%Y-%m-%d)"
+
+          # Retry rather than fail. Two things make a push fail without anything
+          # being wrong: GitHub's git endpoint returns a transient 500 (this cost
+          # run #8 on 2026-09-15 — "remote rejected ... Internal Server Error"),
+          # and a human commit can land between checkout and push. Neither is
+          # worth a red run, an email and a GitHub issue, and a pipeline that
+          # cries wolf is one whose alerts get ignored — which is far more
+          # dangerous here than a missed day, because this thing is meant to run
+          # unattended for months. A rebase between attempts covers the race; the
+          # backoff covers the outage. Only a push still failing after ~2.5
+          # minutes is treated as real.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; backing off and rebasing."
+            sleep $(( attempt * 15 ))
+            git pull --rebase || true
+          done
+
+          echo "::error::Push still failing after 5 attempts."
+          exit 1
 
       - name: Open an issue if the run did not succeed
         # `!success()`, not `failure()`: a cancelled job — including one
