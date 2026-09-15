@@ -7,6 +7,15 @@ dependencies = ["httpx==0.27.2"]
 [project.optional-dependencies]
 dev = ["pytest==8.3.3", "pytest-asyncio==0.23.8"]
 
+# Name the package explicitly rather than letting setuptools discover it.
+# The pipeline commits its output to data/, which makes this repository a
+# flat layout with two top-level directories; automatic discovery then
+# refuses to guess between them and the install fails. The first successful
+# run created data/, so every run after it broke — the pipeline disabled
+# itself by working. Discovery must never see this repo's layout again.
+[tool.setuptools]
+packages = ["api_pulse"]
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
