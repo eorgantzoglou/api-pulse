@@ -1,5 +1,5 @@
 {
- "count": 1811,
+ "count": 1812,
  "entries": [
   {
    "auth": "",
@@ -15244,6 +15244,16 @@
   {
    "auth": "apiKey",
    "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Real-time sports odds and player props from 45+ sportsbooks and sources across 90+ sports",
+   "https": true,
+   "id": "sports-fitness--parlay",
+   "name": "Parlay",
+   "url": "https://parlay-api.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
    "cors": "unknown",
    "description": "Player-level Elo ratings, predictions and history for 176 football leagues",
    "https": true,
@@ -18112,6 +18122,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-15",
+ "generated": "2026-09-16",
  "schema": 1
 }
