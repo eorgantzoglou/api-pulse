@@ -1,5 +1,5 @@
 {
- "count": 1812,
+ "count": 1829,
  "entries": [
   {
    "auth": "",
@@ -670,6 +670,16 @@
    "id": "art-design--europeana",
    "name": "Europeana",
    "url": "https://pro.europeana.eu/resources/apis/search"
+  },
+  {
+   "auth": "",
+   "category": "Art & Design",
+   "cors": "yes",
+   "description": "Read-only lookup for published face-shape guide records",
+   "https": true,
+   "id": "art-design--face-shape-guide-lookup",
+   "name": "Face Shape Guide Lookup",
+   "url": "https://myfaceshapechart.com/openapi.json"
   },
   {
    "auth": "apiKey",
@@ -2484,6 +2494,16 @@
   {
    "auth": "",
    "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Corporate, government and ETF Bitcoin, Ethereum and Solana treasury disclosures",
+   "https": true,
+   "id": "cryptocurrency--corpstacking",
+   "name": "CorpStacking",
+   "url": "https://www.corpstacking.com/feed.json"
+  },
+  {
+   "auth": "",
+   "category": "Cryptocurrency",
    "cors": "unknown",
    "description": "Cryptocurrency Payment Processor",
    "https": true,
@@ -2530,6 +2550,16 @@
    "id": "cryptocurrency--cryptonator",
    "name": "Cryptonator",
    "url": "https://www.cryptonator.com/api/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Real-time Ethereum whale wallet tracking, DEX trades, net flow, and conviction scoring",
+   "https": true,
+   "id": "cryptocurrency--deep-blue-alpha",
+   "name": "Deep Blue Alpha",
+   "url": "https://deepbluealpha.io/whale-api"
   },
   {
    "auth": "",
@@ -3664,6 +3694,16 @@
   {
    "auth": "apiKey",
    "category": "Development",
+   "cors": "no",
+   "description": "Website screenshot API with cookie banners and chat widgets removed; free tier",
+   "https": true,
+   "id": "development--framejet",
+   "name": "Framejet",
+   "url": "https://framejet.dev/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
    "cors": "unknown",
    "description": "Provide numerous capabilities for important testing and monitoring methods for websites",
    "https": true,
@@ -4232,6 +4272,16 @@
    "url": "https://nationalize.io"
   },
   {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Everything derivable from one value: numbers, dates, colours, UUIDs, cron expressions",
+   "https": true,
+   "id": "development--nerdulator",
+   "name": "Nerdulator",
+   "url": "https://nerdulator.com/api"
+  },
+  {
    "auth": "OAuth",
    "category": "Development",
    "cors": "unknown",
@@ -4662,6 +4712,16 @@
    "url": "https://screenshotapi.net/"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Lightweight event routing and webhook fan-out API alternative to Segment",
+   "https": true,
+   "id": "development--segmentlite",
+   "name": "SegmentLite",
+   "url": "https://segmentlite-api-dfru.fly.dev"
+  },
+  {
    "auth": "",
    "category": "Development",
    "cors": "no",
@@ -4990,6 +5050,16 @@
    "id": "dictionaries--oxford",
    "name": "Oxford",
    "url": "https://developer.oxforddictionaries.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Dictionaries",
+   "cors": "yes",
+   "description": "English video pronunciation search with timestamps, IPA phonetics and subtitle context",
+   "https": true,
+   "id": "dictionaries--sayitvid",
+   "name": "SayItVid",
+   "url": "https://sayitvid.com"
   },
   {
    "auth": "apiKey",
@@ -6324,16 +6394,6 @@
   {
    "auth": "apiKey",
    "category": "Finance",
-   "cors": "unknown",
-   "description": "Clean SEC EDGAR company financials, ratios, filings and 10-K/10-Q sections as normalized JSON",
-   "https": true,
-   "id": "finance--edgrapi",
-   "name": "Edgrapi",
-   "url": "https://edgrapi.com"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Finance",
    "cors": "yes",
    "description": "Real-time and historical stock market data with 150+ exchanges",
    "https": true,
@@ -6770,6 +6830,16 @@
    "id": "finance--sugra",
    "name": "Sugra",
    "url": "https://sugra.ai"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Computes exact sales tax amounts and breakdowns for checkout and billing",
+   "https": true,
+   "id": "finance--sales-tax-calculator",
+   "name": "Sales Tax Calculator",
+   "url": "https://salestaxcalculatorapi.com"
   },
   {
    "auth": "apiKey",
@@ -9482,6 +9552,16 @@
    "url": "https://ecourtsindia.com/api"
   },
   {
+   "auth": "apiKey",
+   "category": "Government",
+   "cors": "yes",
+   "description": "US government data as JSON: SAM.gov contract opportunities, USAspending awards, Grants.gov grants",
+   "https": true,
+   "id": "government--edgrapi",
+   "name": "Edgrapi",
+   "url": "https://edgrapi.com/docs"
+  },
+  {
    "auth": "",
    "category": "Government",
    "cors": "yes",
@@ -10650,6 +10730,16 @@
    "id": "health--stanza-dscsa-verifier",
    "name": "Stanza DSCSA Verifier",
    "url": "https://stanzaapi.com/tools/pharma-dscsa"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Health",
+   "cors": "no",
+   "description": "Decode and validate FDA GUDID and EU MDR medical device UDI barcodes",
+   "https": true,
+   "id": "health--stanza-udi-decoder",
+   "name": "Stanza UDI Decoder",
+   "url": "https://stanzaapi.com/tools/udi-decoder"
   },
   {
    "auth": "",
@@ -11902,6 +11992,16 @@
    "url": "https://archive.readme.io/docs"
   },
   {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Cloud data warehouse list prices, read daily from AWS and Azure pricing APIs, with price history",
+   "https": true,
+   "id": "open-data--big-data-explained",
+   "name": "Big Data Explained",
+   "url": "https://bigdataexplained.com/data"
+  },
+  {
    "auth": "apiKey",
    "category": "Open Data",
    "cors": "yes",
@@ -11960,6 +12060,16 @@
    "id": "open-data--collegescorecard-ed-gov",
    "name": "CollegeScoreCard.ed.gov",
    "url": "https://collegescorecard.ed.gov/data/"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "no",
+   "description": "Coworking spaces and offices in 63 European and Gulf cities with operator-published prices",
+   "https": true,
+   "id": "open-data--coworkingview",
+   "name": "CoworkingView",
+   "url": "https://coworkingview.com/openapi.json"
   },
   {
    "auth": "",
@@ -13804,6 +13914,16 @@
   {
    "auth": "apiKey",
    "category": "Security",
+   "cors": "yes",
+   "description": "Screen crypto addresses, emails, websites, IDs and countries against OFAC, EU, UK sanctions lists",
+   "https": true,
+   "id": "security--compliapi",
+   "name": "CompliAPI",
+   "url": "https://docs.compliapi.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Security",
    "cors": "unknown",
    "description": "Chrome extension risk scoring",
    "https": true,
@@ -15012,6 +15132,16 @@
    "url": "http://api.cfl.ca/"
   },
   {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "no",
+   "description": "UFC and MMA fight data: fighters, cards, round stats, rankings and live state",
+   "https": true,
+   "id": "sports-fitness--cito-ufc-api",
+   "name": "Cito UFC API",
+   "url": "https://citoapi.com/ufc-api/"
+  },
+  {
    "auth": "",
    "category": "Sports & Fitness",
    "cors": "unknown",
@@ -15060,6 +15190,16 @@
    "id": "sports-fitness--ergast-f1",
    "name": "Ergast F1",
    "url": "http://ergast.com/mrd/"
+  },
+  {
+   "auth": "",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Real-time FanDuel Sportsbook odds — live & in-play and pre-match, with a keyless public snapshot",
+   "https": true,
+   "id": "sports-fitness--fanline-wire",
+   "name": "FanLine Wire",
+   "url": "https://fanlinewire.com/docs"
   },
   {
    "auth": "OAuth",
@@ -15195,6 +15335,16 @@
    "auth": "",
    "category": "Sports & Fitness",
    "cors": "yes",
+   "description": "Independent monthly latency benchmark of sports odds APIs, with free JSON and CSV data",
+   "https": true,
+   "id": "sports-fitness--oddsbench",
+   "name": "OddsBench",
+   "url": "https://oddsbench.xyz/api/"
+  },
+  {
+   "auth": "",
+   "category": "Sports & Fitness",
+   "cors": "yes",
    "description": "Odds history from multiple UK bookmakers",
    "https": true,
    "id": "sports-fitness--oddsmagnet",
@@ -15250,6 +15400,16 @@
    "id": "sports-fitness--parlay",
    "name": "Parlay",
    "url": "https://parlay-api.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "no",
+   "description": "Real-time Pinnacle odds for 13 sports — live and prematch over REST, WebSocket and SSE drop alerts",
+   "https": true,
+   "id": "sports-fitness--pinnwire",
+   "name": "PinnWire",
+   "url": "https://pinnwire.com/docs.html"
   },
   {
    "auth": "apiKey",
@@ -15750,6 +15910,16 @@
    "id": "test-data--uuid-generator",
    "name": "UUID Generator",
    "url": "https://www.uuidtools.com/docs"
+  },
+  {
+   "auth": "",
+   "category": "Test Data",
+   "cors": "yes",
+   "description": "Deterministic SVG/PNG/WebP avatars from any string, four styles",
+   "https": true,
+   "id": "test-data--waldrand-avatar",
+   "name": "Waldrand Avatar",
+   "url": "https://avatar.waldrand.dev"
   },
   {
    "auth": "",
@@ -18122,6 +18292,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-17",
+ "generated": "2026-09-18",
  "schema": 1
 }
