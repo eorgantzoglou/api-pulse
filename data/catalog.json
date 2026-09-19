@@ -1,5 +1,5 @@
 {
- "count": 1829,
+ "count": 1846,
  "entries": [
   {
    "auth": "",
@@ -2842,6 +2842,16 @@
    "url": "https://docs.solana.com/developing/clients/jsonrpc-api"
   },
   {
+   "auth": "",
+   "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Bitcoin solo mining pool stats, per-address miner stats and an open dataset of solo-mined blocks",
+   "https": true,
+   "id": "cryptocurrency--sololuck",
+   "name": "SoloLuck",
+   "url": "https://sololuck.io/api"
+  },
+  {
    "auth": "apiKey",
    "category": "Cryptocurrency",
    "cors": "no",
@@ -3280,6 +3290,16 @@
    "id": "development--aether-bridge",
    "name": "Aether Bridge",
    "url": "https://a-to-mind.com"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Continuously probed registry of APIs, MCP servers and CLIs callable by agents",
+   "https": true,
+   "id": "development--agent-nexus",
+   "name": "Agent Nexus",
+   "url": "https://agentnexus.app/llms.txt"
   },
   {
    "auth": "",
@@ -4172,6 +4192,16 @@
    "url": "https://github.com/cmccandless/license-api/blob/master/README.md"
   },
   {
+   "auth": "",
+   "category": "Development",
+   "cors": "no",
+   "description": "Live-tested HTTP, SOCKS4, and SOCKS5 proxies with latency, uptime, and geolocation",
+   "https": true,
+   "id": "development--litport-free-proxy",
+   "name": "Litport Free Proxy",
+   "url": "https://litport.net/docs/free-proxy-api"
+  },
+  {
    "auth": "apiKey",
    "category": "Development",
    "cors": "unknown",
@@ -4260,6 +4290,16 @@
    "id": "development--myiprightnow",
    "name": "MyIPRightNow",
    "url": "https://myiprightnow.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Gender from a first name, full name, email or username, with probability",
+   "https": true,
+   "id": "development--namegender",
+   "name": "NameGender",
+   "url": "https://namegender.com/docs"
   },
   {
    "auth": "",
@@ -5572,6 +5612,16 @@
    "url": "https://dropmail.me/api/#live-demo"
   },
   {
+   "auth": "",
+   "category": "Email",
+   "cors": "yes",
+   "description": "Send a test message and get a spam score, 41 checks with RFC citations and a fix plan",
+   "https": true,
+   "id": "email--email-spam-tester",
+   "name": "Email Spam Tester",
+   "url": "https://email-spam-tester.com/api-docs/"
+  },
+  {
    "auth": "apiKey",
    "category": "Email",
    "cors": "yes",
@@ -5780,6 +5830,16 @@
    "id": "email--verifier",
    "name": "Verifier",
    "url": "https://verifier.meetchopra.com/docs#/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "no",
+   "description": "Temp email address REST API for privacy, testing, automation with OTP extraction",
+   "https": true,
+   "id": "email--xeramail-temp-mail",
+   "name": "Xeramail Temp Mail",
+   "url": "https://xeramail.com/docs/api"
   },
   {
    "auth": "apiKey",
@@ -6940,6 +7000,16 @@
    "id": "finance--xfinlab",
    "name": "XFINLAB",
    "url": "https://www.xfinlab.com/intelligence-api.html"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "US market data from SEC, FINRA, CFTC and the Fed: filings, insiders, earnings dates, short interest",
+   "https": true,
+   "id": "finance--xoomar",
+   "name": "XOOMAR",
+   "url": "https://xoomar.com/markets/api"
   },
   {
    "auth": "apiKey",
@@ -8354,6 +8424,16 @@
   {
    "auth": "apiKey",
    "category": "Geocoding",
+   "cors": "no",
+   "description": "Reverse geocode coordinates to country, region and municipality with ISO 3166 codes",
+   "https": true,
+   "id": "geocoding--atlasfetch",
+   "name": "AtlasFetch",
+   "url": "https://atlasfetch.xyz/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
    "cors": "unknown",
    "description": "A (country/region/city) in-cascade location API",
    "https": false,
@@ -9580,6 +9660,16 @@
    "id": "government--epa",
    "name": "EPA",
    "url": "https://www.epa.gov/developers/data-data-products#apis"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "yes",
+   "description": "EU VAT rates mapped to CN and CPA commodity codes, all 27 member states",
+   "https": true,
+   "id": "government--eu-vat-rates-by-commodity-code",
+   "name": "EU VAT Rates by Commodity Code",
+   "url": "https://github.com/humora2504/eu-vat-by-commodity-code"
   },
   {
    "auth": "apiKey",
@@ -10935,6 +11025,16 @@
    "auth": "apiKey",
    "category": "Jobs",
    "cors": "unknown",
+   "description": "Aggregated job postings search, deduplicated on identifier, with coverage per segment",
+   "https": true,
+   "id": "jobs--rankfabrik-jobs",
+   "name": "RankFabrik Jobs",
+   "url": "https://rankfabrik.com/produits/emplois"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
+   "cors": "unknown",
    "description": "Job board aggregator",
    "https": true,
    "id": "jobs--reed",
@@ -11860,6 +11960,16 @@
    "id": "news--newsflash",
    "name": "Newsflash",
    "url": "https://newsflash.sh/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "News",
+   "cors": "no",
+   "description": "Premium news data from thousands of sources",
+   "https": true,
+   "id": "news--newsmesh",
+   "name": "NewsMesh",
+   "url": "https://newsmesh.co/docs"
   },
   {
    "auth": "apiKey",
@@ -13664,6 +13774,16 @@
   {
    "auth": "apiKey",
    "category": "Science & Math",
+   "cors": "no",
+   "description": "Sub-arcsecond planetary positions, natal charts, transits, and Human Design from NASA JPL DE440",
+   "https": true,
+   "id": "science-math--open-ephemeris",
+   "name": "Open Ephemeris",
+   "url": "https://openephemeris.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Science & Math",
    "cors": "yes",
    "description": "Catalog of 16,000+ satellites merging CelesTrak, GCAT, Wikidata; free tier included",
    "https": true,
@@ -14290,6 +14410,16 @@
    "id": "security--threat-jammer",
    "name": "Threat Jammer",
    "url": "https://threatjammer.com/docs/index"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Security",
+   "cors": "no",
+   "description": "Threat intelligence: incident clusters, validated IOCs, CVEs, ransomware leak-site victims",
+   "https": true,
+   "id": "security--threatcluster",
+   "name": "ThreatCluster",
+   "url": "https://threatcluster.io/api/public/v1/docs"
   },
   {
    "auth": "",
@@ -15352,6 +15482,16 @@
    "url": "https://data.oddsmagnet.com"
   },
   {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "no",
+   "description": "Live and prematch Betradar odds with raw no-vig probabilities, REST and SSE",
+   "https": true,
+   "id": "sports-fitness--oddsradarwire",
+   "name": "OddsRadarWire",
+   "url": "https://oddsradarwire.com/docs.html"
+  },
+  {
    "auth": "",
    "category": "Sports & Fitness",
    "cors": "yes",
@@ -16262,6 +16402,16 @@
    "url": "https://www.adsbexchange.com/data/"
   },
   {
+   "auth": "apiKey",
+   "category": "Transportation",
+   "cors": "yes",
+   "description": "Real-time port congestion risk scores, ETA delays and waiting vessels for 15 global ports",
+   "https": true,
+   "id": "transportation--aether-x-port-congestion",
+   "name": "Aether-X Port Congestion",
+   "url": "https://aether-x-oracle-production.up.railway.app/docs"
+  },
+  {
    "auth": "",
    "category": "Transportation",
    "cors": "unknown",
@@ -16270,6 +16420,16 @@
    "id": "transportation--airportsapi",
    "name": "airportsapi",
    "url": "https://airport-web.appspot.com/api/docs/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Transportation",
+   "cors": "yes",
+   "description": "Predictive port congestion, ETA delay and freight volatility signals for 16 global ports",
+   "https": true,
+   "id": "transportation--aether-x-port-congestion-oracle",
+   "name": "Aether-X Port Congestion Oracle",
+   "url": "https://rapidapi.com/belegante/api/aether-x-port-congestion-oracle"
   },
   {
    "auth": "apiKey",
@@ -16480,6 +16640,16 @@
    "id": "transportation--graphhopper",
    "name": "GraphHopper",
    "url": "https://docs.graphhopper.com/"
+  },
+  {
+   "auth": "",
+   "category": "Transportation",
+   "cors": "yes",
+   "description": "Data-quality grades and prioritized fixes for 2,400+ public transit GTFS feed records",
+   "https": true,
+   "id": "transportation--gtfs-scorecard",
+   "name": "GTFS Scorecard",
+   "url": "https://github.com/ChelseaKR/gtfs-scorecard/blob/main/docs/api.md"
   },
   {
    "auth": "",
@@ -18292,6 +18462,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-18",
+ "generated": "2026-09-19",
  "schema": 1
 }
