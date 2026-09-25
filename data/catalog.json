@@ -1,5 +1,5 @@
 {
- "count": 1887,
+ "count": 1907,
  "entries": [
   {
    "auth": "apiKey",
@@ -1230,6 +1230,16 @@
    "id": "books--google-books",
    "name": "Google Books",
    "url": "https://developers.google.com/books/"
+  },
+  {
+   "auth": "",
+   "category": "Books",
+   "cors": "yes",
+   "description": "Catalog of practical AI books with search, series, glossary and a claim ledger",
+   "https": true,
+   "id": "books--greenlit-books",
+   "name": "Greenlit Books",
+   "url": "https://greenlitbooks.com/developers"
   },
   {
    "auth": "",
@@ -3254,6 +3264,16 @@
   {
    "auth": "apiKey",
    "category": "Currency Exchange",
+   "cors": "yes",
+   "description": "Hourly exchange rates for 160+ currencies in JSON, XML or CSV with free plan 2,500 requests/month",
+   "https": true,
+   "id": "currency-exchange--rate-api",
+   "name": "Rate-API",
+   "url": "https://rate-api.com/docs/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Currency Exchange",
    "cors": "unknown",
    "description": "EU VAT number validation with company name and address lookup across all 27 member states",
    "https": true,
@@ -3344,6 +3364,16 @@
   {
    "auth": "apiKey",
    "category": "Data Validation",
+   "cors": "no",
+   "description": "Validate and standardize US addresses, with ZIP+4 and deliverability status",
+   "https": true,
+   "id": "data-validation--sthan-io-address-verification",
+   "name": "sthan.io Address Verification",
+   "url": "https://sthan.io/products/address-verification-usa"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Data Validation",
    "cors": "yes",
    "description": "Validates Turkish national ID, tax number, IBAN, phone, plate and parses addresses",
    "https": true,
@@ -3380,6 +3410,16 @@
    "id": "data-validation--us-street-address",
    "name": "US Street Address",
    "url": "https://www.smarty.com/docs/cloud/us-street-api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Data Validation",
+   "cors": "no",
+   "description": "Validates email, phone, IBAN, EU VAT against VIES, and Canadian, Spanish and US national IDs",
+   "https": true,
+   "id": "data-validation--verifnow",
+   "name": "VerifNow",
+   "url": "https://docs.verifnow.io"
   },
   {
    "auth": "OAuth",
@@ -3640,6 +3680,16 @@
    "id": "development--changelogs-md",
    "name": "Changelogs.md",
    "url": "https://changelogs.md"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Chart image API: turn a URL into a PNG or SVG chart (bar, pie, donut, stacked)",
+   "https": true,
+   "id": "development--chartbytes",
+   "name": "ChartBytes",
+   "url": "https://chartbytes.onrender.com"
   },
   {
    "auth": "",
@@ -4060,6 +4110,16 @@
    "id": "development--host-io",
    "name": "Host.io",
    "url": "https://host.io"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Source-backed hosting price and provider record lookup",
+   "https": true,
+   "id": "development--hostdealradar",
+   "name": "HostDealRadar",
+   "url": "https://hostdealradar.com/ai/"
   },
   {
    "auth": "",
@@ -4520,6 +4580,16 @@
    "id": "development--open-page-rank",
    "name": "Open Page Rank",
    "url": "https://www.domcop.com/openpagerank/"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Search and access VS Code extensions from the Open VSX registry",
+   "https": true,
+   "id": "development--open-vsx",
+   "name": "Open VSX",
+   "url": "https://open-vsx.org/"
   },
   {
    "auth": "X-Mashape-Key",
@@ -5454,6 +5524,16 @@
   {
    "auth": "apiKey",
    "category": "Documents & Productivity",
+   "cors": "no",
+   "description": "Render PDFs and images from HTML (Jinja2, Liquid, Handlebars) or Word templates, with a free tier",
+   "https": true,
+   "id": "documents-productivity--formfeed",
+   "name": "Formfeed",
+   "url": "https://docs.formfeed.dev/api/overview"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
    "cors": "unknown",
    "description": "HTML/URL to PDF",
    "https": true,
@@ -5930,6 +6010,16 @@
    "id": "email--mailcheck-ai",
    "name": "MailCheck.ai",
    "url": "https://www.mailcheck.ai/#documentation"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "yes",
+   "description": "Disposable inboxes for end-to-end signup tests, with long-polling and HMAC-signed webhooks",
+   "https": true,
+   "id": "email--mailfornet",
+   "name": "Mailfornet",
+   "url": "https://mailfornet.com/api"
   },
   {
    "auth": "apiKey",
@@ -7025,6 +7115,16 @@
    "auth": "",
    "category": "Finance",
    "cors": "yes",
+   "description": "Kalshi & Polymarket trading fee rates and formulas as verified JSON",
+   "https": true,
+   "id": "finance--polykal-fees",
+   "name": "PolyKal Fees",
+   "url": "https://polymarket-kalshi.com/fee-schedule/"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
    "description": "Portfolio analysis and optimization",
    "https": true,
    "id": "finance--portfolio-optimizer",
@@ -7310,6 +7410,16 @@
    "id": "food-drink--coffee",
    "name": "Coffee",
    "url": "https://coffee.alexflipnote.dev/"
+  },
+  {
+   "auth": "",
+   "category": "Food & Drink",
+   "cors": "yes",
+   "description": "U.S. FDA and USDA food recalls, merged and normalized, updated daily",
+   "https": true,
+   "id": "food-drink--daily-food-recalls",
+   "name": "Daily Food Recalls",
+   "url": "https://dailyfoodrecalls.com/api/"
   },
   {
    "auth": "apiKey",
@@ -11745,6 +11855,16 @@
    "auth": "apiKey",
    "category": "Machine Learning",
    "cors": "yes",
+   "description": "OpenAI compatible LLM router for 600+ models, with a free tier for free models",
+   "https": true,
+   "id": "machine-learning--requesty",
+   "name": "Requesty",
+   "url": "https://docs.requesty.ai"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
+   "cors": "yes",
    "description": "Pre-trained computer vision models",
    "https": true,
    "id": "machine-learning--roboflow-universe",
@@ -12580,6 +12700,16 @@
    "id": "open-data--genesis",
    "name": "GENESIS",
    "url": "https://www.destatis.de/EN/Service/OpenData/api-webservice.html"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "US rental listings from property managers' own websites, verified weekly",
+   "https": true,
+   "id": "open-data--housingfeed",
+   "name": "HousingFeed",
+   "url": "https://housingfeed.com/docs"
   },
   {
    "auth": "apiKey",
@@ -14605,6 +14735,16 @@
    "auth": "",
    "category": "Security",
    "cors": "yes",
+   "description": "Check IP addresses against 140+ public threat intelligence blocklists",
+   "https": true,
+   "id": "security--ipguardian",
+   "name": "IPGuardian",
+   "url": "https://ipguardian.net/docs"
+  },
+  {
+   "auth": "",
+   "category": "Security",
+   "cors": "yes",
    "description": "Free VPN, proxy, Tor and datacenter IP detection. 13 sources, active probing",
    "https": true,
    "id": "security--iplogs",
@@ -14720,6 +14860,16 @@
    "id": "security--pulsedive",
    "name": "Pulsedive",
    "url": "https://pulsedive.com/api/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Security",
+   "cors": "yes",
+   "description": "AI media forensics and synthetic content verification for video, audio, image, and text",
+   "https": true,
+   "id": "security--sealed-rose",
+   "name": "Sealed Rose",
+   "url": "https://sealedrose.com/verify-video"
   },
   {
    "auth": "apiKey",
@@ -14970,6 +15120,16 @@
    "id": "shopping--olx-poland",
    "name": "OLX Poland",
    "url": "https://developer.olx.pl/api/doc#section/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Shopping",
+   "cors": "unknown",
+   "description": "Official e-commerce API and webhooks",
+   "https": true,
+   "id": "shopping--opentiendas",
+   "name": "OpenTiendas",
+   "url": "https://opentiendas.dev/redocusaurus/plugin-redoc-0.yaml"
   },
   {
    "auth": "apiKey",
@@ -15820,6 +15980,16 @@
    "id": "sports-fitness--nhl-records-and-stats",
    "name": "NHL Records and Stats",
    "url": "https://gitlab.com/dword4/nhlapi"
+  },
+  {
+   "auth": "",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Weekly NFL game picks with model win probability, confidence tier and spread",
+   "https": true,
+   "id": "sports-fitness--nopunt",
+   "name": "NoPunt",
+   "url": "https://www.nopunt.com/api/picks.json"
   },
   {
    "auth": "apiKey",
@@ -17134,6 +17304,16 @@
   {
    "auth": "",
    "category": "Transportation",
+   "cors": "yes",
+   "description": "Irish Rail planned engineering works: affected stations, DART closures, change log and ICS feeds",
+   "https": true,
+   "id": "transportation--railworks",
+   "name": "Railworks",
+   "url": "https://railworks.paddez.com/docs"
+  },
+  {
+   "auth": "",
+   "category": "Transportation",
    "cors": "unknown",
    "description": "Provides safe restroom access for transgender, intersex and gender nonconforming individuals",
    "https": true,
@@ -18402,6 +18582,16 @@
    "url": "https://rapidapi.com/unogs/api/unogsng"
   },
   {
+   "auth": "",
+   "category": "Video",
+   "cors": "yes",
+   "description": "Turn a YouTube URL into a markdown thumbnail image link",
+   "https": true,
+   "id": "video--video-to-markdown",
+   "name": "Video to Markdown",
+   "url": "https://video-to-markdown.com/api"
+  },
+  {
    "auth": "apiKey",
    "category": "Video",
    "cors": "no",
@@ -18772,6 +18962,16 @@
    "url": "https://stormglass.io/"
   },
   {
+   "auth": "",
+   "category": "Weather",
+   "cors": "yes",
+   "description": "Terrace open/closed verdict for restaurants, from the weather forecast",
+   "https": true,
+   "id": "weather--terrace-weather",
+   "name": "Terrace Weather",
+   "url": "https://terrace.javiermateo.dev/swagger-ui.html"
+  },
+  {
    "auth": "apiKey",
    "category": "Weather",
    "cors": "unknown",
@@ -18872,6 +19072,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-24",
+ "generated": "2026-09-25",
  "schema": 1
 }
