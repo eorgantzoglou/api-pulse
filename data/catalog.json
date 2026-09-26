@@ -1,5 +1,5 @@
 {
- "count": 1907,
+ "count": 1913,
  "entries": [
   {
    "auth": "apiKey",
@@ -4032,6 +4032,16 @@
    "url": "https://developers.google.com/keep/api/reference/rest"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Website performance and Lighthouse audit scores",
+   "https": true,
+   "id": "development--google-pagespeed-insights",
+   "name": "Google PageSpeed Insights",
+   "url": "https://developers.google.com/speed/docs/insights/v5/get-started"
+  },
+  {
    "auth": "OAuth",
    "category": "Development",
    "cors": "unknown",
@@ -5052,6 +5062,16 @@
    "url": "https://siteintel.duckdns.org"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "unknown",
+   "description": "Scrape, crawl, map and search the web as clean markdown or JSON, with a free monthly tier",
+   "https": true,
+   "id": "development--snoopscan",
+   "name": "SnoopScan",
+   "url": "https://snoopscan.com/docs"
+  },
+  {
    "auth": "",
    "category": "Development",
    "cors": "yes",
@@ -5170,6 +5190,16 @@
    "id": "development--tyk",
    "name": "Tyk",
    "url": "https://tyk.io/open-source/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
+   "description": "Turn a URL into Markdown, screenshots, metadata or Lighthouse audits, rendered in real Chrome",
+   "https": true,
+   "id": "development--urlpipe",
+   "name": "URLpipe",
+   "url": "https://urlpipe.dev/docs"
   },
   {
    "auth": "apiKey",
@@ -9405,6 +9435,16 @@
    "auth": "",
    "category": "Geocoding",
    "cors": "yes",
+   "description": "Portuguese address autocomplete and 7-digit postal codes (CP7)",
+   "https": true,
+   "id": "geocoding--moradas",
+   "name": "Moradas",
+   "url": "https://moradas.dev/docs"
+  },
+  {
+   "auth": "",
+   "category": "Geocoding",
+   "cors": "yes",
    "description": "Provides worldwide forward / reverse geocoding",
    "https": true,
    "id": "geocoding--nominatim",
@@ -10100,6 +10140,16 @@
    "id": "government--fbi-wanted",
    "name": "FBI Wanted",
    "url": "https://www.fbi.gov/wanted/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Government",
+   "cors": "unknown",
+   "description": "Screen firm names against FDA Import Alert Red, Yellow and Green Lists",
+   "https": true,
+   "id": "government--fda-import-alert-screening",
+   "name": "FDA Import Alert Screening",
+   "url": "https://aerviklabs.com/apis/fda-import-alerts/"
   },
   {
    "auth": "apiKey",
@@ -12320,6 +12370,16 @@
    "id": "news--currents",
    "name": "Currents",
    "url": "https://currentsapi.services/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "News",
+   "cors": "no",
+   "description": "Developer news feeds, posts, bookmarks, tags and search from daily.dev",
+   "https": true,
+   "id": "news--daily-dev",
+   "name": "daily.dev",
+   "url": "https://docs.daily.dev/public-api/"
   },
   {
    "auth": "",
@@ -19072,6 +19132,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-25",
+ "generated": "2026-09-26",
  "schema": 1
 }
