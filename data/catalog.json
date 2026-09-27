@@ -1,5 +1,5 @@
 {
- "count": 1913,
+ "count": 1938,
  "entries": [
   {
    "auth": "apiKey",
@@ -1624,6 +1624,16 @@
   {
    "auth": "apiKey",
    "category": "Business",
+   "cors": "unknown",
+   "description": "Search businesses and points of interest by city, deduplicated with a coverage report",
+   "https": true,
+   "id": "business--rankfabrik-places",
+   "name": "RankFabrik Places",
+   "url": "https://rankfabrik.com/produits/etablissements"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Business",
    "cors": "yes",
    "description": "Access your queries and dashboards on Redash",
    "https": true,
@@ -2090,6 +2100,16 @@
    "id": "cloud-storage-file-sharing--quip",
    "name": "Quip",
    "url": "https://quip.com/dev/automation/documentation"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Cloud Storage & File Sharing",
+   "cors": "unknown",
+   "description": "Cloud file storage, version history, sharing and incoming email attachments",
+   "https": true,
+   "id": "cloud-storage-file-sharing--revdoku",
+   "name": "Revdoku",
+   "url": "https://revdoku.com/api.md"
   },
   {
    "auth": "apiKey",
@@ -3234,6 +3254,16 @@
   {
    "auth": "",
    "category": "Currency Exchange",
+   "cors": "yes",
+   "description": "Exchange rates for 144 currencies with daily history back to the 1990s, English and Arabic",
+   "https": true,
+   "id": "currency-exchange--fulusly",
+   "name": "Fulusly",
+   "url": "https://fulusly.soft9.us/developers"
+  },
+  {
+   "auth": "",
+   "category": "Currency Exchange",
    "cors": "unknown",
    "description": "Source-linked historical reference exchange rates with CSV, JSON and an MCP server",
    "https": true,
@@ -3360,6 +3390,16 @@
    "id": "data-validation--schemashield",
    "name": "SchemaShield",
    "url": "https://rapidapi.com/kaiasistentedavid/api/schema-change-risk"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Data Validation",
+   "cors": "no",
+   "description": "Parse freeform US addresses into structured fields (house number, street, unit, city, state, ZIP)",
+   "https": true,
+   "id": "data-validation--sthan-io-address-parser",
+   "name": "sthan.io Address Parser",
+   "url": "https://sthan.io/products/address-parser-usa"
   },
   {
    "auth": "apiKey",
@@ -3962,6 +4002,16 @@
    "url": "https://docs.github.com/en/free-pro-team@latest/rest"
   },
   {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "GitHub Trending repositories with star history and open-source alternatives to paid tools",
+   "https": true,
+   "id": "development--githubtrends",
+   "name": "GithubTrends",
+   "url": "https://githubtrends.app/api/"
+  },
+  {
    "auth": "OAuth",
    "category": "Development",
    "cors": "unknown",
@@ -3990,6 +4040,16 @@
    "id": "development--glitterly",
    "name": "Glitterly",
    "url": "https://developers.glitterly.app"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "unknown",
+   "description": "Go module versions and source metadata",
+   "https": true,
+   "id": "development--go-module-proxy",
+   "name": "Go Module Proxy",
+   "url": "https://go.dev/ref/mod#goproxy-protocol"
   },
   {
    "auth": "OAuth",
@@ -4100,6 +4160,16 @@
    "id": "development--hex",
    "name": "Hex",
    "url": "https://github.com/hexpm/specifications"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "unknown",
+   "description": "Package and cask data for the Homebrew package manager",
+   "https": true,
+   "id": "development--homebrew-formulae",
+   "name": "Homebrew Formulae",
+   "url": "https://formulae.brew.sh/api/"
   },
   {
    "auth": "",
@@ -5165,6 +5235,16 @@
    "auth": "",
    "category": "Development",
    "cors": "yes",
+   "description": "Current time, UTC offset and DST for any time zone or IP, a drop-in WorldTimeAPI replacement",
+   "https": true,
+   "id": "development--timezone-worldtime",
+   "name": "Timezone WorldTime",
+   "url": "https://www.timezone.io/docs/worldtimeapi"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
    "description": "Free APIs by an AI agent on a VPS: actor lookup, word-of-the-day, poems, jokes, ping",
    "https": true,
    "id": "development--tinymind-agent-tools",
@@ -5460,6 +5540,16 @@
    "id": "documents-productivity--asana",
    "name": "Asana",
    "url": "https://developers.asana.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "unknown",
+   "description": "Brazilian e-signature API with a free plan",
+   "https": true,
+   "id": "documents-productivity--assinafy",
+   "name": "Assinafy",
+   "url": "https://api.assinafy.com.br/v1/docs"
   },
   {
    "auth": "apiKey",
@@ -6100,6 +6190,16 @@
    "id": "email--sendinblue",
    "name": "Sendinblue",
    "url": "https://developers.sendinblue.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "no",
+   "description": "Email for AI agents: send email, receive replies as threads, with per-key send limits and approvals",
+   "https": true,
+   "id": "email--sendraven",
+   "name": "SendRaven",
+   "url": "https://sendraven.ai/docs/api"
   },
   {
    "auth": "apiKey",
@@ -7204,6 +7304,16 @@
   {
    "auth": "apiKey",
    "category": "Finance",
+   "cors": "no",
+   "description": "Validate EU and UK VAT numbers with country formats, checksums, and VIES status",
+   "https": true,
+   "id": "finance--stanza-vat-validator",
+   "name": "Stanza VAT Validator",
+   "url": "https://stanzaapi.com/tools/vat-validator"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Finance",
    "cors": "yes",
    "description": "Real-Time, Intraday & Historical Market Data, News and Sentiment API",
    "https": true,
@@ -7560,6 +7670,16 @@
    "id": "food-drink--punkapi",
    "name": "PunkAPI",
    "url": "https://punkapi.com/"
+  },
+  {
+   "auth": "",
+   "category": "Food & Drink",
+   "cors": "yes",
+   "description": "Weekly meal plans with grocery prices and shopping lists, 22 countries",
+   "https": true,
+   "id": "food-drink--racion",
+   "name": "Racion",
+   "url": "https://racion.app/developers"
   },
   {
    "auth": "apiKey",
@@ -9644,6 +9764,16 @@
   {
    "auth": "apiKey",
    "category": "Geocoding",
+   "cors": "no",
+   "description": "Look up the geographic location of any IPv4 or IPv6 address",
+   "https": true,
+   "id": "geocoding--sthan-io-ip-geolocation",
+   "name": "sthan.io IP Geolocation",
+   "url": "https://sthan.io/products/ip-geolocation"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
    "cors": "yes",
    "description": "Telize offers location information from any IP address",
    "https": true,
@@ -9860,6 +9990,16 @@
    "id": "government--brazilian-chamber-of-deputies-open-data",
    "name": "Brazilian Chamber of Deputies Open Data",
    "url": "https://dadosabertos.camara.leg.br/swagger/api.html"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "unknown",
+   "description": "US labor statistics: inflation, unemployment, wages and productivity",
+   "https": true,
+   "id": "government--bureau-of-labor-statistics",
+   "name": "Bureau of Labor Statistics",
+   "url": "https://www.bls.gov/developers/"
   },
   {
    "auth": "apiKey",
@@ -10825,6 +10965,16 @@
    "auth": "",
    "category": "Government",
    "cors": "yes",
+   "description": "District-level data for India: Census, NFHS-5, NCRB, RBI and more, reconciled onto one map",
+   "https": true,
+   "id": "government--spatial-india",
+   "name": "Spatial India",
+   "url": "https://api.spatialindia.com"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "yes",
    "description": "Advertising, subscription, AI-disclosure and accessibility rules across the US, EU and UK",
    "https": true,
    "id": "government--tollmint",
@@ -11092,6 +11242,16 @@
    "url": "https://covid-19.dataflowkit.com"
   },
   {
+   "auth": "",
+   "category": "Health",
+   "cors": "yes",
+   "description": "Cited gene, variant and CPIC drug-gene lookups for developers and AI agents",
+   "https": true,
+   "id": "health--deepdna",
+   "name": "DeepDNA",
+   "url": "https://deepdna.ai/docs/"
+  },
+  {
    "auth": "apiKey",
    "category": "Health",
    "cors": "unknown",
@@ -11340,6 +11500,16 @@
    "id": "jobs--adzuna",
    "name": "Adzuna",
    "url": "https://developer.adzuna.com/overview"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
+   "cors": "no",
+   "description": "Deterministic hiring policy decisions and signed evidence records",
+   "https": true,
+   "id": "jobs--allowly-hiring-evidence",
+   "name": "Allowly Hiring Evidence",
+   "url": "https://allowly.ai/docs/solutions/hiring/api/"
   },
   {
    "auth": "",
@@ -11880,6 +12050,16 @@
    "id": "machine-learning--not-human-search",
    "name": "Not Human Search",
    "url": "https://nothumansearch.ai/openapi.yaml"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
+   "cors": "no",
+   "description": "OpenAI-compatible, 47 LLMs, small check-in credits, strict limits, optional paid top-up, public beta",
+   "https": true,
+   "id": "machine-learning--onomeo",
+   "name": "onomeo",
+   "url": "https://onomeo.com/docs"
   },
   {
    "auth": "",
@@ -12532,6 +12712,16 @@
    "url": "http://dev.npr.org/api/"
   },
   {
+   "auth": "apiKey",
+   "category": "News",
+   "cors": "yes",
+   "description": "AI-industry news deduplicated into structured events with a versioned category taxonomy",
+   "https": true,
+   "id": "news--scoopkit",
+   "name": "Scoopkit",
+   "url": "https://scoopkit.dev"
+  },
+  {
    "auth": "",
    "category": "News",
    "cors": "yes",
@@ -12620,6 +12810,16 @@
    "id": "open-data--api-setu",
    "name": "API Setu",
    "url": "https://www.apisetu.gov.in/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Zillow property data: 50+ fields per listing by address, URL, ZPID or ZIP, with sold data and comps",
+   "https": true,
+   "id": "open-data--apillow",
+   "name": "APIllow",
+   "url": "https://apillow.co/docs.html"
   },
   {
    "auth": "",
@@ -13714,6 +13914,16 @@
   {
    "auth": "apiKey",
    "category": "Photography",
+   "cors": "no",
+   "description": "Visually lossless image compression for PNG, JPEG and WebP",
+   "https": true,
+   "id": "photography--compresso",
+   "name": "Compresso",
+   "url": "https://compresso.space/developers"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Photography",
    "cors": "unknown",
    "description": "Image manipulation and processing",
    "https": true,
@@ -14105,6 +14315,16 @@
    "auth": "",
    "category": "Science & Math",
    "cors": "yes",
+   "description": "Search and retrieve DOI metadata for research datasets and publications",
+   "https": true,
+   "id": "science-math--datacite",
+   "name": "DataCite",
+   "url": "https://support.datacite.org/docs/rest-api"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
    "description": "Life-science literature search with abstracts, citations and full-text links",
    "https": true,
    "id": "science-math--europe-pmc",
@@ -14460,6 +14680,16 @@
    "id": "science-math--tle",
    "name": "TLE",
    "url": "https://tle.ivanstanojevic.me/#/docs"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
+   "description": "Open-access status and legal full-text links for scholarly articles",
+   "https": true,
+   "id": "science-math--unpaywall",
+   "name": "Unpaywall",
+   "url": "https://unpaywall.org/products/api"
   },
   {
    "auth": "",
@@ -14820,6 +15050,16 @@
    "id": "security--loginradius",
    "name": "LoginRadius",
    "url": "https://www.loginradius.com/docs/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Security",
+   "cors": "yes",
+   "description": "Detect VPNs, proxies, Tor, bots and antidetect browsers at signup, login and checkout",
+   "https": true,
+   "id": "security--maskbreak",
+   "name": "Maskbreak",
+   "url": "https://maskbreak.com/api"
   },
   {
    "auth": "",
@@ -17314,6 +17554,16 @@
   {
    "auth": "apiKey",
    "category": "Transportation",
+   "cors": "no",
+   "description": "Bike, scooter, motorcycle, wheelchair and walking routes across Europe, with safety indicators",
+   "https": true,
+   "id": "transportation--on-va-o",
+   "name": "On va où ?",
+   "url": "https://onvaou.app/developers/routing-api.html"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Transportation",
    "cors": "yes",
    "description": "Global public registry of electric vehicle charging locations",
    "https": true,
@@ -19132,6 +19382,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-26",
+ "generated": "2026-09-27",
  "schema": 1
 }
