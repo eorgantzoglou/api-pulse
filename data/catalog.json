@@ -1,5 +1,5 @@
 {
- "count": 1938,
+ "count": 1948,
  "entries": [
   {
    "auth": "apiKey",
@@ -860,6 +860,16 @@
    "id": "art-design--smithsonian-open-access",
    "name": "Smithsonian Open Access",
    "url": "https://github.com/Smithsonian/smithsonian-openaccess"
+  },
+  {
+   "auth": "",
+   "category": "Art & Design",
+   "cors": "yes",
+   "description": "Convert and generate color schemes",
+   "https": true,
+   "id": "art-design--the-color-api",
+   "name": "The Color API",
+   "url": "https://www.thecolorapi.com"
   },
   {
    "auth": "apiKey",
@@ -4934,6 +4944,16 @@
   {
    "auth": "",
    "category": "Development",
+   "cors": "no",
+   "description": "Convert a public web page into clean Markdown",
+   "https": true,
+   "id": "development--replynodes",
+   "name": "ReplyNodes",
+   "url": "https://replynodes.com/markdown-api/"
+  },
+  {
+   "auth": "",
+   "category": "Development",
    "cors": "yes",
    "description": "Returns RSS feed in JSON format using feed URL",
    "https": true,
@@ -5502,6 +5522,16 @@
    "url": "https://www.wordsapi.com/docs/"
   },
   {
+   "auth": "",
+   "category": "Dictionaries",
+   "cors": "yes",
+   "description": "Word definitions with Scrabble validity and tile score in one call, built for word games",
+   "https": true,
+   "id": "dictionaries--wordsohard",
+   "name": "WordSoHard",
+   "url": "https://wordsohard.com/api"
+  },
+  {
    "auth": "apiKey",
    "category": "Documents & Productivity",
    "cors": "unknown",
@@ -5850,6 +5880,16 @@
    "id": "documents-productivity--runconvert",
    "name": "RunConvert",
    "url": "https://www.runconvert.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "no",
+   "description": "HTML/URL to PDF and screenshots with Arabic and right-to-left support; free tier",
+   "https": true,
+   "id": "documents-productivity--sahifa",
+   "name": "Sahifa",
+   "url": "https://sahifa.dev/en/docs"
   },
   {
    "auth": "OAuth",
@@ -6684,6 +6724,16 @@
   {
    "auth": "apiKey",
    "category": "Events",
+   "cors": "yes",
+   "description": "Hyper-local US events: concerts, trivia, open mics, readings, storytimes",
+   "https": true,
+   "id": "events--findlocal",
+   "name": "FindLocal",
+   "url": "https://findlocal.community/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Events",
    "cors": "unknown",
    "description": "Search events, venues and performers",
    "https": true,
@@ -6740,6 +6790,16 @@
    "id": "finance--alpha-vantage",
    "name": "Alpha Vantage",
    "url": "https://www.alphavantage.co/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Finance",
+   "cors": "unknown",
+   "description": "Point-in-time SEC EDGAR fundamentals over /v1",
+   "https": true,
+   "id": "finance--arkleon",
+   "name": "Arkleon",
+   "url": "https://arkleon.com"
   },
   {
    "auth": "OAuth",
@@ -11794,6 +11854,16 @@
   {
    "auth": "apiKey",
    "category": "Machine Learning",
+   "cors": "unknown",
+   "description": "ChatGPT, Gemini, Copilot, AI Mode and Google Search/News results as structured JSON",
+   "https": true,
+   "id": "machine-learning--answerline",
+   "name": "AnswerLine",
+   "url": "https://answerline.dev/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
    "cors": "yes",
    "description": "Speech-to-text in 25 languages and text-to-speech with 43 voices in 32 languages",
    "https": true,
@@ -12144,12 +12214,32 @@
   {
    "auth": "apiKey",
    "category": "Machine Learning",
+   "cors": "yes",
+   "description": "One OpenAI-compatible endpoint for hundreds of LLMs, with a free tier and per-token pricing",
+   "https": true,
+   "id": "machine-learning--tokenroute",
+   "name": "TokenRoute",
+   "url": "https://tokenroute.app/docs/quickstart"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
    "cors": "unknown",
    "description": "Forecasting API for timeseries data",
    "https": true,
    "id": "machine-learning--unplugg",
    "name": "Unplugg",
    "url": "https://unplu.gg/test_api.html"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
+   "cors": "no",
+   "description": "OpenAI-compatible text embeddings API, free-forever model with no credit card required",
+   "https": true,
+   "id": "machine-learning--voxell-forge",
+   "name": "Voxell Forge",
+   "url": "https://voxell.ai/docs/#forge"
   },
   {
    "auth": "apiKey",
@@ -18432,6 +18522,16 @@
    "url": "https://cars.limoja.ai/api/search?q=BMW&limit=1"
   },
   {
+   "auth": "apiKey",
+   "category": "Vehicle",
+   "cors": "yes",
+   "description": "US vehicle recalls, complaints, fuel economy, crash ratings, service bulletins and VIN decoding",
+   "https": true,
+   "id": "vehicle--whichtrim",
+   "name": "WhichTrim",
+   "url": "https://whichtrim.com/developers/"
+  },
+  {
    "auth": "",
    "category": "Video",
    "cors": "unknown",
@@ -19382,6 +19482,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-27",
+ "generated": "2026-09-28",
  "schema": 1
 }
