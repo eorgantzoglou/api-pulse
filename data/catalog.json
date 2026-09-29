@@ -1,6 +1,16 @@
 {
- "count": 1948,
+ "count": 1955,
  "entries": [
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Swiss customs tariff (TARES), FINMA register and warnings, NOGA/NACE/ISIC code crosswalks",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--openswissdata",
+   "name": "OpenSwissData",
+   "url": "https://github.com/cammac-creator/openswissdata/tree/main/sdks/mcp-server"
+  },
   {
    "auth": "apiKey",
    "category": "APIs Covered Under APILayer Suite!",
@@ -10,6 +20,16 @@
    "id": "apis-covered-under-apilayer-suite--ipstack-mcp",
    "name": "IPstack MCP",
    "url": "https://ipstack.com/mcp"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Cloud, GPU and LLM token prices for agents, free discovery tools and paid per-call data",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--corpusai-cloud-pricing",
+   "name": "corpusAI Cloud Pricing",
+   "url": "https://cloud.trycorpus.ai/docs#quick-start-for-agents"
   },
   {
    "auth": "OAuth",
@@ -30,6 +50,16 @@
    "id": "apis-covered-under-apilayer-suite--filesystem",
    "name": "Filesystem",
    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
+  },
+  {
+   "auth": "OAuth",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Spin up stateful API twins, read request logs and grade agent runs",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--twinbay",
+   "name": "Twinbay",
+   "url": "https://docs.twinbay.ai/mcp-server"
   },
   {
    "auth": "",
@@ -2504,16 +2534,6 @@
   {
    "auth": "",
    "category": "Cryptocurrency",
-   "cors": "unknown",
-   "description": "CoinDesk's Bitcoin Price Index (BPI) in multiple currencies",
-   "https": true,
-   "id": "cryptocurrency--coindesk",
-   "name": "CoinDesk",
-   "url": "https://old.coindesk.com/coindesk-api/"
-  },
-  {
-   "auth": "",
-   "category": "Cryptocurrency",
    "cors": "yes",
    "description": "Cryptocurrency Price, Market, and Developer/Social Data",
    "https": true,
@@ -3214,6 +3234,16 @@
   {
    "auth": "",
    "category": "Currency Exchange",
+   "cors": "yes",
+   "description": "Egyptian bank and dealer exchange rates, gold and silver prices",
+   "https": true,
+   "id": "currency-exchange--daleelak",
+   "name": "Daleelak",
+   "url": "https://getdaleelak.com/en/api"
+  },
+  {
+   "auth": "",
+   "category": "Currency Exchange",
    "cors": "unknown",
    "description": "Portuguese free currency prices and conversion with no rate limits",
    "https": true,
@@ -3540,6 +3570,16 @@
    "id": "development--amberone",
    "name": "AmberOne",
    "url": "https://scubamike124.github.io/amberone-api/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Answers, citations and sources from AI assistants and Google surfaces through one API",
+   "https": true,
+   "id": "development--answerline",
+   "name": "AnswerLine",
+   "url": "https://answerline.dev"
   },
   {
    "auth": "",
@@ -4372,6 +4412,16 @@
    "url": "https://ipinfo.io/developers"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
+   "description": "Screenshots, PDFs, dynamic images, QR codes and video from URLs or HTML",
+   "https": true,
+   "id": "development--ironfang-render",
+   "name": "Ironfang Render",
+   "url": "https://ironfang.com/render/docs"
+  },
+  {
    "auth": "",
    "category": "Development",
    "cors": "yes",
@@ -4932,16 +4982,6 @@
    "url": "https://rejax.io/"
   },
   {
-   "auth": "apiKey",
-   "category": "Development",
-   "cors": "no",
-   "description": "Screenshots, PDFs, dynamic images, QR codes and video from URLs or HTML",
-   "https": true,
-   "id": "development--renderwolf",
-   "name": "Renderwolf",
-   "url": "https://ironfang.uk/renderwolf/docs"
-  },
-  {
    "auth": "",
    "category": "Development",
    "cors": "no",
@@ -5275,7 +5315,7 @@
    "auth": "apiKey",
    "category": "Development",
    "cors": "unknown",
-   "description": "Deterministic utilities: IBAN/VAT validation, cron parsing, regex, diffs, Dutch holidays and test data",
+   "description": "Deterministic utilities: IBAN/VAT validation, cron parsing, regex, diffs, Dutch holidays, test data",
    "https": true,
    "id": "development--toolforte",
    "name": "ToolForte",
@@ -5310,6 +5350,16 @@
    "id": "development--utilorax",
    "name": "Utilorax",
    "url": "https://utilorax.com/api"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Gender probability for a first name, optionally per country; documentation in German",
+   "https": true,
+   "id": "development--vornamencheck",
+   "name": "Vornamencheck",
+   "url": "https://vornamencheck.de/#api"
   },
   {
    "auth": "",
@@ -5890,6 +5940,16 @@
    "id": "documents-productivity--sahifa",
    "name": "Sahifa",
    "url": "https://sahifa.dev/en/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "no",
+   "description": "Manage stories, epics, iterations and objectives in a Shortcut workspace",
+   "https": true,
+   "id": "documents-productivity--shortcut",
+   "name": "Shortcut",
+   "url": "https://developer.shortcut.com"
   },
   {
    "auth": "OAuth",
@@ -6779,7 +6839,7 @@
    "https": true,
    "id": "finance--alpaca",
    "name": "Alpaca",
-   "url": "https://alpaca.markets/docs/api-documentation/api-v2/market-data/alpaca-data-api-v2/"
+   "url": "https://docs.alpaca.markets/us/docs/about-market-data-api"
   },
   {
    "auth": "apiKey",
@@ -7352,6 +7412,16 @@
    "url": "https://www.sec.gov/edgar/sec-api-documentation"
   },
   {
+   "auth": "User-Agent",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "IPO calendars, filing stages and estimated lockup dates",
+   "https": true,
+   "id": "finance--segmara",
+   "name": "Segmara",
+   "url": "https://segmara.com/syndicate"
+  },
+  {
    "auth": "apiKey",
    "category": "Finance",
    "cors": "unknown",
@@ -7582,7 +7652,7 @@
    "url": "https://baconmockup.com/"
   },
   {
-   "auth": "\\\u0007piKey\\",
+   "auth": "apiKey",
    "category": "Food & Drink",
    "cors": "yes",
    "description": "Nutrition and calorie data for foods and recipes",
@@ -7700,6 +7770,16 @@
    "id": "food-drink--lcbo",
    "name": "LCBO",
    "url": "https://lcboapi.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Food & Drink",
+   "cors": "yes",
+   "description": "Nutrition data for 3.7M foods and 298K brands across 230 countries, with barcodes and images",
+   "https": true,
+   "id": "food-drink--noms",
+   "name": "Noms",
+   "url": "https://noms.sh/docs"
   },
   {
    "auth": "",
@@ -10372,16 +10452,6 @@
    "url": "https://www.federalregister.gov/reader-aids/developer-resources/rest-api"
   },
   {
-   "auth": "",
-   "category": "Government",
-   "cors": "unknown",
-   "description": "UK food hygiene rating data API",
-   "https": false,
-   "id": "government--food-standards-agency",
-   "name": "Food Standards Agency",
-   "url": "http://ratings.food.gov.uk/open-data/en-GB"
-  },
-  {
    "auth": "apiKey",
    "category": "Government",
    "cors": "yes",
@@ -12864,16 +12934,6 @@
   {
    "auth": "",
    "category": "Open Data",
-   "cors": "unknown",
-   "description": "Unofficial US Federal Government API Development",
-   "https": false,
-   "id": "open-data--18f",
-   "name": "18F",
-   "url": "http://18f.github.io/API-All-the-X/"
-  },
-  {
-   "auth": "",
-   "category": "Open Data",
    "cors": "yes",
    "description": "Normalized historical records and 25 daily-updated reference series",
    "https": true,
@@ -13010,6 +13070,16 @@
    "id": "open-data--cuttingtoolsai",
    "name": "CuttingToolsAI",
    "url": "https://cuttingtoolsai.eu/api"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "no",
+   "description": "Security-update end dates, recalls and evidence for 1,300+ phones, tablets, Chromebooks and routers",
+   "https": true,
+   "id": "open-data--devlifecheck",
+   "name": "DevLifeCheck",
+   "url": "https://devlifecheck.com/developers"
   },
   {
    "auth": "apiKey",
@@ -13360,6 +13430,16 @@
    "id": "open-data--statistics-of-the-world",
    "name": "Statistics of the World",
    "url": "https://statisticsoftheworld.com/api-docs"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Industry statistics, each traced to its primary source with a verbatim quote, CC BY 4.0",
+   "https": true,
+   "id": "open-data--statorigin",
+   "name": "StatOrigin",
+   "url": "https://statorigin.org/docs/api"
   },
   {
    "auth": "",
@@ -13984,16 +14064,6 @@
   {
    "auth": "apiKey",
    "category": "Photography",
-   "cors": "yes",
-   "description": "Image generation with query string",
-   "https": true,
-   "id": "photography--bruzu",
-   "name": "Bruzu",
-   "url": "https://docs.bruzu.com"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Photography",
    "cors": "unknown",
    "description": "Photo optimization and resize",
    "https": true,
@@ -14130,6 +14200,16 @@
    "id": "photography--kavel",
    "name": "Kavel",
    "url": "https://kavel.readthedocs.io/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Photography",
+   "cors": "no",
+   "description": "Search 1.85M openly licensed images by text or image, with license and attribution per result",
+   "https": true,
+   "id": "photography--lightdrift",
+   "name": "Lightdrift",
+   "url": "https://docs.lightdrift.ai"
   },
   {
    "auth": "",
@@ -14577,19 +14657,9 @@
    "cors": "no",
    "description": "Number of the day, random number, number facts and anything else you want to do with numbers",
    "https": true,
-   "id": "science-math--numbers--dd46be",
+   "id": "science-math--numbers",
    "name": "Numbers",
    "url": "https://math.tools/api/numbers/"
-  },
-  {
-   "auth": "",
-   "category": "Science & Math",
-   "cors": "no",
-   "description": "Facts about numbers",
-   "https": false,
-   "id": "science-math--numbers--7d1b48",
-   "name": "Numbers",
-   "url": "http://numbersapi.com"
   },
   {
    "auth": "",
@@ -18515,7 +18585,7 @@
    "auth": "",
    "category": "Vehicle",
    "cors": "no",
-   "description": "UK used-car listings with fair-price grade, 36-month resale forecast and true monthly cost per advert",
+   "description": "UK used-car listings with fair-price grade, 36-month resale forecast and monthly cost per advert",
    "https": true,
    "id": "vehicle--wheelwise",
    "name": "Wheelwise",
@@ -19482,6 +19552,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-09-28",
+ "generated": "2026-09-29",
  "schema": 1
 }
