@@ -1,5 +1,5 @@
 {
- "count": 1955,
+ "count": 1968,
  "entries": [
   {
    "auth": "",
@@ -3435,6 +3435,16 @@
    "auth": "apiKey",
    "category": "Data Validation",
    "cors": "no",
+   "description": "Real-time US address suggestions as users type",
+   "https": true,
+   "id": "data-validation--sthan-io-address-autocomplete",
+   "name": "sthan.io Address Autocomplete",
+   "url": "https://sthan.io/products/address-autocomplete-usa"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Data Validation",
+   "cors": "no",
    "description": "Parse freeform US addresses into structured fields (house number, street, unit, city, state, ZIP)",
    "https": true,
    "id": "data-validation--sthan-io-address-parser",
@@ -3540,6 +3550,16 @@
    "id": "development--agent-nexus",
    "name": "Agent Nexus",
    "url": "https://agentnexus.app/llms.txt"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "DNS records, WHOIS/RDAP, IP ownership and domain reports for AI agents, paid per call via x402",
+   "https": true,
+   "id": "development--agentpay-domain-lookup",
+   "name": "AgentPay Domain Lookup",
+   "url": "https://agentpay-lookup.agentpay-apis.workers.dev"
   },
   {
    "auth": "",
@@ -3775,11 +3795,11 @@
    "auth": "",
    "category": "Development",
    "cors": "yes",
-   "description": "Chart image API: turn a URL into a PNG or SVG chart (bar, pie, donut, stacked)",
+   "description": "Chart image API: turn a URL into a PNG or SVG chart (bar, line, area, scatter, pie, donut, stacked)",
    "https": true,
    "id": "development--chartbytes",
    "name": "ChartBytes",
-   "url": "https://chartbytes.onrender.com"
+   "url": "https://chartbytes.meridian-digital.pro"
   },
   {
    "auth": "",
@@ -5104,6 +5124,16 @@
   {
    "auth": "apiKey",
    "category": "Development",
+   "cors": "no",
+   "description": "Website screenshot API (PNG/JPEG/PDF) with full-page capture and visual-diff monitors",
+   "https": true,
+   "id": "development--screenshot-happy",
+   "name": "Screenshot Happy",
+   "url": "https://screenshot-api-production-ffd7.up.railway.app/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
    "cors": "yes",
    "description": "Create pixel-perfect website screenshots",
    "https": true,
@@ -5580,6 +5610,16 @@
    "id": "dictionaries--wordsohard",
    "name": "WordSoHard",
    "url": "https://wordsohard.com/api"
+  },
+  {
+   "auth": "",
+   "category": "Documents & Productivity",
+   "cors": "yes",
+   "description": "PDF to text, RSS/Atom/JSON feeds to JSON and sitemaps to URL lists, paid per call via x402",
+   "https": true,
+   "id": "documents-productivity--agentpay-doc-tools",
+   "name": "AgentPay Doc Tools",
+   "url": "https://agentpay-tools.agentpay-apis.workers.dev"
   },
   {
    "auth": "apiKey",
@@ -6950,6 +6990,16 @@
    "id": "finance--congressinvests",
    "name": "CongressInvests",
    "url": "https://congressinvests.com"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Spain: IBAN validation with bank and BIC, EU VAT number check (VIES), Modelo 303 VAT sums",
+   "https": true,
+   "id": "finance--contix",
+   "name": "contix",
+   "url": "https://contix.es/api/#herramientas"
   },
   {
    "auth": "apiKey",
@@ -8934,6 +8984,16 @@
   {
    "auth": "",
    "category": "Games & Comics",
+   "cors": "no",
+   "description": "Daily market prices and price history for Pokémon, One Piece, Lorcana and Yu-Gi-Oh cards",
+   "https": true,
+   "id": "games-comics--tickermint",
+   "name": "TickerMint",
+   "url": "https://tickermint.cards/developers"
+  },
+  {
+   "auth": "",
+   "category": "Games & Comics",
    "cors": "unknown",
    "description": "The dumbest things Donald Trump has ever said",
    "https": true,
@@ -9905,11 +9965,31 @@
    "auth": "apiKey",
    "category": "Geocoding",
    "cors": "no",
+   "description": "Autocomplete Indian PIN codes as users type",
+   "https": true,
+   "id": "geocoding--sthan-io-india-pin-code-autocomplete",
+   "name": "sthan.io India PIN Code Autocomplete",
+   "url": "https://sthan.io/products/pincode-autocomplete-ind"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
+   "cors": "no",
    "description": "Look up the geographic location of any IPv4 or IPv6 address",
    "https": true,
    "id": "geocoding--sthan-io-ip-geolocation",
    "name": "sthan.io IP Geolocation",
    "url": "https://sthan.io/products/ip-geolocation"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
+   "cors": "no",
+   "description": "Convert latitude and longitude to the nearest US street address",
+   "https": true,
+   "id": "geocoding--sthan-io-reverse-geocoding",
+   "name": "sthan.io Reverse Geocoding",
+   "url": "https://sthan.io/products/reverse-geocoding-usa"
   },
   {
    "auth": "apiKey",
@@ -10869,7 +10949,7 @@
    "https": true,
    "id": "government--open-government-portugal",
    "name": "Open Government, Portugal",
-   "url": "https://dados.gov.pt/en/docapi/"
+   "url": "https://dados.gov.pt/en/recursos/desenvolvimento/referencia-api"
   },
   {
    "auth": "",
@@ -11749,7 +11829,7 @@
    "https": true,
    "id": "jobs--jobs2careers",
    "name": "Jobs2Careers",
-   "url": "http://api.jobs2careers.com/api/spec.pdf"
+   "url": "https://docs.talroo.com/api/search"
   },
   {
    "auth": "apiKey",
@@ -11880,6 +11960,16 @@
    "id": "jobs--usajobs",
    "name": "USAJOBS",
    "url": "https://developer.usajobs.gov/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
+   "cors": "no",
+   "description": "Upwork job listings with client data and AI fit scores, plus webhooks and RSS",
+   "https": true,
+   "id": "jobs--vibeworker",
+   "name": "Vibeworker",
+   "url": "https://tryvibeworker.com/docs"
   },
   {
    "auth": "apiKey",
@@ -13059,7 +13149,7 @@
    "https": true,
    "id": "open-data--coworkingview",
    "name": "CoworkingView",
-   "url": "https://coworkingview.com/openapi.json"
+   "url": "https://coworkingview.com/en/api"
   },
   {
    "auth": "",
@@ -14450,6 +14540,16 @@
    "id": "science-math--arxiv",
    "name": "arXiv",
    "url": "https://arxiv.org/help/api/user-manual"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
+   "description": "Sourced, quoted specs for humanoid robots",
+   "https": true,
+   "id": "science-math--botlero",
+   "name": "Botlero",
+   "url": "https://botlero.com/api/robots"
   },
   {
    "auth": "",
@@ -16362,6 +16462,16 @@
    "url": "https://www.football-charts.com/developers"
   },
   {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Standings, fixtures, live scores, lineups and player stats for 11 European football competitions",
+   "https": true,
+   "id": "sports-fitness--football-leagues",
+   "name": "Football Leagues",
+   "url": "https://football-api.yuvron.online/reference"
+  },
+  {
    "auth": "",
    "category": "Sports & Fitness",
    "cors": "yes",
@@ -16410,6 +16520,16 @@
    "id": "sports-fitness--mlb-records-and-stats",
    "name": "MLB Records and Stats",
    "url": "https://appac.github.io/mlb-data-api-docs/"
+  },
+  {
+   "auth": "",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Real-time bet365 soccer odds, every market, pre-match and in-play, over REST and WebSocket",
+   "https": true,
+   "id": "sports-fitness--moviodds",
+   "name": "MoviOdds",
+   "url": "https://moviodds.com/doc"
   },
   {
    "auth": "apiKey",
@@ -16884,6 +17004,16 @@
   {
    "auth": "",
    "category": "Test Data",
+   "cors": "yes",
+   "description": "Hotlinkable CC0 sample files in 78 formats, each with a SHA-256 in a JSON manifest",
+   "https": true,
+   "id": "test-data--loremfile",
+   "name": "loremfile",
+   "url": "https://loremfile.dev/docs/manifest"
+  },
+  {
+   "auth": "",
+   "category": "Test Data",
    "cors": "unknown",
    "description": "The \"lorem ipsum\" generator that doesn't suck",
    "https": false,
@@ -17010,6 +17140,16 @@
    "id": "test-data--spanish-random-words",
    "name": "Spanish random words",
    "url": "https://palabras-aleatorias-public-api.herokuapp.com"
+  },
+  {
+   "auth": "",
+   "category": "Test Data",
+   "cors": "yes",
+   "description": "Mock endpoints in 8 formats, each returning any of 14 HTTP status codes",
+   "https": true,
+   "id": "test-data--supercrontab-mock-endpoints",
+   "name": "Supercrontab Mock Endpoints",
+   "url": "https://supercrontab.com/mock"
   },
   {
    "auth": "",
@@ -18230,16 +18370,6 @@
    "id": "transportation--velib-metropolis-paris-france",
    "name": "Velib metropolis, Paris, France",
    "url": "https://www.velib-metropole.fr/donnees-open-data-gbfs-du-service-velib-metropole"
-  },
-  {
-   "auth": "",
-   "category": "Transportation",
-   "cors": "yes",
-   "description": "Hourly quiet and busy crowd windows for 620+ tourist attractions in 20 countries",
-   "https": true,
-   "id": "transportation--wander-atlas",
-   "name": "Wander Atlas",
-   "url": "https://wanderatlasguides.com/api/"
   },
   {
    "auth": "apiKey",
@@ -19552,6 +19682,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-01",
+ "generated": "2026-10-02",
  "schema": 1
 }
