@@ -1,5 +1,5 @@
 {
- "count": 2024,
+ "count": 2025,
  "entries": [
   {
    "auth": "",
@@ -15184,6 +15184,16 @@
   {
    "auth": "",
    "category": "Science & Math",
+   "cors": "yes",
+   "description": "Curated mTOR research: studies by evidence type, pathway claims, open questions",
+   "https": true,
+   "id": "science-math--oliver-s-mtor-atlas",
+   "name": "Oliver's mTOR Atlas",
+   "url": "https://mtor-atlas.org/api/"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
    "cors": "no",
    "description": "ISS astronauts, current location, etc",
    "https": false,
@@ -20242,6 +20252,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-04",
+ "generated": "2026-10-05",
  "schema": 1
 }
