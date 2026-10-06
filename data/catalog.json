@@ -1,5 +1,5 @@
 {
- "count": 2025,
+ "count": 2043,
  "entries": [
   {
    "auth": "",
@@ -70,6 +70,16 @@
    "id": "apis-covered-under-apilayer-suite--regsentry",
    "name": "RegSentry",
    "url": "https://regsentry.com/mcp-guide"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Who owns AI and chip stocks, what insiders sell, how fast they grow: answers from SEC filings",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--silicon-floor",
+   "name": "Silicon Floor",
+   "url": "https://siliconfloor.com/docs/mcp"
   },
   {
    "auth": "OAuth",
@@ -894,6 +904,16 @@
   {
    "auth": "",
    "category": "Art & Design",
+   "cors": "yes",
+   "description": "Convert colors, check WCAG and APCA contrast, build palettes, gradients and tokens",
+   "https": true,
+   "id": "art-design--pickshade",
+   "name": "PickShade",
+   "url": "https://pickshade.com/api"
+  },
+  {
+   "auth": "",
+   "category": "Art & Design",
    "cors": "no",
    "description": "SVG Icon Generator",
    "https": true,
@@ -1280,6 +1300,16 @@
    "id": "books--bible-api",
    "name": "Bible-api",
    "url": "https://bible-api.com/"
+  },
+  {
+   "auth": "",
+   "category": "Books",
+   "cors": "yes",
+   "description": "Book rankings from open reader ratings: books, series, reading orders and authors",
+   "https": true,
+   "id": "books--bookrank",
+   "name": "BookRank",
+   "url": "https://openbookrank.com/en/open-data"
   },
   {
    "auth": "",
@@ -2434,6 +2464,16 @@
   {
    "auth": "apiKey",
    "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Crypto prices, OHLCV history, sentiment, technical indicators, exchanges and liquidations",
+   "https": true,
+   "id": "cryptocurrency--bitculator",
+   "name": "Bitculator",
+   "url": "https://bitculator.com/en/documentation/api/v1"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Cryptocurrency",
    "cors": "unknown",
    "description": "Cryptocurrency Trading Platform",
    "https": true,
@@ -3430,6 +3470,16 @@
    "id": "currency-exchange--national-bank-of-poland",
    "name": "National Bank of Poland",
    "url": "http://api.nbp.pl/en.html"
+  },
+  {
+   "auth": "",
+   "category": "Currency Exchange",
+   "cors": "no",
+   "description": "Iran free-market USD, EUR, CNY, gold and coin rates in toman, live and daily archive since 2010",
+   "https": true,
+   "id": "currency-exchange--nerkhsanj",
+   "name": "Nerkhsanj",
+   "url": "https://nerkh.jahankhahan.shop/developers/en"
   },
   {
    "auth": "",
@@ -4642,6 +4692,16 @@
    "url": "https://jsonplaceholder.typicode.com"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
+   "description": "Save JSON with one request and get a URL; private JSON for each signed-in user of your app",
+   "https": true,
+   "id": "development--jstash",
+   "name": "jstash",
+   "url": "https://jstash.app/docs/"
+  },
+  {
    "auth": "",
    "category": "Development",
    "cors": "unknown",
@@ -5135,6 +5195,16 @@
    "auth": "apiKey",
    "category": "Development",
    "cors": "no",
+   "description": "Manage uptime monitors, heartbeat checks, incidents and status pages with an API key",
+   "https": true,
+   "id": "development--realuptime",
+   "name": "RealUptime",
+   "url": "https://realuptime.io/docs/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
    "description": "Reverse AJAX service to notify clients",
    "https": true,
    "id": "development--rejax",
@@ -5380,6 +5450,16 @@
    "id": "development--siteintel",
    "name": "SiteIntel",
    "url": "https://siteintel.duckdns.org"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Website screenshots as PNG, JPEG, WebP or PDF, and page content as markdown, with a free tier",
+   "https": true,
+   "id": "development--snaprender",
+   "name": "SnapRender",
+   "url": "https://snap-render.com/docs"
   },
   {
    "auth": "apiKey",
@@ -7352,6 +7432,16 @@
    "url": "https://finnhub.io/docs/api"
   },
   {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Sourced prop firm daily-loss and max-drawdown rules, plus a drawdown-room check",
+   "https": true,
+   "id": "finance--floorguard",
+   "name": "FloorGuard",
+   "url": "https://floorguard-kappa.vercel.app/api/"
+  },
+  {
    "auth": "apiKey",
    "category": "Finance",
    "cors": "yes",
@@ -8200,6 +8290,16 @@
    "id": "food-drink--themealdb",
    "name": "TheMealDB",
    "url": "https://www.themealdb.com/api.php"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Food & Drink",
+   "cors": "yes",
+   "description": "Structured recipes, semantic search, serving adjustments and shopping lists",
+   "https": true,
+   "id": "food-drink--tiny-plates",
+   "name": "Tiny Plates",
+   "url": "https://www.tinyplates.dev/docs"
   },
   {
    "auth": "OAuth",
@@ -10195,6 +10295,16 @@
    "auth": "",
    "category": "Geocoding",
    "cors": "yes",
+   "description": "Indian postal PIN code lookup, post office locator and district data",
+   "https": true,
+   "id": "geocoding--searchpincode",
+   "name": "SearchPinCode",
+   "url": "https://searchpincode.in/api"
+  },
+  {
+   "auth": "",
+   "category": "Geocoding",
+   "cors": "yes",
    "description": "German city, country, river, database",
    "https": true,
    "id": "geocoding--slf",
@@ -10600,6 +10710,16 @@
    "id": "government--colorado-information-marketplace",
    "name": "Colorado Information Marketplace",
    "url": "https://data.colorado.gov/"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "yes",
+   "description": "Brazilian payroll and labor calculations: net salary, INSS, IRRF, unemployment insurance",
+   "https": true,
+   "id": "government--contaclt",
+   "name": "ContaCLT",
+   "url": "https://contaclt.com/dados/api/"
   },
   {
    "auth": "apiKey",
@@ -12664,6 +12784,16 @@
   {
    "auth": "apiKey",
    "category": "Machine Learning",
+   "cors": "yes",
+   "description": "NSFW detection for images and full-length videos by URL, free tier",
+   "https": true,
+   "id": "machine-learning--safereel",
+   "name": "SafeReel",
+   "url": "https://safereel.ai/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
    "cors": "unknown",
    "description": "Face Detection, Face Recognition and Face Grouping",
    "https": true,
@@ -13425,6 +13555,16 @@
    "auth": "",
    "category": "Open Data",
    "cors": "yes",
+   "description": "Cellular IoT bands, 2G/3G sunsets and device compatibility for 46 countries",
+   "https": true,
+   "id": "open-data--band-atlas",
+   "name": "Band Atlas",
+   "url": "https://www.aiotrf.com/en/ai/band-atlas/developers/"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
    "description": "Cloud data warehouse list prices, read daily from AWS and Azure pricing APIs, with price history",
    "https": true,
    "id": "open-data--big-data-explained",
@@ -13480,6 +13620,16 @@
    "id": "open-data--carto",
    "name": "CARTO",
    "url": "https://carto.com/"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "no",
+   "description": "Live public-safety incidents: crime, fire, disaster, weather and news from 650+ official feeds",
+   "https": true,
+   "id": "open-data--cityalert",
+   "name": "CityAlert",
+   "url": "https://cityalert.live/developers"
   },
   {
    "auth": "",
@@ -13912,6 +14062,16 @@
    "url": "https://developers.teleport.org/"
   },
   {
+   "auth": "apiKey",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "US property records by address: parcel, owner, appraised value, tax, flood zone and nearby schools",
+   "https": true,
+   "id": "open-data--terrascoutx",
+   "name": "TerraScoutX",
+   "url": "https://terrascoutx.com/developers/"
+  },
+  {
    "auth": "",
    "category": "Open Data",
    "cors": "yes",
@@ -13920,6 +14080,16 @@
    "id": "open-data--the-deploy-log",
    "name": "The Deploy Log",
    "url": "https://github.com/dotcomjack/the-deploy-log"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Daily indexes of real-world activity from public data, each reading timestamped in Bitcoin",
+   "https": true,
+   "id": "open-data--tickerz",
+   "name": "Tickerz",
+   "url": "https://tickerz.com/docs"
   },
   {
    "auth": "",
@@ -14049,7 +14219,7 @@
    "https": false,
    "id": "open-source-projects--countly",
    "name": "Countly",
-   "url": "https://api.count.ly/reference"
+   "url": "https://api.count.ly/"
   },
   {
    "auth": "OAuth",
@@ -15659,7 +15829,7 @@
    "https": true,
    "id": "security--greynoise",
    "name": "GreyNoise",
-   "url": "https://docs.greynoise.io/reference/get_v3-community-ip"
+   "url": "https://docs.greynoise.io/reference/getcommunityip"
   },
   {
    "auth": "apiKey",
@@ -15800,6 +15970,16 @@
    "id": "security--neetix-liveliness",
    "name": "Neetix Liveliness",
    "url": "https://liveliness.neetix.in/api-reference"
+  },
+  {
+   "auth": "",
+   "category": "Security",
+   "cors": "yes",
+   "description": "Open source vulnerability database and distributed triage infrastructure",
+   "https": true,
+   "id": "security--osv",
+   "name": "OSV",
+   "url": "https://google.github.io/osv.dev/api/"
   },
   {
    "auth": "",
@@ -20252,6 +20432,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-05",
+ "generated": "2026-10-06",
  "schema": 1
 }
