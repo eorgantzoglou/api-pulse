@@ -1,6 +1,16 @@
 {
- "count": 2043,
+ "count": 2055,
  "entries": [
+  {
+   "auth": "apiKey",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Public posts, profiles, comments and products from 70+ social, shopping and search platforms",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--monocrawl",
+   "name": "Monocrawl",
+   "url": "https://github.com/monocrawl/monocrawl-mcp"
+  },
   {
    "auth": "",
    "category": "APIs Covered Under APILayer Suite!",
@@ -32,6 +42,16 @@
    "url": "https://meetkuro.com/agents/"
   },
   {
+   "auth": "apiKey",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Cadastral parcels in 29 European countries by reference, point or address",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--catastro-gps",
+   "name": "Catastro GPS",
+   "url": "https://github.com/TheHiddenPandaDev/catastro_gps_mcp"
+  },
+  {
    "auth": "",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
@@ -40,6 +60,16 @@
    "id": "apis-covered-under-apilayer-suite--corpusai-cloud-pricing",
    "name": "corpusAI Cloud Pricing",
    "url": "https://cloud.trycorpus.ai/docs#quick-start-for-agents"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Search and read Edgepedia, a free and growing encyclopedia with citations",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--edgepedia",
+   "name": "Edgepedia",
+   "url": "https://github.com/EdgePlat/edgepedia-mcp"
   },
   {
    "auth": "OAuth",
@@ -2329,7 +2359,7 @@
    "https": true,
    "id": "continuous-integration--circleci",
    "name": "CircleCI",
-   "url": "https://circleci.com/docs/api/v1-reference/"
+   "url": "https://circleci.com/docs/api/"
   },
   {
    "auth": "apiKey",
@@ -2369,7 +2399,7 @@
    "https": true,
    "id": "cryptocurrency--0x",
    "name": "0x",
-   "url": "https://0x.org/api"
+   "url": "https://docs.0x.org/"
   },
   {
    "auth": "apiKey",
@@ -2389,7 +2419,7 @@
    "https": true,
    "id": "cryptocurrency--alchemy-ethereum",
    "name": "Alchemy Ethereum",
-   "url": "https://docs.alchemy.com/alchemy/"
+   "url": "https://www.alchemy.com/docs/"
   },
   {
    "auth": "",
@@ -2619,7 +2649,7 @@
    "https": true,
    "id": "cryptocurrency--bybit",
    "name": "Bybit",
-   "url": "https://bybit-exchange.github.io/docs/linear/#t-introduction"
+   "url": "https://www.bybit.com/docs/v5/introduction"
   },
   {
    "auth": "apiKey",
@@ -2699,7 +2729,7 @@
    "https": true,
    "id": "cryptocurrency--coinlib",
    "name": "Coinlib",
-   "url": "https://coinlib.io/apidocs"
+   "url": "https://coinlib.io/"
   },
   {
    "auth": "",
@@ -3205,21 +3235,21 @@
    "auth": "apiKey",
    "category": "Cryptocurrency",
    "cors": "yes",
-   "description": "100+ SEC, DeFi, crypto, and macro endpoints for AI agents via x402 micropayments",
-   "https": true,
-   "id": "cryptocurrency--scriptmasterlabs-x402",
-   "name": "ScriptMasterLabs x402",
-   "url": "https://acp-x402-scriptmasterlabs.onrender.com"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Cryptocurrency",
-   "cors": "yes",
    "description": "Model Context Protocol server with web search, social search & LLM chat paid via x402",
    "https": true,
    "id": "cryptocurrency--scriptmasterlabs-mcp",
    "name": "ScriptMasterLabs MCP",
    "url": "https://mcp-x402.onrender.com"
+  },
+  {
+   "auth": "",
+   "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "European cryptocurrency exchange",
+   "https": true,
+   "id": "cryptocurrency--whitebit",
+   "name": "WhiteBIT",
+   "url": "https://docs.whitebit.com"
   },
   {
    "auth": "apiKey",
@@ -4222,6 +4252,16 @@
    "url": "https://genderize.io"
   },
   {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Barcode (EAN-13, UPC-A, Code 128, ITF-14) and QR code images, PNG or SVG. Docs in Portuguese",
+   "https": true,
+   "id": "development--geracode",
+   "name": "GeraCode",
+   "url": "https://www.geracodigo.com.br/api-codigo-de-barras"
+  },
+  {
    "auth": "apiKey",
    "category": "Development",
    "cors": "unknown",
@@ -4470,16 +4510,6 @@
    "id": "development--httpbin",
    "name": "Httpbin",
    "url": "https://httpbin.org/"
-  },
-  {
-   "auth": "",
-   "category": "Development",
-   "cors": "yes",
-   "description": "A Simple HTTP Request & Response Service with HTTP/3 Support by Cloudflare",
-   "https": true,
-   "id": "development--httpbin-cloudflare",
-   "name": "Httpbin Cloudflare",
-   "url": "https://cloudflare-quic.com/b/"
   },
   {
    "auth": "",
@@ -4929,7 +4959,7 @@
    "https": true,
    "id": "development--onesignal",
    "name": "OneSignal",
-   "url": "https://documentation.onesignal.com/docs/onesignal-api"
+   "url": "https://developers.onesignal.com/"
   },
   {
    "auth": "apiKey",
@@ -5040,16 +5070,6 @@
    "id": "development--peak",
    "name": "Peak",
    "url": "https://peak.fo/docs"
-  },
-  {
-   "auth": "",
-   "category": "Development",
-   "cors": "yes",
-   "description": "Real-time smartphone specifications database for 263 devices",
-   "https": true,
-   "id": "development--phone-specs",
-   "name": "Phone Specs",
-   "url": "https://phone-specs-api-production.up.railway.app/docs"
   },
   {
    "auth": "apiKey",
@@ -5540,6 +5560,16 @@
    "id": "development--talordata",
    "name": "Talordata",
    "url": "https://docs.talordata.com/"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Generate QR codes for URLs, WiFi, contact cards, email and text, with custom colors and styling",
+   "https": true,
+   "id": "development--theqrcode",
+   "name": "TheQRCode",
+   "url": "https://theqrcode.io/qr-code-api"
   },
   {
    "auth": "",
@@ -6609,7 +6639,7 @@
    "https": true,
    "id": "email--sendinblue",
    "name": "Sendinblue",
-   "url": "https://developers.sendinblue.com/docs"
+   "url": "https://developers.brevo.com/"
   },
   {
    "auth": "apiKey",
@@ -7599,7 +7629,7 @@
    "https": true,
    "id": "finance--klarna",
    "name": "Klarna",
-   "url": "https://docs.klarna.com/klarna-payments/api/payments-api/"
+   "url": "https://docs.klarna.com/klarna-payments/"
   },
   {
    "auth": "",
@@ -7870,6 +7900,16 @@
    "id": "finance--tax-data",
    "name": "Tax Data",
    "url": "https://apilayer.com/marketplace/tax_data-api"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Holdings of every US ETF, which ETFs hold a stock, and overlap between funds, each dated",
+   "https": true,
+   "id": "finance--tickerinside",
+   "name": "TickerInside",
+   "url": "https://tickerinside.com/api/"
   },
   {
    "auth": "apiKey",
@@ -9184,16 +9224,6 @@
   {
    "auth": "",
    "category": "Games & Comics",
-   "cors": "yes",
-   "description": "Rock, Paper, Scissors with 101 objects",
-   "https": true,
-   "id": "games-comics--rps-101",
-   "name": "RPS 101",
-   "url": "https://rps101.pythonanywhere.com/api"
-  },
-  {
-   "auth": "",
-   "category": "Games & Comics",
    "cors": "no",
    "description": "RuneScape and OSRS RPGs information",
    "https": true,
@@ -10112,6 +10142,16 @@
    "url": "https://moradas.dev/docs"
   },
   {
+   "auth": "apiKey",
+   "category": "Geocoding",
+   "cors": "no",
+   "description": "IP geolocation with accuracy radius, ASN, and flags for Tor exits, known VPN networks and hosting",
+   "https": true,
+   "id": "geocoding--network-data-labs",
+   "name": "Network Data Labs",
+   "url": "https://www.networkdatalabs.com/docs"
+  },
+  {
    "auth": "",
    "category": "Geocoding",
    "cors": "yes",
@@ -10180,6 +10220,16 @@
    "id": "geocoding--openstreetmap",
    "name": "OpenStreetMap",
    "url": "http://wiki.openstreetmap.org/wiki/API"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
+   "cors": "yes",
+   "description": "European cadastral parcels by reference or point: coordinates, area, land use and geometry",
+   "https": true,
+   "id": "geocoding--parcelgps",
+   "name": "ParcelGPS",
+   "url": "https://www.parcelgps.com/en/developers"
   },
   {
    "auth": "",
@@ -10480,6 +10530,16 @@
    "id": "geocoding--ziptastic",
    "name": "Ziptastic",
    "url": "https://ziptasticapi.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
+   "cors": "yes",
+   "description": "Cadastral parcels, geocoding, OMI valuations, risk and demographics for Italy (85M parcels)",
+   "https": true,
+   "id": "geocoding--zornade",
+   "name": "Zornade",
+   "url": "https://app.zornade.com/api/"
   },
   {
    "auth": "apiKey",
@@ -10924,6 +10984,16 @@
   {
    "auth": "apiKey",
    "category": "Government",
+   "cors": "yes",
+   "description": "US state & local government contracts: search, details, NAICS lookup and AI match scoring",
+   "https": true,
+   "id": "government--govcontractscout",
+   "name": "GovContractScout",
+   "url": "https://scout.govbidportals.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Government",
    "cors": "unknown",
    "description": "International firearm injury prevention and policy",
    "https": true,
@@ -10940,6 +11010,16 @@
    "id": "government--indian-mandi-prices",
    "name": "Indian Mandi Prices",
    "url": "https://mandi-api.vercel.app/docs"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "yes",
+   "description": "Statutory Minimum Support Prices and CACP production cost benchmarks across 28 Indian crops",
+   "https": true,
+   "id": "government--indian-msp-benchmarks",
+   "name": "Indian MSP Benchmarks",
+   "url": "https://msp-benchmarks-api.vercel.app/docs"
   },
   {
    "auth": "",
@@ -11495,7 +11575,7 @@
    "auth": "OAuth",
    "category": "Government",
    "cors": "unknown",
-   "description": "Real-time queries to 27 national company registries (UK, FR, DE, IT, ES, KR + 21 more)",
+   "description": "Real-time queries to 80+ national company registries (UK, FR, DE, IT, ES, KR and more)",
    "https": true,
    "id": "government--openregistry",
    "name": "OpenRegistry",
@@ -11592,16 +11672,6 @@
    "url": "https://uk-legal-changes.pages.dev/docs"
   },
   {
-   "auth": "",
-   "category": "Government",
-   "cors": "no",
-   "description": "Basic candidate data and live electoral vote counts for top two parties in US presidential election",
-   "https": true,
-   "id": "government--us-presidential-election-data-by-togatech",
-   "name": "US Presidential Election Data by TogaTech",
-   "url": "https://uselection.togatech.org/api/"
-  },
-  {
    "auth": "apiKey",
    "category": "Government",
    "cors": "unknown",
@@ -11610,16 +11680,6 @@
    "id": "government--usa-gov",
    "name": "USA.gov",
    "url": "https://www.usa.gov/developer"
-  },
-  {
-   "auth": "",
-   "category": "Government",
-   "cors": "yes",
-   "description": "US federal contracts, grants, and agency spending data updated daily",
-   "https": true,
-   "id": "government--us-federal-contracts-grants",
-   "name": "US Federal Contracts & Grants",
-   "url": "https://government-data-api.onrender.com/docs"
   },
   {
    "auth": "",
@@ -11660,16 +11720,6 @@
    "id": "government--votepredictor",
    "name": "VotePredictor",
    "url": "https://votepredictor.com/developers"
-  },
-  {
-   "auth": "",
-   "category": "Health",
-   "cors": "yes",
-   "description": "Every clinical trial registered with ClinicalTrials.gov, indexed by condition and sponsor",
-   "https": true,
-   "id": "health--clinical-trials-directory",
-   "name": "Clinical Trials Directory",
-   "url": "https://trials.starfile.org/api"
   },
   {
    "auth": "apiKey",
@@ -12224,6 +12274,16 @@
   {
    "auth": "apiKey",
    "category": "Jobs",
+   "cors": "yes",
+   "description": "Parse resumes and job descriptions, normalize skills, match and rank candidates",
+   "https": true,
+   "id": "jobs--hirelayer",
+   "name": "HireLayer",
+   "url": "https://hirelayer.co/api-docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
    "cors": "unknown",
    "description": "Job aggregator",
    "https": true,
@@ -12390,6 +12450,16 @@
    "id": "jobs--whatjobs",
    "name": "WhatJobs",
    "url": "https://www.whatjobs.com/affiliates"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
+   "cors": "yes",
+   "description": "Job search, over 4 million jobs",
+   "https": true,
+   "id": "jobs--worklittle",
+   "name": "Worklittle",
+   "url": "https://docs.worklittle.com"
   },
   {
    "auth": "apiKey",
@@ -12645,6 +12715,16 @@
    "auth": "apiKey",
    "category": "Machine Learning",
    "cors": "yes",
+   "description": "Sub-35ms AI gateway for prompt injection defense, support ticket triage & content moderation",
+   "https": true,
+   "id": "machine-learning--laya-decision-gateway",
+   "name": "Laya Decision Gateway",
+   "url": "https://laya.harshad.eu.org"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
+   "cors": "yes",
    "description": "AI Solutions: Video/Image Classification & Tagging, NSFW, Icon/Image/Audio Search, NLP",
    "https": true,
    "id": "machine-learning--machinetutors",
@@ -12670,6 +12750,16 @@
    "id": "machine-learning--messengerx-io",
    "name": "MessengerX.io",
    "url": "https://messengerx.rtfd.io"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
+   "cors": "yes",
+   "description": "High-performance LLM API by Mistral AI including Mistral and Mixtral models, with a free tier",
+   "https": true,
+   "id": "machine-learning--mistral-ai",
+   "name": "Mistral AI",
+   "url": "https://docs.mistral.ai/api/"
   },
   {
    "auth": "",
@@ -12715,7 +12805,7 @@
    "auth": "apiKey",
    "category": "Machine Learning",
    "cors": "no",
-   "description": "OpenAI-compatible, 47 LLMs, small check-in credits, strict limits, optional paid top-up, public beta",
+   "description": "OpenAI-compatible, about 30 free LLMs, 30 calls per 5 hours, optional pay-as-you-go, public beta",
    "https": true,
    "id": "machine-learning--onomeo",
    "name": "onomeo",
@@ -13869,7 +13959,7 @@
    "https": true,
    "id": "open-data--nasdaq-data-link",
    "name": "Nasdaq Data Link",
-   "url": "https://docs.data.nasdaq.com/"
+   "url": "https://data.nasdaq.com/"
   },
   {
    "auth": "",
@@ -14744,6 +14834,16 @@
   {
    "auth": "apiKey",
    "category": "Photography",
+   "cors": "unknown",
+   "description": "Compress GIF files or HTTPS URLs with asynchronous jobs and target-size controls",
+   "https": true,
+   "id": "photography--compressgif",
+   "name": "CompressGIF",
+   "url": "https://compressgif.net/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Photography",
    "cors": "no",
    "description": "Visually lossless image compression for PNG, JPEG and WebP",
    "https": true,
@@ -14890,6 +14990,16 @@
    "id": "photography--lorem-picsum",
    "name": "Lorem Picsum",
    "url": "https://picsum.photos/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Photography",
+   "cors": "yes",
+   "description": "Curated 4K portrait phone wallpapers across 50+ categories",
+   "https": true,
+   "id": "photography--nexwall",
+   "name": "NexWall",
+   "url": "https://nexwall.kodnextech.com/wallpaper-api/docs"
   },
   {
    "auth": "apiKey",
@@ -15119,7 +15229,7 @@
    "https": true,
    "id": "science-math--arxiv",
    "name": "arXiv",
-   "url": "https://arxiv.org/help/api/user-manual"
+   "url": "https://info.arxiv.org/help/api/user-manual.html"
   },
   {
    "auth": "",
@@ -15904,6 +16014,16 @@
   {
    "auth": "apiKey",
    "category": "Security",
+   "cors": "no",
+   "description": "Reputation of IPs, domains, URLs and file hashes from aggregated threat feeds, plus CVE lookups",
+   "https": true,
+   "id": "security--ismalicious",
+   "name": "isMalicious",
+   "url": "https://ismalicious.com/api-docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Security",
    "cors": "yes",
    "description": "Managed User Authentication Service",
    "https": true,
@@ -16410,6 +16530,16 @@
    "id": "social--4chan",
    "name": "4chan",
    "url": "https://github.com/4chan/4chan-API"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Social",
+   "cors": "yes",
+   "description": "Real-time social media data from X, LinkedIn, Reddit, YouTube, Instagram, TikTok, Facebook and news",
+   "https": true,
+   "id": "social--api-direct",
+   "name": "API Direct",
+   "url": "https://apidirect.io/docs"
   },
   {
    "auth": "apiKey",
@@ -18452,16 +18582,6 @@
    "url": "https://api.cts-strasbourg.eu/"
   },
   {
-   "auth": "",
-   "category": "Transportation",
-   "cors": "yes",
-   "description": "Every FAA-registered civil aircraft in the United States, lookup by N-number or Mode S hex code",
-   "https": true,
-   "id": "transportation--faa-n-number-registry",
-   "name": "FAA N-Number Registry",
-   "url": "https://n-number.starfile.org/api"
-  },
-  {
    "auth": "OAuth",
    "category": "Transportation",
    "cors": "unknown",
@@ -18599,7 +18719,7 @@
    "https": true,
    "id": "transportation--opensky-network",
    "name": "OpenSky Network",
-   "url": "https://opensky-network.org/apidoc/index.html"
+   "url": "https://openskynetwork.github.io/opensky-api/"
   },
   {
    "auth": "",
@@ -19229,7 +19349,7 @@
    "https": true,
    "id": "url-shorteners--owo",
    "name": "owo",
-   "url": "https://owo.vc/api"
+   "url": "https://owo.vc/"
   },
   {
    "auth": "apiKey",
@@ -19279,7 +19399,7 @@
    "https": true,
    "id": "url-shorteners--shrtlnk",
    "name": "Shrtlnk",
-   "url": "https://shrtlnk.dev/developer"
+   "url": "https://shrtlnk.dev/"
   },
   {
    "auth": "apiKey",
@@ -20432,6 +20552,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-10",
+ "generated": "2026-10-11",
  "schema": 1
 }
