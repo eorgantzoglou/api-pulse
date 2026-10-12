@@ -1,5 +1,5 @@
 {
- "count": 2055,
+ "count": 2082,
  "entries": [
   {
    "auth": "apiKey",
@@ -80,6 +80,16 @@
    "id": "apis-covered-under-apilayer-suite--github",
    "name": "GitHub",
    "url": "https://github.com/github/github-mcp-server"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Find agent-callable APIs, MCP servers and CLIs by capability, with live health and uptime data",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--agent-nexus",
+   "name": "Agent Nexus",
+   "url": "https://agentnexus.app"
   },
   {
    "auth": "",
@@ -740,6 +750,16 @@
    "id": "anti-malware--web-of-trust",
    "name": "Web of Trust",
    "url": "https://support.mywot.com/hc/en-us/sections/360004477734-API-"
+  },
+  {
+   "auth": "",
+   "category": "Art & Design",
+   "cors": "yes",
+   "description": "Search free CC0 PBR materials, HDRIs, decals and 3D models for games",
+   "https": true,
+   "id": "art-design--3dtexel",
+   "name": "3DTexel",
+   "url": "https://3dtexel.com/developers/#public-api"
   },
   {
    "auth": "apiKey",
@@ -1800,6 +1820,16 @@
    "id": "business--redash",
    "name": "Redash",
    "url": "https://redash.io/help/user-guide/integrations-and-api/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Business",
+   "cors": "no",
+   "description": "Real-time alerts on UK company register changes",
+   "https": true,
+   "id": "business--registerwire",
+   "name": "RegisterWire",
+   "url": "https://www.registerwire.uk/docs/index.html"
   },
   {
    "auth": "apiKey",
@@ -3575,6 +3605,16 @@
    "auth": "apiKey",
    "category": "Data Validation",
    "cors": "unknown",
+   "description": "Validate e-invoices (ZUGFeRD, Factur-X, XRechnung, Peppol BIS) and get a validation report",
+   "https": true,
+   "id": "data-validation--invowerk",
+   "name": "invowerk",
+   "url": "https://invowerk.dev/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Data Validation",
+   "cors": "unknown",
    "description": "US Address Verification",
    "https": true,
    "id": "data-validation--lob-com",
@@ -4160,6 +4200,16 @@
    "id": "development--docker-hub",
    "name": "Docker Hub",
    "url": "https://docs.docker.com/docker-hub/api/latest/"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "DNS records, SPF/DMARC detection and TLS certificate expiry",
+   "https": true,
+   "id": "development--domain-info-by-lifestep",
+   "name": "Domain Info by LifeStep",
+   "url": "https://dns.lifestep.io"
   },
   {
    "auth": "",
@@ -5155,6 +5205,16 @@
    "auth": "",
    "category": "Development",
    "cors": "yes",
+   "description": "Generate QR codes as PNG or SVG with size, border and color options",
+   "https": true,
+   "id": "development--qr-code-by-lifestep",
+   "name": "QR Code by LifeStep",
+   "url": "https://qr.lifestep.io"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
    "description": "Generate static QR codes in SVG, PNG, JPG, WebP, PDF, or EPS",
    "https": true,
    "id": "development--qr-code-crafter",
@@ -6005,6 +6065,16 @@
    "auth": "apiKey",
    "category": "Documents & Productivity",
    "cors": "no",
+   "description": "Online file converter for image, video, audio, document, ebook, font, archive and CAD formats",
+   "https": true,
+   "id": "documents-productivity--convert-online",
+   "name": "Convert Online",
+   "url": "https://convert.online/api-docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "no",
    "description": "Generate PDF documents from templates with a drop-and-drop editor and a simple API",
    "https": true,
    "id": "documents-productivity--craftmypdf",
@@ -6040,6 +6110,16 @@
    "id": "documents-productivity--faturapdf",
    "name": "FaturaPDF",
    "url": "https://rapidapi.com/leosanchees2014/api/brazilian-invoice-receipt-pdf-api-cpf-cnpj"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "unknown",
+   "description": "Convert PDF, Word, PowerPoint, Excel and HTML documents to Markdown for RAG and agents",
+   "https": true,
+   "id": "documents-productivity--flatmark",
+   "name": "flatmark",
+   "url": "https://flatmark.dev/docs"
   },
   {
    "auth": "apiKey",
@@ -6172,6 +6252,16 @@
    "url": "https://pdf.mintapis.com/docs"
   },
   {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "unknown",
+   "description": "HTML and CSS to PDF with page headers, footers and page numbers, no headless browser",
+   "https": true,
+   "id": "documents-productivity--pdfrender",
+   "name": "pdfrender",
+   "url": "https://pdfrender.dev/docs"
+  },
+  {
    "auth": "OAuth",
    "category": "Documents & Productivity",
    "cors": "unknown",
@@ -6280,6 +6370,16 @@
    "id": "documents-productivity--shortcut",
    "name": "Shortcut",
    "url": "https://developer.shortcut.com"
+  },
+  {
+   "auth": "",
+   "category": "Documents & Productivity",
+   "cors": "yes",
+   "description": "Create a ranked-choice poll from a text prompt and get a shareable link",
+   "https": true,
+   "id": "documents-productivity--teamsort",
+   "name": "TeamSort",
+   "url": "https://teamsort.world/developers"
   },
   {
    "auth": "OAuth",
@@ -6664,6 +6764,16 @@
   {
    "auth": "apiKey",
    "category": "Email",
+   "cors": "no",
+   "description": "Disposable inboxes for email testing with OTP extraction and webhooks",
+   "https": true,
+   "id": "email--tempmailgrab",
+   "name": "TempMailGrab",
+   "url": "https://tempmailgrab.com/api-docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
    "cors": "unknown",
    "description": "Bulk email verification with full SMTP server responses",
    "https": true,
@@ -6864,6 +6974,16 @@
   {
    "auth": "",
    "category": "Entertainment",
+   "cors": "yes",
+   "description": "Random yes/no/maybe answers in 7 themed oracle voices (Magic 8 Ball, Tarot, and more)",
+   "https": true,
+   "id": "entertainment--yes-or-no-oracle",
+   "name": "Yes or No Oracle",
+   "url": "https://yesnooracle.app/api"
+  },
+  {
+   "auth": "",
+   "category": "Entertainment",
    "cors": "unknown",
    "description": "REST API for Yo Momma Jokes",
    "https": true,
@@ -6955,6 +7075,16 @@
    "auth": "",
    "category": "Environment",
    "cors": "yes",
+   "description": "Pressure scores, demand, generation mix and alerts for the 10 major U.S. power grids",
+   "https": true,
+   "id": "environment--gridvigil",
+   "name": "GridVigil",
+   "url": "https://gridvigil.com/developers"
+  },
+  {
+   "auth": "",
+   "category": "Environment",
+   "cors": "yes",
    "description": "Green Power Index for Germany (Grünstromindex/GSI)",
    "https": false,
    "id": "environment--gr-nstromindex",
@@ -6990,6 +7120,16 @@
    "id": "environment--luchtmeetnet",
    "name": "Luchtmeetnet",
    "url": "https://api-docs.luchtmeetnet.nl/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Environment",
+   "cors": "unknown",
+   "description": "Corporate carbon emissions disclosures (scope 1, 2 and 3), company-reported and estimated",
+   "https": true,
+   "id": "environment--mycelium",
+   "name": "Mycelium",
+   "url": "https://api.mycelium.global/docs/v1"
   },
   {
    "auth": "",
@@ -7060,6 +7200,16 @@
    "id": "environment--pvwatts",
    "name": "PVWatts",
    "url": "https://developer.nrel.gov/docs/solar/pvwatts/v6/"
+  },
+  {
+   "auth": "User-Agent",
+   "category": "Environment",
+   "cors": "yes",
+   "description": "Community air quality sensor network data worldwide",
+   "https": true,
+   "id": "environment--sensor-community",
+   "name": "sensor.community",
+   "url": "https://github.com/opendata-stuttgart/meta/wiki/EN-APIs"
   },
   {
    "auth": "",
@@ -7290,6 +7440,16 @@
    "id": "finance--brieftape",
    "name": "BriefTape",
    "url": "https://brieftape.com"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Card BIN/IIN lookup: network, issuer, country and card type for the first 6-8 digits",
+   "https": true,
+   "id": "finance--cardbincheck",
+   "name": "CardBinCheck",
+   "url": "https://cardbincheck.com/bin-lookup-api"
   },
   {
    "auth": "apiKey",
@@ -7600,6 +7760,16 @@
    "id": "finance--ig",
    "name": "IG",
    "url": "https://labs.ig.com/gettingstarted"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Indian GST HSN and SAC classification code lookup and search",
+   "https": true,
+   "id": "finance--india-gst-hsn-sac",
+   "name": "India GST HSN & SAC",
+   "url": "https://gst-hsn-sac-api.vercel.app/docs"
   },
   {
    "auth": "",
@@ -10594,6 +10764,16 @@
   {
    "auth": "",
    "category": "Government",
+   "cors": "unknown",
+   "description": "Official Spanish State Gazette open data: laws, summaries and XML/JSON APIs",
+   "https": true,
+   "id": "government--bolet-n-oficial-del-estado-boe",
+   "name": "Boletín Oficial del Estado (BOE)",
+   "url": "https://www.boe.es/datosabiertos/"
+  },
+  {
+   "auth": "",
+   "category": "Government",
    "cors": "yes",
    "description": "Community driven API for Brazil Public Data",
    "https": true,
@@ -11000,6 +11180,16 @@
    "id": "government--gun-policy",
    "name": "Gun Policy",
    "url": "https://www.gunpolicy.org/api"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "yes",
+   "description": "Free, keyless Indian states, districts, sub-districts and development blocks with LGD codes",
+   "https": true,
+   "id": "government--india-lgd-index",
+   "name": "India LGD Index",
+   "url": "https://india-lgd-index-api.vercel.app/docs"
   },
   {
    "auth": "",
@@ -12120,6 +12310,16 @@
    "id": "health--stanza-udi-decoder",
    "name": "Stanza UDI Decoder",
    "url": "https://stanzaapi.com/tools/udi-decoder"
+  },
+  {
+   "auth": "",
+   "category": "Health",
+   "cors": "yes",
+   "description": "Free mindfulness resources and research metadata",
+   "https": true,
+   "id": "health--thc-open-mindfulness-resources",
+   "name": "THC Open Mindfulness Resources",
+   "url": "https://api.theholisticcare.com/docs"
   },
   {
    "auth": "",
@@ -14065,6 +14265,16 @@
    "auth": "",
    "category": "Open Data",
    "cors": "yes",
+   "description": "Consumer product-safety recall notices from 11 government registers, looked up by barcode (EAN/GTIN)",
+   "https": true,
+   "id": "open-data--productguru",
+   "name": "ProductGuru",
+   "url": "https://myproduct.guru/lookup/"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
    "description": "US public schools, hospitals and federal agency budgets as JSON/CSV, with provenance",
    "https": true,
    "id": "open-data--publicdatahub",
@@ -15314,6 +15524,16 @@
   {
    "auth": "",
    "category": "Science & Math",
+   "cors": "yes",
+   "description": "Citizen-science wildlife observations with species identification and mapping",
+   "https": true,
+   "id": "science-math--inaturalist",
+   "name": "iNaturalist",
+   "url": "https://api.inaturalist.org/v1/docs/"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
    "cors": "unknown",
    "description": "High Energy Physics info. system",
    "https": true,
@@ -16460,6 +16680,16 @@
    "id": "shopping--pangolinfo-amazon-data",
    "name": "Pangolinfo Amazon Data",
    "url": "https://docs.pangolinfo.com"
+  },
+  {
+   "auth": "",
+   "category": "Shopping",
+   "cors": "yes",
+   "description": "Seller fees for 31 marketplaces and payment processors, verified monthly",
+   "https": true,
+   "id": "shopping--profitvana",
+   "name": "Profitvana",
+   "url": "https://www.profitvana.com/developers"
   },
   {
    "auth": "OAuth",
@@ -18084,6 +18314,16 @@
   {
    "auth": "apiKey",
    "category": "Text Analysis",
+   "cors": "yes",
+   "description": "Free text-to-speech API with 1,200+ neural voices in 75+ languages",
+   "https": true,
+   "id": "text-analysis--eidosspeech",
+   "name": "eidosSpeech",
+   "url": "https://eidosspeech.xyz"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Text Analysis",
    "cors": "unknown",
    "description": "Natural Language Processing Tools for Thai Language",
    "https": true,
@@ -18820,6 +19060,16 @@
    "id": "transportation--tankerkoenig",
    "name": "Tankerkoenig",
    "url": "https://creativecommons.tankerkoenig.de/swagger/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Transportation",
+   "cors": "yes",
+   "description": "Live bus and rail departures, vehicles, disruptions and journey planning for Great Britain",
+   "https": true,
+   "id": "transportation--transcapi",
+   "name": "TransCAPI",
+   "url": "https://www.transcapi.com/docs"
   },
   {
    "auth": "",
@@ -19834,6 +20084,16 @@
   {
    "auth": "apiKey",
    "category": "Video",
+   "cors": "unknown",
+   "description": "Extract transcripts and captions from YouTube videos",
+   "https": true,
+   "id": "video--rankfabrik-captions",
+   "name": "RankFabrik Captions",
+   "url": "https://rankfabrik.com/produits/transcription"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Video",
    "cors": "no",
    "description": "Hosted media processing over REST: transcode, caption, watermark video",
    "https": true,
@@ -20212,6 +20472,16 @@
    "url": "https://opendata.euskadi.eus/api-euskalmet/-/api-de-euskalmet/"
   },
   {
+   "auth": "",
+   "category": "Weather",
+   "cors": "yes",
+   "description": "Finnish weather, sea, climate and radar observations via open WFS",
+   "https": true,
+   "id": "weather--fmi-open-data",
+   "name": "FMI Open Data",
+   "url": "https://en.ilmatieteenlaitos.fi/open-data"
+  },
+  {
    "auth": "OAuth",
    "category": "Weather",
    "cors": "unknown",
@@ -20552,6 +20822,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-11",
+ "generated": "2026-10-12",
  "schema": 1
 }
