@@ -1,26 +1,6 @@
 {
- "count": 2082,
+ "count": 2097,
  "entries": [
-  {
-   "auth": "apiKey",
-   "category": "APIs Covered Under APILayer Suite!",
-   "cors": "unknown",
-   "description": "Public posts, profiles, comments and products from 70+ social, shopping and search platforms",
-   "https": false,
-   "id": "apis-covered-under-apilayer-suite--monocrawl",
-   "name": "Monocrawl",
-   "url": "https://github.com/monocrawl/monocrawl-mcp"
-  },
-  {
-   "auth": "",
-   "category": "APIs Covered Under APILayer Suite!",
-   "cors": "unknown",
-   "description": "Swiss customs tariff (TARES), FINMA register and warnings, NOGA/NACE/ISIC code crosswalks",
-   "https": false,
-   "id": "apis-covered-under-apilayer-suite--openswissdata",
-   "name": "OpenSwissData",
-   "url": "https://github.com/cammac-creator/openswissdata/tree/main/sdks/mcp-server"
-  },
   {
    "auth": "apiKey",
    "category": "APIs Covered Under APILayer Suite!",
@@ -32,14 +12,14 @@
    "url": "https://ipstack.com/mcp"
   },
   {
-   "auth": "OAuth",
+   "auth": "",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
-   "description": "Create AI images, video clips, voice-overs, music and editable storyboard films",
+   "description": "Find agent-callable APIs, MCP servers and CLIs by capability, with live health and uptime data",
    "https": false,
-   "id": "apis-covered-under-apilayer-suite--kuro",
-   "name": "Kuro",
-   "url": "https://meetkuro.com/agents/"
+   "id": "apis-covered-under-apilayer-suite--agent-nexus",
+   "name": "Agent Nexus",
+   "url": "https://agentnexus.app"
   },
   {
    "auth": "apiKey",
@@ -72,6 +52,16 @@
    "url": "https://github.com/EdgePlat/edgepedia-mcp"
   },
   {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Read/write local files",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--filesystem",
+   "name": "Filesystem",
+   "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
+  },
+  {
    "auth": "OAuth",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
@@ -82,24 +72,34 @@
    "url": "https://github.com/github/github-mcp-server"
   },
   {
-   "auth": "",
+   "auth": "OAuth",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
-   "description": "Find agent-callable APIs, MCP servers and CLIs by capability, with live health and uptime data",
+   "description": "Create AI images, video clips, voice-overs, music and editable storyboard films",
    "https": false,
-   "id": "apis-covered-under-apilayer-suite--agent-nexus",
-   "name": "Agent Nexus",
-   "url": "https://agentnexus.app"
+   "id": "apis-covered-under-apilayer-suite--kuro",
+   "name": "Kuro",
+   "url": "https://meetkuro.com/agents/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Public posts, profiles, comments and products from 70+ social, shopping and search platforms",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--monocrawl",
+   "name": "Monocrawl",
+   "url": "https://github.com/monocrawl/monocrawl-mcp"
   },
   {
    "auth": "",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
-   "description": "Read/write local files",
+   "description": "Swiss customs tariff (TARES), FINMA register and warnings, NOGA/NACE/ISIC code crosswalks",
    "https": false,
-   "id": "apis-covered-under-apilayer-suite--filesystem",
-   "name": "Filesystem",
-   "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
+   "id": "apis-covered-under-apilayer-suite--openswissdata",
+   "name": "OpenSwissData",
+   "url": "https://github.com/cammac-creator/openswissdata/tree/main/sdks/mcp-server"
   },
   {
    "auth": "",
@@ -2070,6 +2070,16 @@
    "id": "calendar--india-public-holidays",
    "name": "India Public Holidays",
    "url": "https://calendar-api-web.vercel.app/docs"
+  },
+  {
+   "auth": "",
+   "category": "Calendar",
+   "cors": "yes",
+   "description": "Appointment booking and availability API for salons and clinics",
+   "https": true,
+   "id": "calendar--intellibook",
+   "name": "Intellibook",
+   "url": "https://www.intellibookai.com/docs"
   },
   {
    "auth": "",
@@ -5552,6 +5562,16 @@
    "url": "https://snoopscan.com/docs"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "unknown",
+   "description": "Create and run uptime checks, read results and incidents, manage status pages, with a free tier",
+   "https": true,
+   "id": "development--solidping",
+   "name": "SolidPing",
+   "url": "https://docs.solidping.io/docs/api"
+  },
+  {
    "auth": "",
    "category": "Development",
    "cors": "yes",
@@ -6100,6 +6120,16 @@
    "id": "documents-productivity--docstruct",
    "name": "DocStruct",
    "url": "https://docstruct.pages.dev"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "no",
+   "description": "Make PDF forms fillable, fill them from JSON or documents, and read filled forms back",
+   "https": true,
+   "id": "documents-productivity--emboss",
+   "name": "Emboss",
+   "url": "https://getemboss.ai/docs"
   },
   {
    "auth": "apiKey",
@@ -7824,6 +7854,16 @@
   {
    "auth": "apiKey",
    "category": "Finance",
+   "cors": "unknown",
+   "description": "Latest SEC Form 4 insider trading filings from EDGAR, by ticker or market-wide",
+   "https": true,
+   "id": "finance--live-sec-form-4-insider-trades",
+   "name": "Live SEC Form 4 Insider Trades",
+   "url": "https://rapidapi.com/crisp-point-studio-crisp-point-studio-default/api/live-sec-form-4-insider-trades"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Finance",
    "cors": "no",
    "description": "Matched prediction-market games across Kalshi, Polymarket US/Intl and Predict.fun",
    "https": true,
@@ -9170,6 +9210,16 @@
    "id": "games-comics--marvel",
    "name": "Marvel",
    "url": "https://developer.marvel.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Games & Comics",
+   "cors": "yes",
+   "description": "Pokémon TCG cards and sets in 14 languages, with every printing and variant",
+   "https": true,
+   "id": "games-comics--master-setter",
+   "name": "Master Setter",
+   "url": "https://api.master-setter.com"
   },
   {
    "auth": "",
@@ -12112,6 +12162,16 @@
    "url": "https://erstat.ca/developers"
   },
   {
+   "auth": "apiKey",
+   "category": "Health",
+   "cors": "unknown",
+   "description": "Latest FDA food, drug and product recall notices as JSON with keyword search",
+   "https": true,
+   "id": "health--fda-recalls",
+   "name": "FDA Recalls",
+   "url": "https://rapidapi.com/crisp-point-studio-crisp-point-studio-default/api/live-fda-product-food-recalls"
+  },
+  {
    "auth": "",
    "category": "Health",
    "cors": "yes",
@@ -12910,6 +12970,16 @@
    "id": "machine-learning--keen-io",
    "name": "Keen IO",
    "url": "https://keen.io/"
+  },
+  {
+   "auth": "",
+   "category": "Machine Learning",
+   "cors": "unknown",
+   "description": "Public board where AI agents post problems as seeks and agents who solved them offer help",
+   "https": true,
+   "id": "machine-learning--lacuna",
+   "name": "Lacuna",
+   "url": "https://lacuna.mergeinc.workers.dev/agents.md"
   },
   {
    "auth": "apiKey",
@@ -14082,6 +14152,16 @@
    "url": "https://www.kaggle.com/docs/api"
   },
   {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Russian-language Phuket real estate guides, asking prices, condo assessment rates, weather, beaches",
+   "https": true,
+   "id": "open-data--kvartiry-phuket",
+   "name": "Kvartiry-Phuket",
+   "url": "https://kvartiry-phuket.com/otkrytye-dannye/#english"
+  },
+  {
    "auth": "apiKey",
    "category": "Open Data",
    "cors": "yes",
@@ -15192,6 +15272,16 @@
    "url": "https://docs.lightdrift.ai"
   },
   {
+   "auth": "apiKey",
+   "category": "Photography",
+   "cors": "yes",
+   "description": "Screenshot or PDF rendering of any public page, from 227 countries",
+   "https": true,
+   "id": "photography--localscreenshot",
+   "name": "localscreenshot",
+   "url": "https://localscreenshot.com"
+  },
+  {
    "auth": "",
    "category": "Photography",
    "cors": "unknown",
@@ -15992,6 +16082,16 @@
    "url": "https://search.censys.io/api"
   },
   {
+   "auth": "apiKey",
+   "category": "Security",
+   "cors": "unknown",
+   "description": "CISA KEV catalog of actively exploited CVEs as JSON, filterable by vendor, with CWE and due dates",
+   "https": true,
+   "id": "security--cisa-known-exploited-vulnerabilities",
+   "name": "CISA Known Exploited Vulnerabilities",
+   "url": "https://rapidapi.com/crisp-point-studio-crisp-point-studio-default/api/live-cisa-cybersecurity-vulnerabilities-kev"
+  },
+  {
    "auth": "",
    "category": "Security",
    "cors": "yes",
@@ -16230,6 +16330,16 @@
    "id": "security--iplogs",
    "name": "IPLogs",
    "url": "https://iplogs.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Security",
+   "cors": "yes",
+   "description": "IP network class (residential, mobile, hosting, VPN, residential proxy, Tor) with a confidence score",
+   "https": true,
+   "id": "security--ipscanner",
+   "name": "IPScanner",
+   "url": "https://ipscanner.io/api-documentation"
   },
   {
    "auth": "apiKey",
@@ -17335,6 +17445,16 @@
    "auth": "apiKey",
    "category": "Sports & Fitness",
    "cors": "yes",
+   "description": "ATP and WTA tennis since 2007: match results, draws, rankings, head to head, surface Elo and odds",
+   "https": true,
+   "id": "sports-fitness--acesapi",
+   "name": "AcesAPI",
+   "url": "https://acesapi.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "yes",
    "description": "Get information about Football Leagues & Cups",
    "https": true,
    "id": "sports-fitness--api-football",
@@ -17450,6 +17570,16 @@
    "id": "sports-fitness--fanline-wire",
    "name": "FanLine Wire",
    "url": "https://fanlinewire.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "MLB since 2015 plus college baseball: pitches, plate appearances, box scores and sportsbook odds",
+   "https": true,
+   "id": "sports-fitness--fastballapi",
+   "name": "FastballAPI",
+   "url": "https://fastballapi.com/docs"
   },
   {
    "auth": "OAuth",
@@ -19752,6 +19882,16 @@
    "url": "https://vpic.nhtsa.dot.gov/api/"
   },
   {
+   "auth": "apiKey",
+   "category": "Vehicle",
+   "cors": "unknown",
+   "description": "NHTSA safety recalls by model year, make and model with component, consequence and remedy",
+   "https": true,
+   "id": "vehicle--nhtsa-vehicle-recalls",
+   "name": "NHTSA Vehicle Recalls",
+   "url": "https://rapidapi.com/crisp-point-studio-crisp-point-studio-default/api/live-nhtsa-vehicle-recalls"
+  },
+  {
    "auth": "",
    "category": "Vehicle",
    "cors": "yes",
@@ -20595,6 +20735,16 @@
    "auth": "",
    "category": "Weather",
    "cors": "unknown",
+   "description": "US coastal tides, water levels, currents and meteorological observations",
+   "https": true,
+   "id": "weather--noaa-co-ops",
+   "name": "NOAA CO-OPS",
+   "url": "https://api.tidesandcurrents.noaa.gov/api/prod/"
+  },
+  {
+   "auth": "",
+   "category": "Weather",
+   "cors": "unknown",
    "description": "Weather and weather webcams",
    "https": false,
    "id": "weather--odweather",
@@ -20822,6 +20972,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-12",
+ "generated": "2026-10-13",
  "schema": 1
 }
