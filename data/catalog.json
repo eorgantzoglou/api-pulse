@@ -1,5 +1,5 @@
 {
- "count": 2118,
+ "count": 2146,
  "entries": [
   {
    "auth": "apiKey",
@@ -499,7 +499,7 @@
    "https": true,
    "id": "anime--mangadex",
    "name": "MangaDex",
-   "url": "https://api.mangadex.org/docs.html"
+   "url": "https://api.mangadex.org/docs/"
   },
   {
    "auth": "apiKey",
@@ -510,6 +510,16 @@
    "id": "anime--mangapi",
    "name": "Mangapi",
    "url": "https://rapidapi.com/pierre.carcellermeunier/api/mangapi3/"
+  },
+  {
+   "auth": "",
+   "category": "Anime",
+   "cors": "unknown",
+   "description": "Manga database: series, releases, groups and reading lists",
+   "https": true,
+   "id": "anime--mangaupdates",
+   "name": "MangaUpdates",
+   "url": "https://api.mangaupdates.com/"
   },
   {
    "auth": "OAuth",
@@ -1704,11 +1714,11 @@
   {
    "auth": "apiKey",
    "category": "Business",
-   "cors": "unknown",
-   "description": "Verified UK company profiles with an AI summary and accuracy score, from Companies House data",
+   "cors": "no",
+   "description": "UK company checks: payment practices, contracts won, registers, filed accounts, change feed",
    "https": true,
-   "id": "business--katalis-uk-company-enrichment",
-   "name": "Katalis UK Company Enrichment",
+   "id": "business--katalis",
+   "name": "Katalis",
    "url": "https://meetkatalis.com/apis"
   },
   {
@@ -2804,6 +2814,16 @@
   {
    "auth": "apiKey",
    "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Crypto prices, volume and liquidity measured from real trades on 50+ exchanges and DEXs",
+   "https": true,
+   "id": "cryptocurrency--coinmico",
+   "name": "Coinmico",
+   "url": "https://docs.coinmico.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Cryptocurrency",
    "cors": "unknown",
    "description": "Current crypto market breadth, funding and open-interest research datasets",
    "https": true,
@@ -2880,6 +2900,16 @@
    "id": "cryptocurrency--cryptingup",
    "name": "CryptingUp",
    "url": "https://www.cryptingup.com/apidoc/#introduction"
+  },
+  {
+   "auth": "",
+   "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Free crypto news aggregator with market context, JSON REST and RSS",
+   "https": true,
+   "id": "cryptocurrency--crypto-vision",
+   "name": "Crypto Vision",
+   "url": "https://cryptocurrency.cv/developers"
   },
   {
    "auth": "",
@@ -3835,6 +3865,16 @@
    "auth": "apiKey",
    "category": "Development",
    "cors": "no",
+   "description": "Website screenshots and PDFs with full-page capture, dark mode and ad blocking",
+   "https": true,
+   "id": "development--allscreenshots",
+   "name": "Allscreenshots",
+   "url": "https://allscreenshots.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
    "description": "Amazon product, search & batch scraping API with residential proxies (1000 free)",
    "https": true,
    "id": "development--amazonscraperapi",
@@ -4280,6 +4320,16 @@
    "id": "development--downstatus",
    "name": "DownStatus",
    "url": "https://isitdownstatus.com"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Software end-of-life dates and support lifecycles",
+   "https": true,
+   "id": "development--endoflife-date",
+   "name": "EndOfLife.date",
+   "url": "https://endoflife.date/docs/api"
   },
   {
    "auth": "",
@@ -5300,6 +5350,16 @@
    "id": "development--qrcode-monkey",
    "name": "Qrcode Monkey",
    "url": "https://www.qrcode-monkey.com/qr-code-api-with-logo/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
+   "description": "Artistic, branded QR codes from a text prompt and a link, checked to scan",
+   "https": true,
+   "id": "development--qrx",
+   "name": "QRX",
+   "url": "https://qrx.codes/developers"
   },
   {
    "auth": "",
@@ -7154,6 +7214,16 @@
   {
    "auth": "apiKey",
    "category": "Environment",
+   "cors": "unknown",
+   "description": "US energy statistics: electricity, petroleum, gas",
+   "https": true,
+   "id": "environment--eia-open-data",
+   "name": "EIA Open Data",
+   "url": "https://www.eia.gov/opendata/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Environment",
    "cors": "yes",
    "description": "Live wholesale electricity prices and demand across 25 grid zones",
    "https": true,
@@ -7330,6 +7400,16 @@
    "id": "environment--sustainmetrics",
    "name": "SustainMetrics",
    "url": "https://www.sustainmetrics.net/api"
+  },
+  {
+   "auth": "",
+   "category": "Environment",
+   "cors": "yes",
+   "description": "Finnish and Nordic day-ahead electricity spot prices (15-minute), cheapest hours",
+   "https": true,
+   "id": "environment--s-hk-n-hinta-nyt",
+   "name": "Sähkön hinta nyt",
+   "url": "https://xn--shknhintanyt-gcb8w.org/integraatiot/"
   },
   {
    "auth": "",
@@ -7970,6 +8050,16 @@
    "id": "finance--moov",
    "name": "Moov",
    "url": "https://docs.moov.io/api/"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Nigerian income tax (PAYE) and take-home pay under the Nigeria Tax Act 2025",
+   "https": true,
+   "id": "finance--nigeria-paye",
+   "name": "Nigeria PAYE",
+   "url": "https://www.orionsoftlimited.com/developers"
   },
   {
    "auth": "apiKey",
@@ -11224,6 +11314,16 @@
   {
    "auth": "",
    "category": "Government",
+   "cors": "yes",
+   "description": "Source-linked U.S. election and civic records with coverage limits",
+   "https": true,
+   "id": "government--election",
+   "name": "Election",
+   "url": "https://election.org/data/api"
+  },
+  {
+   "auth": "",
+   "category": "Government",
    "cors": "unknown",
    "description": "Web services and data sets from the US Environmental Protection Agency",
    "https": true,
@@ -11410,6 +11510,16 @@
    "id": "government--localgov-jp",
    "name": "LocalGov.jp",
    "url": "https://localgov.jp/"
+  },
+  {
+   "auth": "",
+   "category": "Government",
+   "cors": "yes",
+   "description": "Source-linked US regulatory and public records: SEC filings, enforcement actions, recalls",
+   "https": true,
+   "id": "government--morvs",
+   "name": "MORVS",
+   "url": "https://morvs.ai/api/"
   },
   {
    "auth": "apiKey",
@@ -12225,6 +12335,16 @@
    "auth": "",
    "category": "Health",
    "cors": "unknown",
+   "description": "FDA drug labeling and package insert information",
+   "https": true,
+   "id": "health--dailymed",
+   "name": "DailyMed",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/app-support-web-services.cfm"
+  },
+  {
+   "auth": "",
+   "category": "Health",
+   "cors": "unknown",
    "description": "COVID-19 live statistics into sites per hour",
    "https": true,
    "id": "health--dataflow-kit-covid-19",
@@ -12382,6 +12502,16 @@
    "url": "https://documenter.getpostman.com/view/16605343/Tzm8GG7u"
   },
   {
+   "auth": "apiKey",
+   "category": "Health",
+   "cors": "unknown",
+   "description": "NHS conditions, medicines and guidance",
+   "https": true,
+   "id": "health--nhs-health-a-z",
+   "name": "NHS Health A-Z",
+   "url": "https://digital.nhs.uk/developer/api-catalogue/health-a-to-z"
+  },
+  {
    "auth": "",
    "category": "Health",
    "cors": "unknown",
@@ -12422,6 +12552,16 @@
    "url": "https://disease.sh/"
   },
   {
+   "auth": "",
+   "category": "Health",
+   "cors": "yes",
+   "description": "Gene-disease-drug target associations",
+   "https": true,
+   "id": "health--open-targets",
+   "name": "Open Targets",
+   "url": "https://platform-docs.opentargets.org/"
+  },
+  {
    "auth": "apiKey",
    "category": "Health",
    "cors": "unknown",
@@ -12450,6 +12590,16 @@
    "id": "health--quarantine",
    "name": "Quarantine",
    "url": "https://quarantine.country/coronavirus/api/"
+  },
+  {
+   "auth": "",
+   "category": "Health",
+   "cors": "yes",
+   "description": "Normalized drug names, RxCUIs and NDC codes",
+   "https": true,
+   "id": "health--rxnorm",
+   "name": "RxNorm",
+   "url": "https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html"
   },
   {
    "auth": "apiKey",
@@ -13290,6 +13440,16 @@
    "id": "machine-learning--statlyte",
    "name": "Statlyte",
    "url": "https://statlyte.com/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Machine Learning",
+   "cors": "yes",
+   "description": "Image, video and song generation on 30 AI models (Nano Banana, Kling, Veo, Suno), with a free tier",
+   "https": true,
+   "id": "machine-learning--tanvo",
+   "name": "Tanvo",
+   "url": "https://tanvo.ai/developers/api"
   },
   {
    "auth": "",
@@ -14664,6 +14824,16 @@
   {
    "auth": "",
    "category": "Open Data",
+   "cors": "yes",
+   "description": "Official social media handles and identifiers of 155,000+ notable people and organisations",
+   "https": true,
+   "id": "open-data--verified-handles",
+   "name": "Verified Handles",
+   "url": "https://verifiedhandles.org/developers"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
    "cors": "no",
    "description": "Internet censorship measurements, incidents, and ISP-level blocking data across 126 countries",
    "https": true,
@@ -15725,6 +15895,16 @@
    "auth": "",
    "category": "Science & Math",
    "cors": "yes",
+   "description": "Nucleotide sequences, genomes and raw reads archive",
+   "https": true,
+   "id": "science-math--ena",
+   "name": "ENA",
+   "url": "https://www.ebi.ac.uk/ena/browser/api/swagger-ui/index.html"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
    "description": "Life-science literature search with abstracts, citations and full-text links",
    "https": true,
    "id": "science-math--europe-pmc",
@@ -15804,12 +15984,32 @@
   {
    "auth": "",
    "category": "Science & Math",
+   "cors": "unknown",
+   "description": "Genes, pathways, compounds and reactions",
+   "https": true,
+   "id": "science-math--kegg",
+   "name": "KEGG",
+   "url": "https://www.kegg.jp/kegg/rest/keggapi.html"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
    "cors": "yes",
    "description": "Spaceflight launches and events database",
    "https": true,
    "id": "science-math--launch-library-2",
    "name": "Launch Library 2",
    "url": "https://thespacedevs.com/llapi"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
+   "description": "Geologic maps, rock columns and stratigraphy data",
+   "https": true,
+   "id": "science-math--macrostrat",
+   "name": "Macrostrat",
+   "url": "https://macrostrat.org/api"
   },
   {
    "auth": "apiKey",
@@ -15820,6 +16020,16 @@
    "id": "science-math--materials-platform-for-data-science",
    "name": "Materials Platform for Data Science",
    "url": "https://mpds.io"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
+   "description": "Evaluate math expressions via GET or POST as JSON",
+   "https": true,
+   "id": "science-math--mathjs",
+   "name": "MathJS",
+   "url": "https://api.mathjs.org/"
   },
   {
    "auth": "",
@@ -15874,6 +16084,16 @@
   {
    "auth": "",
    "category": "Science & Math",
+   "cors": "yes",
+   "description": "Biomedical literature, sequences and gene databases",
+   "https": true,
+   "id": "science-math--ncbi-e-utilities",
+   "name": "NCBI E-utilities",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
    "cors": "no",
    "description": "Symbolic and Arithmetic Math Calculator",
    "https": true,
@@ -15900,6 +16120,16 @@
    "id": "science-math--numbers",
    "name": "Numbers",
    "url": "https://math.tools/api/numbers/"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
+   "description": "Global marine species occurrence and distribution data",
+   "https": true,
+   "id": "science-math--obis",
+   "name": "OBIS",
+   "url": "https://manual.obis.org/access"
   },
   {
    "auth": "",
@@ -16000,6 +16230,16 @@
    "id": "science-math--remote-calc",
    "name": "Remote Calc",
    "url": "https://github.com/elizabethadegbaju/remotecalc"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "unknown",
+   "description": "Satellite observations from open ground stations",
+   "https": true,
+   "id": "science-math--satnogs",
+   "name": "SatNOGS",
+   "url": "https://docs.satnogs.org/projects/satnogs-network/en/stable/api.html"
   },
   {
    "auth": "",
@@ -16140,6 +16380,16 @@
    "id": "science-math--world-bank",
    "name": "World Bank",
    "url": "https://datahelpdesk.worldbank.org/knowledgebase/topics/125589"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "no",
+   "description": "Marine species taxonomy, synonyms and distributions",
+   "https": true,
+   "id": "science-math--worms",
+   "name": "WoRMS",
+   "url": "https://www.marinespecies.org/rest/"
   },
   {
    "auth": "",
@@ -16880,6 +17130,16 @@
    "id": "shopping--mercadolibre",
    "name": "Mercadolibre",
    "url": "https://developers.mercadolibre.cl/es_ar/api-docs-es"
+  },
+  {
+   "auth": "",
+   "category": "Shopping",
+   "cors": "yes",
+   "description": "UK luxury list prices, price history, increases and partner pre-owned asking prices",
+   "https": true,
+   "id": "shopping--nuvinty",
+   "name": "Nuvinty",
+   "url": "https://nuvinty.com/api-docs"
   },
   {
    "auth": "apiKey",
@@ -19282,6 +19542,16 @@
    "url": "https://openvan.camp/docs"
   },
   {
+   "auth": "",
+   "category": "Transportation",
+   "cors": "no",
+   "description": "Fuel prices and EV chargers near a point, in a map area or along a route, as GeoJSON",
+   "https": true,
+   "id": "transportation--pumperly",
+   "name": "Pumperly",
+   "url": "https://geiserx.github.io/Pumperly/reference/api/"
+  },
+  {
    "auth": "apiKey",
    "category": "Transportation",
    "cors": "unknown",
@@ -20905,6 +21175,16 @@
    "auth": "apiKey",
    "category": "Weather",
    "cors": "unknown",
+   "description": "UK weather forecasts and climate data",
+   "https": true,
+   "id": "weather--met-office-datahub",
+   "name": "Met Office DataHub",
+   "url": "https://datahub.metoffice.gov.uk/docs/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Weather",
+   "cors": "unknown",
    "description": "French weather forecasts and alerts",
    "https": true,
    "id": "weather--m-t-o-france",
@@ -21182,6 +21462,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-15",
+ "generated": "2026-10-16",
  "schema": 1
 }
