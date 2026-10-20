@@ -1,5 +1,5 @@
 {
- "count": 2170,
+ "count": 2178,
  "entries": [
   {
    "auth": "apiKey",
@@ -130,6 +130,16 @@
    "id": "apis-covered-under-apilayer-suite--openswissdata",
    "name": "OpenSwissData",
    "url": "https://github.com/cammac-creator/openswissdata/tree/main/sdks/mcp-server"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Indonesian holidays, wages, regions, postal codes, tax, food prices and NIK/plate checks (31 tools)",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--refnusa",
+   "name": "Refnusa",
+   "url": "https://refnusa.dev/"
   },
   {
    "auth": "",
@@ -2052,6 +2062,16 @@
    "url": "https://docs.village.ai"
   },
   {
+   "auth": "apiKey",
+   "category": "Calendar",
+   "cors": "yes",
+   "description": "Public holidays and business days for all 54 African countries, from official sources",
+   "https": true,
+   "id": "calendar--africa-compliance-data",
+   "name": "Africa Compliance Data",
+   "url": "https://africacompliancedata.com/docs"
+  },
+  {
    "auth": "",
    "category": "Calendar",
    "cors": "yes",
@@ -2090,6 +2110,16 @@
    "id": "calendar--church-calendar",
    "name": "Church Calendar",
    "url": "http://calapi.inadiutorium.cz/"
+  },
+  {
+   "auth": "",
+   "category": "Calendar",
+   "cors": "yes",
+   "description": "Dates and timezone-correct countdowns for 150+ holidays and observances in 18 countries",
+   "https": true,
+   "id": "calendar--countdownshq",
+   "name": "CountdownsHQ",
+   "url": "https://countdownshq.com/developers"
   },
   {
    "auth": "",
@@ -6965,6 +6995,16 @@
    "auth": "apiKey",
    "category": "Email",
    "cors": "no",
+   "description": "Send marketing and transactional email; manage contacts, segments and flows",
+   "https": true,
+   "id": "email--nitrosend",
+   "name": "Nitrosend",
+   "url": "https://docs.nitrosend.com/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "no",
    "description": "EU-hosted email API for transactional and marketing email, with contacts, broadcasts, and analytics",
    "https": true,
    "id": "email--poststack",
@@ -8650,6 +8690,16 @@
    "id": "food-drink--exactcup",
    "name": "ExactCup",
    "url": "https://exactcup.github.io/api/"
+  },
+  {
+   "auth": "",
+   "category": "Food & Drink",
+   "cors": "yes",
+   "description": "Dietary fiber per serving and per 100 g, split into soluble and insoluble, for ~200 common foods",
+   "https": true,
+   "id": "food-drink--fiberup-fiber-database",
+   "name": "FiberUp Fiber Database",
+   "url": "https://fiberup.app/data/"
   },
   {
    "auth": "apiKey",
@@ -12294,6 +12344,16 @@
   {
    "auth": "",
    "category": "Government",
+   "cors": "yes",
+   "description": "Live open UK public sector tenders by trade from Find a Tender and Contracts Finder (OGL v3.0)",
+   "https": true,
+   "id": "government--uk-public-tenders-by-trade",
+   "name": "UK Public Tenders by Trade",
+   "url": "https://tools.gptshopltd.com/api/uk-tenders/"
+  },
+  {
+   "auth": "",
+   "category": "Government",
    "cors": "unknown",
    "description": "US federal spending data",
    "https": true,
@@ -13030,6 +13090,16 @@
    "id": "jobs--open-skills",
    "name": "Open Skills",
    "url": "https://github.com/workforce-data-initiative/skills-api/wiki/API-Overview"
+  },
+  {
+   "auth": "",
+   "category": "Jobs",
+   "cors": "yes",
+   "description": "AI company profiles, open AI jobs and dated AI news, REST and MCP",
+   "https": true,
+   "id": "jobs--present-of-ai",
+   "name": "Present of AI",
+   "url": "https://presentofai.com/developers"
   },
   {
    "auth": "apiKey",
@@ -14870,6 +14940,16 @@
    "id": "open-data--socrata",
    "name": "Socrata",
    "url": "https://dev.socrata.com/"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "VPS and cloud server prices from 46 providers, read daily from their own pricing pages and APIs",
+   "https": true,
+   "id": "open-data--stackrates",
+   "name": "StackRates",
+   "url": "https://stackrates.ai/ask/"
   },
   {
    "auth": "",
@@ -17482,16 +17562,6 @@
    "url": "https://www.ayrshare.com"
   },
   {
-   "auth": "",
-   "category": "Social",
-   "cors": "unknown",
-   "description": "Daily horoscope info for yesterday, today, and tomorrow",
-   "https": true,
-   "id": "social--aztro",
-   "name": "aztro",
-   "url": "https://aztro.sameerkumar.website/"
-  },
-  {
    "auth": "OAuth",
    "category": "Social",
    "cors": "unknown",
@@ -17650,6 +17720,16 @@
    "id": "social--hashnode",
    "name": "Hashnode",
    "url": "https://hashnode.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Social",
+   "cors": "yes",
+   "description": "Public profiles, posts, comments and followers from 25 social platforms, free tier",
+   "https": true,
+   "id": "social--insightsocial",
+   "name": "InsightSocial",
+   "url": "https://www.insightsocial.app/docs"
   },
   {
    "auth": "OAuth",
@@ -17819,7 +17899,7 @@
    "https": true,
    "id": "social--revolt",
    "name": "Revolt",
-   "url": "https://developers.revolt.chat/api/"
+   "url": "https://developers.revolt.chat/"
   },
   {
    "auth": "OAuth",
@@ -17990,6 +18070,16 @@
    "id": "social--twitterapis",
    "name": "TwitterAPIs",
    "url": "https://www.twitterapis.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Social",
+   "cors": "yes",
+   "description": "Public Twitter/X data: profiles, tweets, replies, search, followers, lists, communities, trends",
+   "https": true,
+   "id": "social--twittrapi",
+   "name": "TwittrAPI",
+   "url": "https://www.twittrapi.com/docs"
   },
   {
    "auth": "OAuth",
@@ -18520,16 +18610,6 @@
    "id": "sports-fitness--realtime-sports",
    "name": "Realtime Sports",
    "url": "https://www.realtimesportsapi.com/docs"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Sports & Fitness",
-   "cors": "unknown",
-   "description": "Get sports data from all over the world",
-   "https": true,
-   "id": "sports-fitness--sport-data",
-   "name": "Sport Data",
-   "url": "https://sportdataapi.com"
   },
   {
    "auth": "",
@@ -21549,7 +21629,7 @@
    "https": true,
    "id": "weather--pirate-weather",
    "name": "Pirate Weather",
-   "url": "https://pirateweather.net/en/latest/"
+   "url": "https://pirateweather.readthedocs.io/en/latest/"
   },
   {
    "auth": "apiKey",
@@ -21702,6 +21782,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-19",
+ "generated": "2026-10-20",
  "schema": 1
 }
