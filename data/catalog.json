@@ -1,5 +1,5 @@
 {
- "count": 2178,
+ "count": 2187,
  "entries": [
   {
    "auth": "apiKey",
@@ -20,6 +20,16 @@
    "id": "apis-covered-under-apilayer-suite--agent-nexus",
    "name": "Agent Nexus",
    "url": "https://agentnexus.app"
+  },
+  {
+   "auth": "apiKey",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Blockchain RPC and indexed data; keyless documentation and chain discovery",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--blockvectra",
+   "name": "BlockVectra",
+   "url": "https://github.com/blockvectra/mcp"
   },
   {
    "auth": "apiKey",
@@ -2052,6 +2062,16 @@
    "url": "https://ugc-vz.de/developers"
   },
   {
+   "auth": "",
+   "category": "Business",
+   "cors": "yes",
+   "description": "French company checks by SIREN: status, insolvency (BODACC), VAT (VIES); free preview",
+   "https": true,
+   "id": "business--verif-entreprise-fr",
+   "name": "Verif Entreprise FR",
+   "url": "https://api-production-24833.up.railway.app"
+  },
+  {
    "auth": "apiKey",
    "category": "Business",
    "cors": "yes",
@@ -3250,6 +3270,16 @@
    "id": "cryptocurrency--madeonsol",
    "name": "MadeOnSol",
    "url": "https://madeonsol.com/developer"
+  },
+  {
+   "auth": "",
+   "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Crypto futures prices, candles, funding, open interest, long/short and liquidations, 9 exchanges",
+   "https": true,
+   "id": "cryptocurrency--marginpad",
+   "name": "MarginPad",
+   "url": "https://marginpad.io/free-crypto-api/"
   },
   {
    "auth": "",
@@ -9622,6 +9652,16 @@
    "url": "https://docs.mhw-db.com/"
   },
   {
+   "auth": "apiKey",
+   "category": "Games & Comics",
+   "cors": "yes",
+   "description": "Free Sudoku puzzles, printable Sudoku worksheets and online play: https://sudokumax.com",
+   "https": true,
+   "id": "games-comics--online-sudoku-sudokumax",
+   "name": "Online Sudoku - Sudokumax",
+   "url": "https://sudokumax.com/developers"
+  },
+  {
    "auth": "",
    "category": "Games & Comics",
    "cors": "unknown",
@@ -9990,6 +10030,16 @@
    "id": "games-comics--wargaming-net",
    "name": "Wargaming.net",
    "url": "https://developers.wargaming.net/"
+  },
+  {
+   "auth": "OAuth",
+   "category": "Games & Comics",
+   "cors": "yes",
+   "description": "Connect games to nearby players' profiles, small saves and recent visitors with consent",
+   "https": true,
+   "id": "games-comics--webump",
+   "name": "weBump",
+   "url": "https://developer.webump.app/"
   },
   {
    "auth": "",
@@ -13355,7 +13405,7 @@
    "auth": "apiKey",
    "category": "Machine Learning",
    "cors": "yes",
-   "description": "Create and edit video projects, with credit-based AI media generation",
+   "description": "Creative AI video engineer for ads, AI UGC and microdramas; free editor and social publishing",
    "https": true,
    "id": "machine-learning--gen",
    "name": "GEN",
@@ -15100,6 +15150,16 @@
    "id": "open-data--vuntum",
    "name": "Vuntum",
    "url": "https://vuntum.com/en/api-mcp"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Brazilian company profiles by CNPJ, CNAE establishment counts and municipality coordinates",
+   "https": true,
+   "id": "open-data--w14n",
+   "name": "w14n",
+   "url": "https://api.w14n.dev/v1"
   },
   {
    "auth": "",
@@ -17180,6 +17240,16 @@
    "id": "security--ssl-labs",
    "name": "SSL Labs",
    "url": "https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md"
+  },
+  {
+   "auth": "",
+   "category": "Security",
+   "cors": "no",
+   "description": "Pay-per-call scans of smart contracts, addresses and MCP/skill packages; small free daily tier",
+   "https": true,
+   "id": "security--tanod",
+   "name": "Tanod",
+   "url": "https://tanod.dev/"
   },
   {
    "auth": "apiKey",
@@ -20374,6 +20444,16 @@
   {
    "auth": "apiKey",
    "category": "Transportation",
+   "cors": "yes",
+   "description": "IACS class society, class status and survey dates for ships by IMO number",
+   "https": true,
+   "id": "transportation--vessel-class-finder",
+   "name": "Vessel Class Finder",
+   "url": "https://vesselclassfinder.com/blog/vessel-classification-api.html"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Transportation",
    "cors": "unknown",
    "description": "Aircraft valuations, FAA registry lookups, cost of ownership and aviation market data",
    "https": true,
@@ -21702,6 +21782,16 @@
    "url": "https://www.weather.gov/documentation/services-web-api"
   },
   {
+   "auth": "",
+   "category": "Weather",
+   "cors": "yes",
+   "description": "Beach (sargassum, waves, hurricanes) and ski snow forecasts for 1,900+ resorts, no key",
+   "https": true,
+   "id": "weather--veabird",
+   "name": "Veabird",
+   "url": "https://veabird.com/api/v1"
+  },
+  {
    "auth": "apiKey",
    "category": "Weather",
    "cors": "yes",
@@ -21782,6 +21872,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-20",
+ "generated": "2026-10-21",
  "schema": 1
 }
