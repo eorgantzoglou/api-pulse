@@ -1,5 +1,5 @@
 {
- "count": 2187,
+ "count": 2211,
  "entries": [
   {
    "auth": "apiKey",
@@ -62,6 +62,16 @@
    "url": "https://councilof.ai/connect/claude/"
   },
   {
+   "auth": "apiKey",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "EU-native web scraping for AI agents & developers: turn any page into markdown, screenshots and more",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--crawlbrulee",
+   "name": "crawlbrulee",
+   "url": "https://github.com/crawlbrulee/crawlbrulee-mcp"
+  },
+  {
    "auth": "",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
@@ -90,6 +100,16 @@
    "id": "apis-covered-under-apilayer-suite--github",
    "name": "GitHub",
    "url": "https://github.com/github/github-mcp-server"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Indian insurance policy wordings read clause by clause, with verbatim quotes",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--indiainsurances",
+   "name": "IndiaInsurances",
+   "url": "https://indiainsurances.com/for-agents"
   },
   {
    "auth": "OAuth",
@@ -160,6 +180,16 @@
    "id": "apis-covered-under-apilayer-suite--regsentry",
    "name": "RegSentry",
    "url": "https://regsentry.com/mcp-guide"
+  },
+  {
+   "auth": "OAuth",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Manage auth for AI agents and MCP servers: environments, orgs, users, SSO connections and roles",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--scalekit",
+   "name": "Scalekit",
+   "url": "https://github.com/scalekit-inc/scalekit-mcp-server"
   },
   {
    "auth": "OAuth",
@@ -1312,6 +1342,16 @@
    "url": "https://docs.helium.com/api/blockchain/introduction/"
   },
   {
+   "auth": "",
+   "category": "Blockchain",
+   "cors": "yes",
+   "description": "Graphene social blockchain (Steem family) with a keyless condenser_api JSON-RPC",
+   "https": true,
+   "id": "blockchain--melek",
+   "name": "MELEK",
+   "url": "https://witness.melek.salon/dev/melek"
+  },
+  {
    "auth": "apiKey",
    "category": "Blockchain",
    "cors": "unknown",
@@ -1822,6 +1862,16 @@
    "url": "https://kontragentpro.ru/api/v2/docs"
   },
   {
+   "auth": "apiKey",
+   "category": "Business",
+   "cors": "yes",
+   "description": "Romanian company registry, ANAF tax status and financial statements",
+   "https": true,
+   "id": "business--leadgen-romania",
+   "name": "Leadgen Romania",
+   "url": "https://leadgen.adrianhomelab.com/docs"
+  },
+  {
    "auth": "",
    "category": "Business",
    "cors": "yes",
@@ -1930,6 +1980,16 @@
    "id": "business--registerwire",
    "name": "RegisterWire",
    "url": "https://www.registerwire.uk/docs/index.html"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Business",
+   "cors": "no",
+   "description": "Pre-meeting briefing on a person from public professional and web sources, as JSON",
+   "https": true,
+   "id": "business--rundossier",
+   "name": "RunDossier",
+   "url": "https://rundossier.com/docs/api"
   },
   {
    "auth": "apiKey",
@@ -2080,6 +2140,16 @@
    "id": "business--village",
    "name": "Village",
    "url": "https://docs.village.ai"
+  },
+  {
+   "auth": "",
+   "category": "Business",
+   "cors": "yes",
+   "description": "EU VAT (VIES) and EORI validation, company registers, EU/UN/OFAC/UK sanctions screening",
+   "https": true,
+   "id": "business--w-system-eu-business-data",
+   "name": "W System EU Business Data",
+   "url": "https://api.wsystem.dev/docs"
   },
   {
    "auth": "apiKey",
@@ -3689,7 +3759,7 @@
    "https": true,
    "id": "currency-exchange--frankfurter",
    "name": "Frankfurter",
-   "url": "https://www.frankfurter.app/docs"
+   "url": "https://frankfurter.dev"
   },
   {
    "auth": "",
@@ -4380,6 +4450,16 @@
    "id": "development--crawl-readiness",
    "name": "Crawl Readiness",
    "url": "https://crawlreadiness.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
+   "description": "EU-native web scraping for AI agents & developers: turn any page into markdown, screenshots and more",
+   "https": true,
+   "id": "development--crawlbrulee",
+   "name": "crawlbrulee",
+   "url": "https://crawlbrulee.com/docs"
   },
   {
    "auth": "apiKey",
@@ -5994,6 +6074,16 @@
   {
    "auth": "apiKey",
    "category": "Development",
+   "cors": "yes",
+   "description": "Link-preview metadata for any URL: title, Open Graph, Twitter tags, favicon, oEmbed",
+   "https": true,
+   "id": "development--unfurlr",
+   "name": "unfurlr",
+   "url": "https://unfurlr.onrender.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
    "cors": "no",
    "description": "Turn a URL into Markdown, screenshots, metadata or Lighthouse audits, rendered in real Chrome",
    "https": true,
@@ -6072,6 +6162,16 @@
    "url": "https://webscraping.ai/"
   },
   {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "no",
+   "description": "AI website builder: manage clients, website projects, templates and webhooks",
+   "https": true,
+   "id": "development--weinc",
+   "name": "WeInc",
+   "url": "https://my.we.inc/docs/api"
+  },
+  {
    "auth": "",
    "category": "Development",
    "cors": "yes",
@@ -6080,6 +6180,16 @@
    "id": "development--xlsx-inspector",
    "name": "XLSX Inspector",
    "url": "https://api.lifestep.io"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Intersect wheel tags for explicit PyPI releases with caller-supplied tags",
+   "https": true,
+   "id": "development--yumi-wheel-evidence",
+   "name": "Yumi Wheel Evidence",
+   "url": "https://noqt.no-qt.chatgpt.site/yumi/wheel-evidence"
   },
   {
    "auth": "apiKey",
@@ -6810,6 +6920,16 @@
    "id": "email--cloudmersive-validate",
    "name": "Cloudmersive Validate",
    "url": "https://cloudmersive.com/validate-api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "yes",
+   "description": "Validate email syntax, MX, disposable and role addresses with typo suggestions, plus phone numbers",
+   "https": true,
+   "id": "email--contactlint",
+   "name": "ContactLint",
+   "url": "https://contactlint.com/"
   },
   {
    "auth": "apiKey",
@@ -7650,6 +7770,16 @@
    "id": "events--seatgeek",
    "name": "SeatGeek",
    "url": "https://platform.seatgeek.com/"
+  },
+  {
+   "auth": "",
+   "category": "Events",
+   "cors": "yes",
+   "description": "Local events in plain words: concerts, pop-ups, markets, classes, gallery nights",
+   "https": true,
+   "id": "events--things-to-do",
+   "name": "Things To Do",
+   "url": "https://thingstodoapi.com/docs/"
   },
   {
    "auth": "apiKey",
@@ -8534,6 +8664,16 @@
   {
    "auth": "apiKey",
    "category": "Finance",
+   "cors": "unknown",
+   "description": "US HTS lookup and origin-specific tariff breakdowns with source context",
+   "https": true,
+   "id": "finance--ustariffrates",
+   "name": "USTariffRates",
+   "url": "https://api.ustariffrates.com/openapi.json"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Finance",
    "cors": "yes",
    "description": "Validate VAT numbers and calculate VAT rates",
    "https": true,
@@ -8760,6 +8900,16 @@
    "id": "food-drink--fruityvice",
    "name": "Fruityvice",
    "url": "https://www.fruityvice.com"
+  },
+  {
+   "auth": "",
+   "category": "Food & Drink",
+   "cors": "yes",
+   "description": "Indian restaurants, menus with rupee prices, dish search and timings across 9,000+ cities",
+   "https": true,
+   "id": "food-drink--indiarestros",
+   "name": "IndiaRestros",
+   "url": "https://indiarestros.com/api/docs"
   },
   {
    "auth": "apiKey",
@@ -10652,6 +10802,16 @@
    "url": "https://www.ipinfodb.com/api"
   },
   {
+   "auth": "",
+   "category": "Geocoding",
+   "cors": "yes",
+   "description": "IP lookup with location, ASN/ISP and VPN/proxy/Tor signals",
+   "https": true,
+   "id": "geocoding--ipkit",
+   "name": "IPKit",
+   "url": "https://ipkit.dev/docs"
+  },
+  {
    "auth": "apiKey",
    "category": "Geocoding",
    "cors": "unknown",
@@ -10770,6 +10930,16 @@
    "id": "geocoding--moradas",
    "name": "Moradas",
    "url": "https://moradas.dev/docs"
+  },
+  {
+   "auth": "",
+   "category": "Geocoding",
+   "cors": "unknown",
+   "description": "Indian PIN code and postal office lookup",
+   "https": true,
+   "id": "geocoding--mypincode",
+   "name": "MyPincode",
+   "url": "https://mypincode.live"
   },
   {
    "auth": "apiKey",
@@ -12922,6 +13092,16 @@
    "url": "https://aidevboard.com/openapi.yaml"
   },
   {
+   "auth": "",
+   "category": "Jobs",
+   "cors": "yes",
+   "description": "Open AI training jobs (RLHF, data annotation, expert evaluation) from 20+ platforms, with pay",
+   "https": true,
+   "id": "jobs--ai-trainer-work",
+   "name": "AI Trainer Work",
+   "url": "https://aitrainer.work/open-data#api"
+  },
+  {
    "auth": "apiKey",
    "category": "Jobs",
    "cors": "unknown",
@@ -14114,6 +14294,16 @@
   {
    "auth": "apiKey",
    "category": "Music",
+   "cors": "yes",
+   "description": "Split songs into vocals, drums, bass and other stems with AI",
+   "https": true,
+   "id": "music--stemconsole",
+   "name": "StemConsole",
+   "url": "https://stemconsole.ai/developers/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Music",
    "cors": "unknown",
    "description": "AI music generation API via Suno, with pay-as-you-go credits",
    "https": true,
@@ -14480,6 +14670,16 @@
    "id": "open-data--archive-org",
    "name": "Archive.org",
    "url": "https://archive.readme.io/docs"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "French company history from the official gazette (BODACC) since 2008, with insolvency counts",
+   "https": true,
+   "id": "open-data--auregistre",
+   "name": "Auregistre",
+   "url": "https://auregistre.fr/api"
   },
   {
    "auth": "",
@@ -16030,6 +16230,16 @@
    "id": "photography--sirv",
    "name": "Sirv",
    "url": "https://apidocs.sirv.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Photography",
+   "cors": "yes",
+   "description": "Photo and video forensic analysis, steganography and media format conversion",
+   "https": true,
+   "id": "photography--snapwonders",
+   "name": "snapWONDERS",
+   "url": "https://snapwonders.com/developers"
   },
   {
    "auth": "apiKey",
@@ -19832,6 +20042,16 @@
    "url": "https://docs.impala.travel/docs/booking-api/"
   },
   {
+   "auth": "",
+   "category": "Transportation",
+   "cors": "yes",
+   "description": "Directory of public EV charging stations across India with connector and power specs",
+   "https": true,
+   "id": "transportation--india-ev-charging-stations",
+   "name": "India EV Charging Stations",
+   "url": "https://ev-charging-stations-api.vercel.app/docs"
+  },
+  {
    "auth": "apiKey",
    "category": "Transportation",
    "cors": "unknown",
@@ -20060,6 +20280,16 @@
    "id": "transportation--transitland",
    "name": "TransitLand",
    "url": "https://www.transit.land/documentation/datastore/api-endpoints.html"
+  },
+  {
+   "auth": "",
+   "category": "Transportation",
+   "cors": "no",
+   "description": "Live GB train and bus departures, train positions, journey planning and a daily punctuality archive",
+   "https": true,
+   "id": "transportation--transitradar",
+   "name": "TransitRadar",
+   "url": "https://transitradar.co.uk/scalar/"
   },
   {
    "auth": "",
@@ -20700,6 +20930,16 @@
    "id": "vehicle--brazilian-vehicles-and-prices",
    "name": "Brazilian Vehicles and Prices",
    "url": "https://deividfortuna.github.io/fipe/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Vehicle",
+   "cors": "no",
+   "description": "Car specs for 70,000+ trims since 1945 (make, model, generation, trim) and a VIN decoder",
+   "https": true,
+   "id": "vehicle--carspecs",
+   "name": "CarSpecs",
+   "url": "https://carspecsapi.com/docs"
   },
   {
    "auth": "apiKey",
@@ -21872,6 +22112,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-24",
+ "generated": "2026-10-25",
  "schema": 1
 }
