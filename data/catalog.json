@@ -1,5 +1,5 @@
 {
- "count": 2237,
+ "count": 2256,
  "entries": [
   {
    "auth": "apiKey",
@@ -230,6 +230,16 @@
    "id": "apis-covered-under-apilayer-suite--skyaccess",
    "name": "SkyAccess",
    "url": "https://github.com/sky-access/skyaccess-mcp"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Unit and live currency conversion tools for agents, no key needed",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--toolalize",
+   "name": "Toolalize",
+   "url": "https://github.com/Vertisky/toolalize-mcp"
   },
   {
    "auth": "OAuth",
@@ -1204,16 +1214,6 @@
   {
    "auth": "apiKey",
    "category": "Authentication & Authorization",
-   "cors": "no",
-   "description": "User management and authentication",
-   "https": true,
-   "id": "authentication-authorization--micro-user-service",
-   "name": "Micro User Service",
-   "url": "https://m3o.com/user"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Authentication & Authorization",
    "cors": "yes",
    "description": "Secure and modern passwordless authentication platform",
    "https": true,
@@ -2130,6 +2130,16 @@
    "id": "business--trello",
    "name": "Trello",
    "url": "https://developers.trello.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Business",
+   "cors": "no",
+   "description": "Trending topic volume, velocity and growth with AI insights; free plan of 100 calls/day",
+   "https": true,
+   "id": "business--trendsagi",
+   "name": "TrendsAGI",
+   "url": "https://trendsagi.com/api-docs"
   },
   {
    "auth": "",
@@ -3080,6 +3090,16 @@
    "id": "cryptocurrency--coinstats",
    "name": "CoinStats",
    "url": "https://documenter.getpostman.com/view/5734027/RzZ6Hzr3?version=latest"
+  },
+  {
+   "auth": "",
+   "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Real-time crypto prices aggregated from 22 exchanges, OHLC, market stats, Fear & Greed",
+   "https": true,
+   "id": "cryptocurrency--coinxview",
+   "name": "CoinXview",
+   "url": "https://coinxview.com/en/api-mien-phi"
   },
   {
    "auth": "",
@@ -4924,6 +4944,16 @@
   {
    "auth": "",
    "category": "Development",
+   "cors": "yes",
+   "description": "Current time, DST-aware conversion, all IANA zones with clock changes, city and coordinate lookup",
+   "https": true,
+   "id": "development--hourora",
+   "name": "Hourora",
+   "url": "https://hourora.app/en/developers"
+  },
+  {
+   "auth": "",
+   "category": "Development",
    "cors": "unknown",
    "description": "Test endpoints for client and server HTTP/2 protocol support",
    "https": true,
@@ -5260,16 +5290,6 @@
    "id": "development--macadress",
    "name": "macadress",
    "url": "https://macadress.com/mac-address-api"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Development",
-   "cors": "unknown",
-   "description": "Simple database service",
-   "https": true,
-   "id": "development--micro-db",
-   "name": "Micro DB",
-   "url": "https://m3o.com/db"
   },
   {
    "auth": "apiKey",
@@ -5895,6 +5915,16 @@
    "auth": "apiKey",
    "category": "Development",
    "cors": "yes",
+   "description": "Google Search, News, Maps, Images, Scholar and Patents results as JSON or Markdown for AI agents",
+   "https": true,
+   "id": "development--serpkite",
+   "name": "SerpKite",
+   "url": "https://serpkite.com/docs"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
    "description": "Google, Bing, News, Scholar and Maps search results and page scraping as JSON",
    "https": true,
    "id": "development--serply",
@@ -6110,6 +6140,16 @@
    "id": "development--timezone-worldtime",
    "name": "Timezone WorldTime",
    "url": "https://www.timezone.io/docs/worldtimeapi"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Time now, conversions and DST changes for every IANA time zone, no key needed",
+   "https": true,
+   "id": "development--timezones",
+   "name": "Timezones",
+   "url": "https://timezones.in/api"
   },
   {
    "auth": "",
@@ -7172,6 +7212,16 @@
    "url": "https://www.mailboxvalidator.com/api-email-free"
   },
   {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "no",
+   "description": "Send transactional email over HTTPS with official JavaScript, Python and PHP SDKs",
+   "https": true,
+   "id": "email--mailchannels",
+   "name": "MailChannels",
+   "url": "https://www.mailchannels.com/email-api/"
+  },
+  {
    "auth": "",
    "category": "Email",
    "cors": "unknown",
@@ -7790,6 +7840,16 @@
    "id": "environment--solematica",
    "name": "Solematica",
    "url": "https://www.solematica.it/sviluppatori"
+  },
+  {
+   "auth": "",
+   "category": "Environment",
+   "cors": "yes",
+   "description": "Day-ahead electricity prices for 40+ European market zones, incl. taxes and VAT",
+   "https": true,
+   "id": "environment--spotwave",
+   "name": "SpotWave",
+   "url": "https://spotwave.eu/api-docs"
   },
   {
    "auth": "apiKey",
@@ -8580,6 +8640,16 @@
    "id": "finance--portfolio-optimizer",
    "name": "Portfolio Optimizer",
    "url": "https://portfoliooptimizer.io/"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "Net short positions disclosed to 23 market regulators, fund by fund, since 2010",
+   "https": true,
+   "id": "finance--quivad",
+   "name": "QuiVad",
+   "url": "https://www.quivad.com/api"
   },
   {
    "auth": "",
@@ -10212,6 +10282,16 @@
    "url": "https://steamgpt.net"
   },
   {
+   "auth": "",
+   "category": "Games & Comics",
+   "cors": "yes",
+   "description": "Lowest listed PC game key prices across official and key stores, by name or Steam app ID",
+   "https": true,
+   "id": "games-comics--superduperbundle",
+   "name": "SuperDuperBundle",
+   "url": "https://superduperbundle.com/tools/api/"
+  },
+  {
    "auth": "apiKey",
    "category": "Games & Comics",
    "cors": "unknown",
@@ -10360,6 +10440,16 @@
    "id": "games-comics--yu-gi-oh",
    "name": "Yu-Gi-Oh!",
    "url": "https://db.ygoprodeck.com/api-guide/"
+  },
+  {
+   "auth": "",
+   "category": "Geocoding",
+   "cors": "yes",
+   "description": "Free IP geolocation API with IPv4/IPv6 detection, ASN and country info, no auth required",
+   "https": true,
+   "id": "geocoding--17nas",
+   "name": "17NAS",
+   "url": "https://17nas.com"
   },
   {
    "auth": "apiKey",
@@ -11130,6 +11220,16 @@
    "id": "geocoding--opencage",
    "name": "OpenCage",
    "url": "https://opencagedata.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Geocoding",
+   "cors": "yes",
+   "description": "Forward and reverse geocoding and address autocomplete on open data",
+   "https": true,
+   "id": "geocoding--opengeocoding",
+   "name": "OpenGeocoding",
+   "url": "https://opengeocoding.com/docs"
   },
   {
    "auth": "apiKey",
@@ -12980,6 +13080,16 @@
    "id": "health--fda-recalls",
    "name": "FDA Recalls",
    "url": "https://rapidapi.com/crisp-point-studio-crisp-point-studio-default/api/live-fda-product-food-recalls"
+  },
+  {
+   "auth": "",
+   "category": "Health",
+   "cors": "yes",
+   "description": "US fertility and IVF clinics built from CDC public data",
+   "https": true,
+   "id": "health--fertilityclinics",
+   "name": "FertilityClinics",
+   "url": "https://fertilityclinics.fyi/developers"
   },
   {
    "auth": "",
@@ -14984,6 +15094,16 @@
   {
    "auth": "",
    "category": "Open Data",
+   "cors": "yes",
+   "description": "US product, food, drug, device and vehicle recalls from CPSC, FDA and NHTSA",
+   "https": true,
+   "id": "open-data--consumersun-recalls",
+   "name": "ConsumerSun Recalls",
+   "url": "https://consumersun.com/data/recalls.json"
+  },
+  {
+   "auth": "",
+   "category": "Open Data",
    "cors": "no",
    "description": "Coworking spaces and offices in 63 European and Gulf cities with operator-published prices",
    "https": true,
@@ -15105,16 +15225,6 @@
    "auth": "apiKey",
    "category": "Open Data",
    "cors": "unknown",
-   "description": "Korean market data: K-beauty/K-food products, Naver trends, stocks, real estate, weather",
-   "https": true,
-   "id": "open-data--k-data-gate",
-   "name": "K-Data Gate",
-   "url": "https://kdata-gate.vercel.app/docs"
-  },
-  {
-   "auth": "apiKey",
-   "category": "Open Data",
-   "cors": "unknown",
    "description": "Create and interact with Datasets, Notebooks, and connect with Kaggle",
    "https": true,
    "id": "open-data--kaggle",
@@ -15140,6 +15250,16 @@
    "id": "open-data--linkpreview",
    "name": "LinkPreview",
    "url": "https://www.linkpreview.net"
+  },
+  {
+   "auth": "X-Mashape-Key",
+   "category": "Open Data",
+   "cors": "yes",
+   "description": "Lottery draw history and stats (Canada, US, Europe) and Canadian scratch-ticket remaining prizes",
+   "https": true,
+   "id": "open-data--lottizen",
+   "name": "Lottizen",
+   "url": "https://lottizen.com/api"
   },
   {
    "auth": "",
@@ -16775,6 +16895,16 @@
    "auth": "",
    "category": "Science & Math",
    "cors": "yes",
+   "description": "Anonymous JSON lab/GMP calculators (molarity, dilution, ICH limits); no API key",
+   "https": true,
+   "id": "science-math--molicheck",
+   "name": "Molicheck",
+   "url": "https://molicheck.com/api"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
    "description": "Gene annotation queries and ID lookup",
    "https": true,
    "id": "science-math--mygene-info",
@@ -17060,6 +17190,16 @@
    "id": "science-math--tle",
    "name": "TLE",
    "url": "https://tle.ivanstanojevic.me/#/docs"
+  },
+  {
+   "auth": "",
+   "category": "Science & Math",
+   "cors": "yes",
+   "description": "Unit and live currency conversion with NIST SI factors, no key needed",
+   "https": true,
+   "id": "science-math--toolalize",
+   "name": "Toolalize",
+   "url": "https://toolalize.com/openapi.json"
   },
   {
    "auth": "",
@@ -17802,6 +17942,16 @@
    "url": "https://rapidapi.com/veselinveselinov06/api/cartscout-api"
   },
   {
+   "auth": "apiKey",
+   "category": "Shopping",
+   "cors": "no",
+   "description": "Scrape product data from any e-shop and match the same products across shops, without EAN",
+   "https": true,
+   "id": "shopping--deepscout",
+   "name": "DeepScout",
+   "url": "https://docs.deepscout.ai"
+  },
+  {
    "auth": "OAuth",
    "category": "Shopping",
    "cors": "unknown",
@@ -18030,6 +18180,16 @@
    "id": "shopping--tokopedia",
    "name": "Tokopedia",
    "url": "https://developer.tokopedia.com/openapi/guide/#/"
+  },
+  {
+   "auth": "",
+   "category": "Shopping",
+   "cors": "yes",
+   "description": "UK PC hardware prices, price history and specs across UK retailers",
+   "https": true,
+   "id": "shopping--vantaspec",
+   "name": "VantaSpec",
+   "url": "https://vantaspec.com/api-docs"
   },
   {
    "auth": "apiKey",
@@ -19110,6 +19270,16 @@
    "id": "sports-fitness--qiuxiaoce-football",
    "name": "QiuXiaoCe Football",
    "url": "https://www.qiuxiaoce.com/data-docs/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "no",
+   "description": "Motorsport analytics platform and ML analytics API: live F1 timing data and race intelligence",
+   "https": true,
+   "id": "sports-fitness--racehooks",
+   "name": "RaceHooks",
+   "url": "https://racehooks.io/docs"
   },
   {
    "auth": "",
@@ -20274,6 +20444,16 @@
   {
    "auth": "",
    "category": "Transportation",
+   "cors": "yes",
+   "description": "Great Britain goods vehicle and PSV operator licences, change history and public inquiries",
+   "https": true,
+   "id": "transportation--haulierscope",
+   "name": "HaulierScope",
+   "url": "https://haulierscope.co.uk/developers"
+  },
+  {
+   "auth": "",
+   "category": "Transportation",
    "cors": "unknown",
    "description": "Open APIs that deliver services in or regarding Iceland",
    "https": true,
@@ -21174,6 +21354,16 @@
   {
    "auth": "",
    "category": "Vehicle",
+   "cors": "yes",
+   "description": "Vehicle wheel fitment, bolt pattern (PCD), offset, and center bore specifications",
+   "https": true,
+   "id": "vehicle--boltpatternhq",
+   "name": "BoltPatternHQ",
+   "url": "https://boltpatternhq.com/mcp/"
+  },
+  {
+   "auth": "",
+   "category": "Vehicle",
    "cors": "no",
    "description": "Vehicles information from Fundação Instituto de Pesquisas Econômicas - Fipe",
    "https": true,
@@ -21270,6 +21460,16 @@
    "id": "vehicle--revcardata",
    "name": "RevCarData",
    "url": "https://revcardata.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Vehicle",
+   "cors": "no",
+   "description": "IAA, Copart and GovDeals salvage auction lots, VIN history and buyer-fee estimates",
+   "https": true,
+   "id": "vehicle--salvagealert",
+   "name": "SalvageAlert",
+   "url": "https://salvagealert.com/developers/docs"
   },
   {
    "auth": "OAuth",
@@ -22102,16 +22302,6 @@
    "url": "https://api.met.no/weatherapi/documentation"
   },
   {
-   "auth": "apiKey",
-   "category": "Weather",
-   "cors": "unknown",
-   "description": "Real time weather forecasts and historic data",
-   "https": true,
-   "id": "weather--micro-weather",
-   "name": "Micro Weather",
-   "url": "https://m3o.com/weather/api"
-  },
-  {
    "auth": "",
    "category": "Weather",
    "cors": "yes",
@@ -22372,6 +22562,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-10-30",
+ "generated": "2026-10-31",
  "schema": 1
 }
