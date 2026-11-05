@@ -1,5 +1,5 @@
 {
- "count": 2277,
+ "count": 2308,
  "entries": [
   {
    "auth": "apiKey",
@@ -125,11 +125,31 @@
    "auth": "",
    "category": "APIs Covered Under APILayer Suite!",
    "cors": "unknown",
+   "description": "Online slot specs, RTP variants, providers, regulators, news, jobs and search demand",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--igaming-tools",
+   "name": "iGaming Tools",
+   "url": "https://i-gaming.tools/docs/mcp/"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
    "description": "Indian insurance policy wordings read clause by clause, with verbatim quotes",
    "https": false,
    "id": "apis-covered-under-apilayer-suite--indiainsurances",
    "name": "IndiaInsurances",
    "url": "https://indiainsurances.com/for-agents"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "Scores text, web pages and MCP tool definitions for prompt injection with deterministic rules",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--injectscan",
+   "name": "InjectScan",
+   "url": "https://github.com/Duffey234/injectscan"
   },
   {
    "auth": "OAuth",
@@ -140,6 +160,16 @@
    "id": "apis-covered-under-apilayer-suite--kuro",
    "name": "Kuro",
    "url": "https://meetkuro.com/agents/"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "English-teaching jobs in South Korea with pay, hours and housing as facts, plus salary statistics",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--lucyesl",
+   "name": "LucyESL",
+   "url": "https://lucyesl.com/developers"
   },
   {
    "auth": "apiKey",
@@ -190,6 +220,16 @@
    "id": "apis-covered-under-apilayer-suite--openswissdata",
    "name": "OpenSwissData",
    "url": "https://github.com/cammac-creator/openswissdata/tree/main/sdks/mcp-server"
+  },
+  {
+   "auth": "",
+   "category": "APIs Covered Under APILayer Suite!",
+   "cors": "unknown",
+   "description": "New US liquor license filings: restaurants and bars about to open in 7 metros, plus metro stats",
+   "https": false,
+   "id": "apis-covered-under-apilayer-suite--pourwire",
+   "name": "PourWire",
+   "url": "https://pourwire.com/mcp"
   },
   {
    "auth": "",
@@ -1124,6 +1164,16 @@
   {
    "auth": "",
    "category": "Art & Design",
+   "cors": "no",
+   "description": "Trace raster images to SVG with a free daily allowance",
+   "https": true,
+   "id": "art-design--pic2svg",
+   "name": "pic2svg",
+   "url": "https://pic2svg.com/mcp/"
+  },
+  {
+   "auth": "",
+   "category": "Art & Design",
    "cors": "yes",
    "description": "Convert colors, check WCAG and APCA contrast, build palettes, gradients and tokens",
    "https": true,
@@ -1380,6 +1430,16 @@
    "id": "blockchain--helium",
    "name": "Helium",
    "url": "https://docs.helium.com/api/blockchain/introduction/"
+  },
+  {
+   "auth": "",
+   "category": "Blockchain",
+   "cors": "yes",
+   "description": "Builder activity for Robinhood Chain tokens and projects: who is shipping, each ship with its source",
+   "https": true,
+   "id": "blockchain--hey-research-lab",
+   "name": "HEY Research Lab",
+   "url": "https://heyresearch.xyz/developers"
   },
   {
    "auth": "",
@@ -1790,6 +1850,16 @@
    "id": "business--eurovalidate",
    "name": "EuroValidate",
    "url": "https://eurovalidate.com"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Business",
+   "cors": "yes",
+   "description": "Belgian company register (KBO/CBE), Official Gazette notices and VAT validation",
+   "https": true,
+   "id": "business--firmbase",
+   "name": "Firmbase",
+   "url": "https://firmbase.be/en/api/docs"
   },
   {
    "auth": "OAuth",
@@ -2354,6 +2424,16 @@
   {
    "auth": "",
    "category": "Calendar",
+   "cors": "yes",
+   "description": "Mother's Day dates, country rules, sources and confidence as static JSON and CSV",
+   "https": true,
+   "id": "calendar--mother-s-day-calendar",
+   "name": "Mother's Day Calendar",
+   "url": "https://mothersdaycalendar.com/en/api/"
+  },
+  {
+   "auth": "",
+   "category": "Calendar",
    "cors": "no",
    "description": "Public holidays for more than 90 countries",
    "https": true,
@@ -2450,6 +2530,16 @@
    "id": "cloud-storage-file-sharing--ddownload",
    "name": "ddownload",
    "url": "https://ddownload.com/api"
+  },
+  {
+   "auth": "",
+   "category": "Cloud Storage & File Sharing",
+   "cors": "yes",
+   "description": "Publish an HTML file or folder to a permanent public URL with one PUT, no account",
+   "https": true,
+   "id": "cloud-storage-file-sharing--deed",
+   "name": "Deed",
+   "url": "https://deed.page/docs"
   },
   {
    "auth": "OAuth",
@@ -3574,6 +3664,16 @@
   {
    "auth": "",
    "category": "Cryptocurrency",
+   "cors": "yes",
+   "description": "Bitcoin, Litecoin, Dogecoin and Zcash addresses, transactions, blocks and fees",
+   "https": true,
+   "id": "cryptocurrency--sochain",
+   "name": "SoChain",
+   "url": "https://sochain.com/docs"
+  },
+  {
+   "auth": "",
+   "category": "Cryptocurrency",
    "cors": "unknown",
    "description": "Provides various endpoints to interact with the Solana Blockchain",
    "https": true,
@@ -3920,6 +4020,16 @@
    "id": "currency-exchange--nerkhsanj",
    "name": "Nerkhsanj",
    "url": "https://nerkh.jahankhahan.shop/developers/en"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Currency Exchange",
+   "cors": "yes",
+   "description": "Live and historical exchange rates for 200+ currencies with free tier",
+   "https": true,
+   "id": "currency-exchange--open-exchange-rates",
+   "name": "Open Exchange Rates",
+   "url": "https://docs.openexchangerates.org/"
   },
   {
    "auth": "",
@@ -4450,6 +4560,16 @@
    "id": "development--ciprand",
    "name": "Ciprand",
    "url": "https://github.com/polarspetroll/ciprand"
+  },
+  {
+   "auth": "",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Which AI crawlers can read a site: robots.txt and server answer for each",
+   "https": true,
+   "id": "development--citedby",
+   "name": "CitedBy",
+   "url": "https://citedby.eu/ai-access-api"
   },
   {
    "auth": "apiKey",
@@ -5164,6 +5284,16 @@
   {
    "auth": "apiKey",
    "category": "Development",
+   "cors": "yes",
+   "description": "DNS, WHOIS, SSL, email validation, IP geolocation and blacklist lookups",
+   "https": true,
+   "id": "development--ipv4-network-tools",
+   "name": "ipv4 Network Tools",
+   "url": "https://ipv4.fr/docs.html"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
    "cors": "no",
    "description": "Screenshots, PDFs, dynamic images, QR codes and video from URLs or HTML",
    "https": true,
@@ -5380,6 +5510,16 @@
    "id": "development--msgboard",
    "name": "msgboard",
    "url": "https://msgboard.dev"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Development",
+   "cors": "yes",
+   "description": "Dollar value of one followed backlink from any website, with the published model behind it",
+   "https": true,
+   "id": "development--mxverify",
+   "name": "mxverify",
+   "url": "https://bklink.uk/docs/api"
   },
   {
    "auth": "",
@@ -6842,6 +6982,16 @@
    "url": "https://pdfrender.dev/docs"
   },
   {
+   "auth": "apiKey",
+   "category": "Documents & Productivity",
+   "cors": "no",
+   "description": "EU e-signature API: templates, embedded signing page, webhooks and sealed PDFs; free tier",
+   "https": true,
+   "id": "documents-productivity--penlydoc",
+   "name": "PenlyDoc",
+   "url": "https://penlydoc.com/docs"
+  },
+  {
    "auth": "OAuth",
    "category": "Documents & Productivity",
    "cors": "unknown",
@@ -7060,6 +7210,16 @@
    "id": "email--agpc-domain-check",
    "name": "AGPC Domain Check",
    "url": "https://guild.tradeuniquecapital.com/api"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Email",
+   "cors": "no",
+   "description": "Create and manage anonymous email aliases, forwarding recipients and custom domains",
+   "https": true,
+   "id": "email--anon-li",
+   "name": "anon.li",
+   "url": "https://anon.li/docs/api"
   },
   {
    "auth": "apiKey",
@@ -8640,6 +8800,16 @@
    "id": "finance--moov",
    "name": "Moov",
    "url": "https://docs.moov.io/api/"
+  },
+  {
+   "auth": "",
+   "category": "Finance",
+   "cors": "yes",
+   "description": "16 mortgage calculators: payment, refinance, APR, rent vs. buy, points and amortization schedules",
+   "https": true,
+   "id": "finance--mortgagecalculator",
+   "name": "MortgageCalculator",
+   "url": "https://mortgagecalculator.me/developers"
   },
   {
    "auth": "",
@@ -10460,6 +10630,16 @@
    "id": "games-comics--tronald-dump",
    "name": "Tronald Dump",
    "url": "https://www.tronalddump.io/"
+  },
+  {
+   "auth": "",
+   "category": "Games & Comics",
+   "cors": "yes",
+   "description": "World of Tanks player, clan and tank stats, ratings and leaderboards for EU, NA and Asia",
+   "https": true,
+   "id": "games-comics--unicum",
+   "name": "Unicum",
+   "url": "https://unicum.gg/docs"
   },
   {
    "auth": "",
@@ -12824,6 +13004,16 @@
   {
    "auth": "",
    "category": "Government",
+   "cors": "no",
+   "description": "New restaurant and bar liquor license applications in 7 US metros (TX, NY, Los Angeles)",
+   "https": true,
+   "id": "government--pourwire",
+   "name": "PourWire",
+   "url": "https://github.com/Tintin-Intellegence-Limited/us-liquor-license-applications#free-json-api"
+  },
+  {
+   "auth": "",
+   "category": "Government",
    "cors": "yes",
    "description": "Unofficial Philippine Professional Regulation Commission's examination schedule",
    "https": true,
@@ -13372,6 +13562,16 @@
    "url": "https://developer.nutritionix.com/"
   },
   {
+   "auth": "apiKey",
+   "category": "Health",
+   "cors": "no",
+   "description": "Search and map OHDSI OMOP medical vocabularies (SNOMED CT, ICD-10, LOINC, RxNorm)",
+   "https": true,
+   "id": "health--omophub",
+   "name": "OMOPHub",
+   "url": "https://docs.omophub.com"
+  },
+  {
    "auth": "",
    "category": "Health",
    "cors": "unknown",
@@ -13560,6 +13760,16 @@
    "id": "jobs--artificial-intelligence-jobs",
    "name": "Artificial Intelligence Jobs",
    "url": "https://artificialintelligencejobs.co/developers"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
+   "cors": "unknown",
+   "description": "Open jobs from a company's Greenhouse, Lever, Ashby or SmartRecruiters board in one schema",
+   "https": true,
+   "id": "jobs--ats-jobs",
+   "name": "ATS Jobs",
+   "url": "https://rapidapi.com/fikrimarhan/api/ats-jobs-api4"
   },
   {
    "auth": "apiKey",
@@ -13824,6 +14034,16 @@
   {
    "auth": "apiKey",
    "category": "Jobs",
+   "cors": "no",
+   "description": "US and Canada employer jobs, search and change feeds; 250 free records per month",
+   "https": true,
+   "id": "jobs--the-jobs",
+   "name": "The Jobs",
+   "url": "https://rapidapi.com/thejobsapi/api/the-jobs-api-us-canada-job-search"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Jobs",
    "cors": "unknown",
    "description": "Job board and company profiles",
    "https": true,
@@ -13870,6 +14090,16 @@
    "id": "jobs--whatjobs",
    "name": "WhatJobs",
    "url": "https://www.whatjobs.com/affiliates"
+  },
+  {
+   "auth": "",
+   "category": "Jobs",
+   "cors": "yes",
+   "description": "Working student and internship jobs in Germany, filterable by city, field and language",
+   "https": true,
+   "id": "jobs--working-student-jobs",
+   "name": "Working Student Jobs",
+   "url": "https://www.workingstudentjobs.de/developers"
   },
   {
    "auth": "apiKey",
@@ -16862,6 +17092,16 @@
    "url": "https://docs.mintlify.com"
   },
   {
+   "auth": "apiKey",
+   "category": "Programming",
+   "cors": "no",
+   "description": "Compile and run code in 46 languages, with test-case judging and a Judge0-compatible endpoint",
+   "https": true,
+   "id": "programming--onlinecompiler",
+   "name": "OnlineCompiler",
+   "url": "https://onlinecompiler.io/docs?utm_source=public-apis"
+  },
+  {
    "auth": "",
    "category": "Science & Math",
    "cors": "unknown",
@@ -17604,6 +17844,16 @@
   {
    "auth": "",
    "category": "Security",
+   "cors": "yes",
+   "description": "Daily cyber threat level (DEFCON 5 to 1) with open method, history in JSON/CSV and a badge",
+   "https": true,
+   "id": "security--defencelevel-index",
+   "name": "DefenceLevel Index",
+   "url": "https://defencelevel.com/index/api"
+  },
+  {
+   "auth": "",
+   "category": "Security",
    "cors": "unknown",
    "description": "Hash decryption MD5, SHA1, SHA3, SHA256, SHA384, SHA512",
    "https": true,
@@ -18082,6 +18332,16 @@
    "url": "https://vuldb.com/?doc.api"
   },
   {
+   "auth": "apiKey",
+   "category": "Security",
+   "cors": "unknown",
+   "description": "Passive website security audit: TLS, security headers, exposed files and a 0-100 score",
+   "https": true,
+   "id": "security--website-security-scanner",
+   "name": "Website Security Scanner",
+   "url": "https://rapidapi.com/Hitler-HlDevZDwP/api/website-security-scanner-api"
+  },
+  {
    "auth": "",
    "category": "Shopping",
    "cors": "yes",
@@ -18214,6 +18474,16 @@
   {
    "auth": "",
    "category": "Shopping",
+   "cors": "no",
+   "description": "Australian product prices compared across eBay, Amazon, JB Hi-Fi and more, as read-only JSON",
+   "https": true,
+   "id": "shopping--lianex",
+   "name": "Lianex",
+   "url": "https://lianex.ai/developers"
+  },
+  {
+   "auth": "",
+   "category": "Shopping",
    "cors": "yes",
    "description": "Seller fee schedules for 21 e-commerce marketplaces and payment processors as JSON",
    "https": true,
@@ -18270,6 +18540,16 @@
    "id": "shopping--onefindme",
    "name": "OneFindMe",
    "url": "https://onefindme.com/mcp"
+  },
+  {
+   "auth": "",
+   "category": "Shopping",
+   "cors": "unknown",
+   "description": "Source-dated return, shipping and payment facts for online shops",
+   "https": true,
+   "id": "shopping--openshopgraph",
+   "name": "OpenShopGraph",
+   "url": "https://openshopgraph.com/en/developers/"
   },
   {
    "auth": "apiKey",
@@ -19062,6 +19342,16 @@
    "url": "https://birdieapi.com/docs"
   },
   {
+   "auth": "",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Professional boxing: boxers, bouts, schedule, results, world titles and rankings, ODbL",
+   "https": true,
+   "id": "sports-fitness--boxerbook",
+   "name": "Boxerbook",
+   "url": "https://boxerbook.com/developers"
+  },
+  {
    "auth": "apiKey",
    "category": "Sports & Fitness",
    "cors": "no",
@@ -19250,6 +19540,16 @@
    "id": "sports-fitness--jcdecaux-bike",
    "name": "JCDecaux Bike",
    "url": "https://developer.jcdecaux.com/"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "yes",
+   "description": "Football data API for live scores, fixtures, odds, and predictive xG models",
+   "https": true,
+   "id": "sports-fitness--kickoffapi",
+   "name": "KickoffAPI",
+   "url": "https://kickoffapi.com"
   },
   {
    "auth": "apiKey",
@@ -19520,6 +19820,16 @@
    "id": "sports-fitness--sport-vision",
    "name": "Sport Vision",
    "url": "https://developers.decathlon.com/products/sport-vision"
+  },
+  {
+   "auth": "apiKey",
+   "category": "Sports & Fitness",
+   "cors": "unknown",
+   "description": "Live odds from 24 Kambi-powered sportsbooks incl. BetRivers & Unibet, best price per outcome",
+   "https": true,
+   "id": "sports-fitness--sports-odds-api-betrivers-unibet-22-more-books",
+   "name": "Sports Odds API (BetRivers, Unibet & 22 more books)",
+   "url": "https://apify.com/publicrecords/sports-odds-api"
   },
   {
    "auth": "",
@@ -22772,6 +23082,6 @@
    "url": "https://yandex.com/dev/weather/"
   }
  ],
- "generated": "2026-11-04",
+ "generated": "2026-11-05",
  "schema": 1
 }
